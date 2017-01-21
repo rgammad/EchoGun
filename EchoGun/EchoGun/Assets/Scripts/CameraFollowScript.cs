@@ -12,7 +12,7 @@ public class CameraFollowScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GameObject player = GameObject.FindGameObjectWithTag("player");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.transform;
         playerRigid = player.GetComponent<Rigidbody2D>();
 	}

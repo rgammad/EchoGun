@@ -73,10 +73,13 @@ public class BoostAbility : MonoBehaviour {
                 boostDirection = movement.rawAimingInput;
             }
 
-            if (activationRoutine != null) { //if currently active
+            if (activationRoutine != null) { //if not currently active
                 Reset();
             }
+
             activationRoutine = StartCoroutine(Boost(boostDirection));
+            
+            //otherwise, do nothing
         }
 
     }
@@ -135,6 +138,10 @@ public class BoostAbility : MonoBehaviour {
         movement.MaxSpeed.RemoveModifier(currentSpeedMod);
         movement.Mass.RemoveModifier(currentMassMod);
         movement.Accel.RemoveModifier(currentAccelMod);
+        if(activationRoutine != null) {
+            StopCoroutine(activationRoutine);
+            activationRoutine = null;
+        }
     }
 
     /*

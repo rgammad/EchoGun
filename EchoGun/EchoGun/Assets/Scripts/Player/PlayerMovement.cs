@@ -7,10 +7,12 @@ using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour {
 
     [SerializeField]
-    protected float maxSpeed = 15;
+    protected MultiplierFloatStat maxSpeed = 15f;
+    public MultiplierFloatStat MaxSpeed { get { return maxSpeed; } }
 
     [SerializeField]
-    protected float accel = 5;
+    protected MultiplierFloatStat accel = 5f;
+    public MultiplierFloatStat Accel { get { return maxSpeed; } }
 
     [Range(0, 1)]
     public float rotationSpeed = 0.2f;

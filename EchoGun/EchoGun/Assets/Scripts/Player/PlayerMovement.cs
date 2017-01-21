@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField]
     protected MultiplierFloatStat accel = new MultiplierFloatStat(5);
-    public MultiplierFloatStat Accel { get { return maxSpeed; } }
+    public MultiplierFloatStat Accel { get { return accel; } }
 
     [SerializeField]
     protected MultiplierFloatStat mass = new MultiplierFloatStat(1);
@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
-        Debug.Log(maxSpeed.Value);
         rigid.velocity = Vector2.ClampMagnitude(Vector2.MoveTowards(rigid.velocity, maxSpeed * normalizedMovementInput, maxSpeed * accel * Time.deltaTime), maxSpeed);
     }
 

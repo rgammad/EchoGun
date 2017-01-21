@@ -5,19 +5,27 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(AudioController))]
 [RequireComponent(typeof(ParticleSystem))]
 public class BoostAbility : MonoBehaviour {
-    /*
+
+    [SerializeField]
+    protected float soundRange = 30f;
+
     PlayerMovement movement;
-    float currentSpeedMod;
-    float currentAccelMod;
-    float currentMassMod;
+    float currentSpeedMod = 1;
+    float currentAccelMod = 1;
+    float currentMassMod = 1;
     AudioController sfx;
     ParticleSystem vfx;
     Rigidbody2D rigid;
+    PlayerPing ping;
+
+    Coroutine activationRoutine = null;
+
+    //ability hardcoded to keycode.space
 
     protected void OnActivate()
     {
         sfx.Play();
-        StartCoroutine(playFX());
+        //StartCoroutine(playFX());
     }
 
     [SerializeField]
@@ -31,7 +39,7 @@ public class BoostAbility : MonoBehaviour {
     [SerializeField]
     protected float massBuff = 3f;
     [SerializeField]
-    protected float accelNerfDecayTime = 1f;
+    protected float accelNerfDecayDuration = 1f;
     [SerializeField]
     protected float FXDurationExtend = 0.5f;
 
@@ -44,7 +52,7 @@ public class BoostAbility : MonoBehaviour {
     {
         sfx = GetComponent<AudioController>();
         vfx = GetComponent<ParticleSystem>();
-        decayDuration = Mathf.Max(speedDecayDuration, accelNerfDecayTime);
+        decayDuration = Mathf.Max(speedDecayDuration, accelNerfDecayDuration);
     }
 
     protected void Start()
@@ -54,25 +62,42 @@ public class BoostAbility : MonoBehaviour {
         //vfx.startSize = 2*transform.parent.GetComponentInChildren<CircleCollider2D>().radius;
         rigid = GetComponentInParent<Rigidbody2D>();
         Assert.IsNotNull(rigid);
+        ping = GetComponentInParent<PlayerPing>();
+        Assert.IsNotNull(ping);
     }
 
-    protected void onFire(Vector2 direction)
-    {
-        StartCoroutine(Boost(direction));
+    void Update() {
+
+        if(Input.GetKeyDown(KeyCode.Space)) {
+
+            Vector2 boostDirection = movement.normalizedMovementInput;
+            if(boostDirection.magnitude != 0) {
+                //only boost if there is movement input
+
+                if (activationRoutine != null) { //if not currently active
+                    Reset();
+                }
+
+                activationRoutine = StartCoroutine(Boost(boostDirection));
+            }
+
+            //always ping sound
+            PlayerPing.CreatePing(transform.position, soundRange);
+        }
+
     }
 
-    IEnumerator Boost(Vector2 direction)
-    {
+    IEnumerator Boost(Vector2 direction) {
+        currentMassMod = massBuff;
+        movement.Mass.AddModifier(currentMassMod);
+
         currentSpeedMod = speedMultiplier;
         movement.MaxSpeed.AddModifier(currentSpeedMod);
 
         currentAccelMod = baseAccelDebuff;
         movement.Accel.AddModifier(currentAccelMod);
 
-        currentMassMod = massBuff;
-        movement.Mass.AddModifier(currentMassMod);
-
-        rigid.velocity = movement.MaxSpeed * direction.normalized;
+        rigid.velocity = movement.MaxSpeed.Value * direction.normalized;
 
         float activeEndTime = Time.time + activeDuration;
 
@@ -82,69 +107,45 @@ public class BoostAbility : MonoBehaviour {
         while (Time.time < decayEndTime) {
 
             float speedDecayLerpValue = (Time.time - activeEndTime) / speedDecayDuration;
-            if(speedDecayLerpValue <= 1) {
-                movement.MaxSpeed.RemoveModifier(currentSpeedMod);
-                currentSpeedMod = Mathf.Lerp(speedMultiplier, 1, speedDecayLerpValue);
-                movement.MaxSpeed.AddModifier(currentSpeedMod);
-
-                movement.Mass.RemoveModifier(currentMassMod);
-                currentMassMod = Mathf.Lerp(massBuff, 1, speedDecayLerpValue);
-                movement.Mass.AddModifier(currentMassMod);
+            if (speedDecayLerpValue > 1) {
+                speedDecayLerpValue = 1;
             }
 
-            speedMod.value = Mathf.Lerp(speedMultiplier, 1, lerpValue);
-            massMod.value = Mathf.Lerp(massBuff, 1, lerpValue);
-            if (time > boostDecayTime) {
-                action.maxSpeedTracker.removeModifier(speedMod);
-                action.mass.removeModifier(massMod);
-                speedMod = null;
-                massMod = null;
-                yield break;
+            movement.MaxSpeed.RemoveModifier(currentSpeedMod);
+            currentSpeedMod = Mathf.Lerp(speedMultiplier, 1, speedDecayLerpValue);
+            movement.MaxSpeed.AddModifier(currentSpeedMod);
+
+            movement.Mass.RemoveModifier(currentMassMod);
+            currentMassMod = Mathf.Lerp(massBuff, 1, speedDecayLerpValue);
+            movement.Mass.AddModifier(currentMassMod);
+            
+
+            float accelDecayLerpValue = (Time.time - activeEndTime) / accelNerfDecayDuration;
+            if (accelDecayLerpValue > 1) {
+                accelDecayLerpValue = 1;
             }
+
+            movement.Accel.RemoveModifier(currentAccelMod);
+            currentAccelMod = Mathf.Lerp(baseAccelDebuff, 1, accelDecayLerpValue);
+            movement.Accel.AddModifier(currentAccelMod);
 
             yield return null;
         }
-        StartCoroutine(DecaySpeed());
-        StartCoroutine(DecayAccel());
-    }
-    IEnumerator DecaySpeed()
-    {
-        float time = 0;
-        while (!active)
-        {
-            time += Time.fixedDeltaTime;
-            float lerpValue = time / boostDecayTime;
-            speedMod.value = Mathf.Lerp(speedMultiplier, 1, lerpValue);
-            massMod.value = Mathf.Lerp(massBuff, 1, lerpValue);
-            if (time > boostDecayTime)
-            {
-                action.maxSpeedTracker.removeModifier(speedMod);
-                action.mass.removeModifier(massMod);
-                speedMod = null;
-                massMod = null;
-                yield break;
-            }
 
-            yield return new WaitForFixedUpdate();
+        Reset();
+    }
+
+    private void Reset() {
+        movement.MaxSpeed.RemoveModifier(currentSpeedMod);
+        movement.Mass.RemoveModifier(currentMassMod);
+        movement.Accel.RemoveModifier(currentAccelMod);
+        if(activationRoutine != null) {
+            StopCoroutine(activationRoutine);
+            activationRoutine = null;
         }
     }
-    IEnumerator DecayAccel()
-    {
-        float time = 0;
-        while (!active)
-        {
-            time += Time.fixedDeltaTime;
-            accelMod.value = Mathf.Lerp(baseAccelDebuff, 1, time / accelNerfDecayTime);
-            if (time > boostDecayTime)
-            {
-                action.accel.removeModifier(accelMod);
-                accelMod = null;
-                yield break;
-            }
 
-            yield return new WaitForFixedUpdate();
-        }
-    }
+    /*
     IEnumerator playFX()
     {
         vfx.Play();

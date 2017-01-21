@@ -1,4 +1,4 @@
-﻿Shader "Sprites/Default"
+﻿Shader "Custom/SoundLit"
 {
 	Properties
 	{
@@ -45,14 +45,21 @@
 				float4 vertex   : SV_POSITION;
 				fixed4 color    : COLOR;
 				float2 texcoord  : TEXCOORD0;
+                float2 worldPos : TEXCOORD1;
 			};
 			
 			fixed4 _Color;
+
+            uniform int _GLOBAL_PING_COUNT;
+            uniform float2 _GLOBAL_PING_POS [10];
+            uniform float _GLOBAL_TIME_SINCE_PING [10];
+            uniform float _GLOBAL_PING_RANGE [10];
 
 			v2f vert(appdata_t IN)
 			{
 				v2f OUT;
 				OUT.vertex = UnityObjectToClipPos(IN.vertex);
+                OUT.worldPos = mul(unity_ObjectToWorld, IN.vertex).xy;
 				OUT.texcoord = IN.texcoord;
 				OUT.color = IN.color * _Color;
 				#ifdef PIXELSNAP_ON
@@ -80,6 +87,27 @@
 			fixed4 frag(v2f IN) : SV_Target
 			{
 				fixed4 c = SampleSpriteTexture (IN.texcoord) * IN.color;
+
+                float totalPingAlpha = 0;
+                for (int i = 0; i < _GLOBAL_PING_COUNT; i ++)
+				{
+                    float travelSpeed = 50;
+                    float pingDistance = distance(IN.worldPos, _GLOBAL_PING_POS[i]);
+                    float travelTime = pingDistance / travelSpeed;
+
+                    //1 if we are within range, 0 otherwise
+                    //TODO: consider squared range?
+                    float pingAlpha = step(pingDistance, _GLOBAL_PING_RANGE[i]);
+
+                    //if(pingAlpha > 0) { //possible optimization?
+
+                        //1 when the wave reaches us, 0 when 5 seconds after the wave has reached us.
+                        pingAlpha *= 1 - ((_GLOBAL_TIME_SINCE_PING[i] - travelTime)/1);
+                        totalPingAlpha = max(pingAlpha, totalPingAlpha);
+                    //}
+                }
+                c.a *= totalPingAlpha;
+
 				c.rgb *= c.a;
 				return c;
 			}

@@ -14,6 +14,8 @@ public class EchoGunAPI : MonoBehaviour
     public GameObject echoStandardPrefab;
     public GameObject echoProjectilePrefab;
     public int echoProjSpeed;
+    public float echoProjDamage;
+    public float echoStandardDamage;
 
 
 
@@ -35,14 +37,26 @@ public class EchoGunAPI : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("Wall"))
                     {
+                        PlayerPing.CreatePing(hit.point, 10.0f);
                         laserEndPos = hit.point;
-                        PlayerPing.CreatePing(hit.point, 5.0f);
                         break;
                     }
                     if (hit.collider.CompareTag("Enemy"))
-                        break; //Lower enemy HP
+                    {
+                        //lower Enemy health
+                        PlayerPing.CreatePing(hit.point, 10.0f);
+                        hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
+                        laserEndPos = hit.point;
+                        break;
+                    }
                     if (hit.collider.CompareTag("Destructible"))
-                        break;//lower object hp
+                    {
+                        //lower destructible health
+                        PlayerPing.CreatePing(hit.point, 10.0f);
+                        hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
+                        laserEndPos = hit.point;
+                        break;
+                    }
                 }
                 break;
             case (WeaponType.WEAPON_EXPLOSION):
@@ -52,13 +66,24 @@ public class EchoGunAPI : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("Wall"))
                     {
+                        PlayerPing.CreatePing(hit.point, 10.0f);
                         laserEndPos = hit.point;
                         break;
                     }
                     if (hit.collider.CompareTag("Enemy"))
-                        break; //Lower enemy HP
+                    {
+                        PlayerPing.CreatePing(hit.point, 1.0f);
+                        hit.transform.root.GetComponent<Health>().Damage(echoStandardDamage);
+                        laserEndPos = hit.point;
+                        break;
+                    }
                     if (hit.collider.CompareTag("Destructible"))
-                        break;//lower object hp
+                    {
+                        PlayerPing.CreatePing(hit.point, 10.0f);
+                        hit.transform.root.GetComponent<Health>().Damage(echoStandardDamage);
+                        laserEndPos = hit.point;
+                        break;
+                    }
                 }
                 break;
         }

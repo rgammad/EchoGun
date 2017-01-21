@@ -20,6 +20,8 @@ public class PlayerPing : MonoBehaviour {
         private readonly float range;
         public float Range { get { return range; } }
 
+        public float CurrentRange { get { return Mathf.Min(Range, TimeSincePing * pingSpeed); } }
+
         private readonly float lifetime;
         public float Lifetime { get { return lifetime; } }
 
@@ -97,7 +99,7 @@ public class PlayerPing : MonoBehaviour {
         foreach(Ping ping in pings) {
             pingPositions[index] = ping.Position;
             timeSincePings[index] = ping.TimeSincePing;
-            pingRanges[index] = ping.Range;
+            pingRanges[index] = ping.CurrentRange;
             index++;
         }
 

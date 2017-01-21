@@ -92,14 +92,19 @@
                 for (int i = 0; i < _GLOBAL_PING_COUNT; i ++)
 				{
                     float travelSpeed = 50;
-                    float travelTime = distance(IN.worldPos, _GLOBAL_PING_POS[i]) / travelSpeed;
+                    float pingDistance = distance(IN.worldPos, _GLOBAL_PING_POS[i]);
+                    float travelTime = pingDistance / travelSpeed;
 
-                    //1 if the wave has reached us, 0 otherwise
-                    float pingAlpha = step(travelTime, _GLOBAL_TIME_SINCE_PING[i]);
+                    //1 if we are within range, 0 otherwise
+                    //TODO: consider squared range?
+                    float pingAlpha = step(pingDistance, _GLOBAL_PING_RANGE[i]);
 
-                    //1 when the wave reaches us, 0 when 5 seconds after the wave has reached us.
-                    pingAlpha *= 1 - ((_GLOBAL_TIME_SINCE_PING[i] - travelTime)/1);
-                    totalPingAlpha = max(pingAlpha, totalPingAlpha);
+                    //if(pingAlpha > 0) { //possible optimization?
+
+                        //1 when the wave reaches us, 0 when 5 seconds after the wave has reached us.
+                        pingAlpha *= 1 - ((_GLOBAL_TIME_SINCE_PING[i] - travelTime)/1);
+                        totalPingAlpha = max(pingAlpha, totalPingAlpha);
+                    //}
                 }
                 c.a *= totalPingAlpha;
 

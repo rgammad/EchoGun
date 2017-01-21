@@ -7,6 +7,7 @@ public class ProjectileController : MonoBehaviour, ISpawnable
 {
 
     public int projSpeed = 10;
+    public float projDamage = 10f;
     public float soundRange = 5.0f;
     public WeaponType weapType;
 
@@ -21,13 +22,27 @@ public class ProjectileController : MonoBehaviour, ISpawnable
                     PlayerPing.CreatePing(other.contacts[0].point, soundRange);
                     SimplePool.Despawn(this.gameObject);
                 }
-                break;
-            case (WeaponType.WEAPON_EXPLOSION):
-                if (other.gameObject.CompareTag("Wall"))
+                if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Destructible"))
                 {
+                    other.transform.root.GetComponent<Health>().Damage(projDamage);
                     PlayerPing.CreatePing(other.contacts[0].point, soundRange);
                     SimplePool.Despawn(this.gameObject);
                 }
+                break;
+            //case (WeaponType.WEAPON_EXPLOSION):
+            //    if (other.gameObject.CompareTag("Wall"))
+            //    {
+            //        PlayerPing.CreatePing(other.contacts[0].point, soundRange);
+            //        SimplePool.Despawn(this.gameObject);
+            //    }
+            //    if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Destructible"))
+            //    {
+            //        other.transform.root.GetComponent<Health>().Damage(projDamage);
+            //        PlayerPing.CreatePing(other.contacts[0].point, soundRange);
+            //        SimplePool.Despawn(this.gameObject);
+            //    }
+            //    break;
+            default:
                 break;
         }
     }

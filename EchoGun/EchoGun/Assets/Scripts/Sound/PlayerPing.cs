@@ -2,6 +2,7 @@
 using UnityEngine.Assertions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class PlayerPing : MonoBehaviour {
 
@@ -12,21 +13,27 @@ public class PlayerPing : MonoBehaviour {
         private readonly float pingTime;
         public float PingTime { get { return pingTime; } }
 
+        private readonly float lifetime;
+        public float Lifetime { get { return lifetime; } }
+
         public float TimeSincePing { get { return Time.time - PingTime; } }
 
-        public Ping(Vector2 position, float pingTime) {
+        public bool Expired { get { return TimeSincePing >= Lifetime; } }
+
+        public Ping(Vector2 position, float pingTime, float lifetime = 10f) {
             this.position = position;
             this.pingTime = pingTime;
+            this.lifetime = lifetime;
         }
 
-        public Ping(Vector2 position) : this(position, Time.time) { }
+        public Ping(Vector2 position, float lifetime = 10f) : this(position, Time.time, lifetime) { }
 
         //TODO: lifetime
     }
 
     float lastPingTime = -9999;
 
-    Queue<Ping> pings = new Queue<Ping>();
+    List<Ping> pings = new List<Ping>();
 
     /// <summary>
     /// Re-used array to be passed to the shader with all current ping positions.
@@ -47,11 +54,19 @@ public class PlayerPing : MonoBehaviour {
 
     public void CreatePing(Vector2 position) {
         Ping newPing = new Ping(position);
-        pings.Enqueue(newPing);
-        while(pings.Count > Tags.ShaderParams.maxGlobalPingCount) {
-            pings.Dequeue();
+        pings.Add(newPing);
+
+        //if we're over capacity
+
+        //first remove all expired pings
+        if (pings.Count > Tags.ShaderParams.maxGlobalPingCount) {
+            pings.RemoveAll(ping => ping.Expired);
         }
-        //TODO: TTL-correct data structure (probably priority queue)
+
+        //then start removing the oldest non-expired pings
+        while (pings.Count > Tags.ShaderParams.maxGlobalPingCount) {
+            pings.RemoveAt(0);
+        }
 
         SetShaderVariables();
     }
@@ -61,8 +76,11 @@ public class PlayerPing : MonoBehaviour {
     }
 
     void SetShaderVariables () {
-        int index = 0;
 
+        //remove expired pings
+        pings.RemoveAll(ping => ping.Expired);
+
+        int index = 0;
         //update array values
         foreach(Ping ping in pings) {
             pingPositions[index] = ping.Position;

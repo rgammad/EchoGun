@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EchoGunAPI))]
 public class EchoGun : MonoBehaviour {
 
     PlayerMovement playerMovement;
     EchoGunAPI egAPI;
+
     //enum for different types of weapons
     public enum eGun
     {
-        STANDARD
+        STANDARD,
+        PROJECTILE
     }
 
     void Start()
@@ -22,12 +25,12 @@ public class EchoGun : MonoBehaviour {
 
 	void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
         }
     }
-
 
     
     private void Shoot()
@@ -36,6 +39,9 @@ public class EchoGun : MonoBehaviour {
         {
             case eGun.STANDARD:
                 egAPI.echoStandard(playerMovement.rawAimingInput);
+                break;
+            case eGun.PROJECTILE:
+                egAPI.echoProjectile(playerMovement.rawAimingInput);
                 break;
             default:
                 break;

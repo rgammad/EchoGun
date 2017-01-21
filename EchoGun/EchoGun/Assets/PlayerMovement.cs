@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 
     Rigidbody2D rigid;
 
-    public Vector2 normalizedMovementInput { get { return new Vector2(Input.GetAxis(bindings.HorizontalMovementAxisName), Input.GetAxis(bindings.VerticalMovementAxisName)).normalized; } }
+    public Vector2 normalizedMovementInput { get { return new Vector2(Input.GetAxisRaw(bindings.HorizontalMovementAxisName), Input.GetAxisRaw(bindings.VerticalMovementAxisName)).normalized; } }
 
     public Vector2 rawAimingInput { get { return Format.mousePosInWorld() - transform.position; } }
 

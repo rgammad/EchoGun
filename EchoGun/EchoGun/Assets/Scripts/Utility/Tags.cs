@@ -62,6 +62,7 @@ public static class Tags {
         public static string globalPingCount = "_GLOBAL_PING_COUNT";
         public static string globalPingPos = "_GLOBAL_PING_POS";
         public static string globalTimeSincePing = "_GLOBAL_TIME_SINCE_PING";
+        public static string globalPingRange = "_GLOBAL_PING_RANGE";
     }
 
     public static class Scenes

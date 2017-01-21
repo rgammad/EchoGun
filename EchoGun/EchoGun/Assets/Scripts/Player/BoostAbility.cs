@@ -5,7 +5,10 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(AudioController))]
 [RequireComponent(typeof(ParticleSystem))]
 public class BoostAbility : MonoBehaviour {
-    
+
+    [SerializeField]
+    protected float soundRange = 30f;
+
     PlayerMovement movement;
     float currentSpeedMod = 1;
     float currentAccelMod = 1;
@@ -69,24 +72,22 @@ public class BoostAbility : MonoBehaviour {
 
             Vector2 boostDirection = movement.normalizedMovementInput;
             if(boostDirection.magnitude == 0) {
-                //not currently moving, use aiming direction instead
-                boostDirection = movement.rawAimingInput;
+                //only boost if there is movement input
+
+                if (activationRoutine != null) { //if not currently active
+                    Reset();
+                }
+
+                activationRoutine = StartCoroutine(Boost(boostDirection));
             }
 
-            if (activationRoutine != null) { //if not currently active
-                Reset();
-            }
-
-            activationRoutine = StartCoroutine(Boost(boostDirection));
-            
-            //otherwise, do nothing
+            //always ping sound
+            ping.CreatePing(transform.position, soundRange);
         }
 
     }
 
     IEnumerator Boost(Vector2 direction) {
-        ping.CreatePing(transform.position);
-
         currentMassMod = massBuff;
         movement.Mass.AddModifier(currentMassMod);
 

@@ -53,6 +53,7 @@
             uniform int _GLOBAL_PING_COUNT;
             uniform float2 _GLOBAL_PING_POS [10];
             uniform float _GLOBAL_TIME_SINCE_PING [10];
+            uniform float _GLOBAL_PING_RANGE [10];
 
 			v2f vert(appdata_t IN)
 			{

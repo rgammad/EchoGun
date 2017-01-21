@@ -18,28 +18,4 @@ public class MultiplierFloatStat : Stat<float>
         }
         return result;
     }
-
-    public static MultiplierFloatStat operator +(MultiplierFloatStat self, float modifier)
-    {
-        self.AddModifier(modifier);
-        return self;
-    }
-
-    public static MultiplierFloatStat operator *(MultiplierFloatStat self, float modifier)
-    {
-        self.AddModifier(modifier);
-        return self;
-    }
-
-    public static MultiplierFloatStat operator -(MultiplierFloatStat self, float modifier)
-    {
-        self.RemoveModifier(modifier);
-        return self;
-    }
-
-    public static MultiplierFloatStat operator /(MultiplierFloatStat self, float modifier)
-    {
-        self.RemoveModifier(modifier);
-        return self;
-    }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Assertions;
 
 [RequireComponent(typeof(AudioController))]
 [RequireComponent(typeof(ParticleSystem))]
@@ -22,9 +23,9 @@ public class BoostAbility : MonoBehaviour {
     [SerializeField]
     protected float speedMultiplier = 2.5f;
     [SerializeField]
-    protected float maxDuration = 0.5f;
+    protected float activeDuration = 0.5f;
     [SerializeField]
-    protected float boostDecayTime = 1f;
+    protected float speedDecayDuration = 1f;
     [SerializeField]
     protected float baseAccelDebuff = 0.066f;
     [SerializeField]
@@ -34,17 +35,25 @@ public class BoostAbility : MonoBehaviour {
     [SerializeField]
     protected float FXDurationExtend = 0.5f;
 
+    /// <summary>
+    /// How long it takes for all effects to fully decay.
+    /// </summary>
+    float decayDuration;
+
     protected void Awake()
     {
         sfx = GetComponent<AudioController>();
         vfx = GetComponent<ParticleSystem>();
+        decayDuration = Mathf.Max(speedDecayDuration, accelNerfDecayTime);
     }
 
     protected void Start()
     {
         movement = GetComponentInParent<PlayerMovement>();
+        Assert.IsNotNull(movement);
         //vfx.startSize = 2*transform.parent.GetComponentInChildren<CircleCollider2D>().radius;
         rigid = GetComponentInParent<Rigidbody2D>();
+        Assert.IsNotNull(rigid);
     }
 
     protected void onFire(Vector2 direction)
@@ -54,36 +63,47 @@ public class BoostAbility : MonoBehaviour {
 
     IEnumerator Boost(Vector2 direction)
     {
-        if (currentSpeedMod > 1)
-            
-        else
-            speedMod.value = speedMultiplier;
-        currentSpeedMod = movement.MaxSpeed.AddModifier(speedMultiplier);
+        currentSpeedMod = speedMultiplier;
+        movement.MaxSpeed.AddModifier(currentSpeedMod);
 
-        if (accelMod == null)
-            accelMod = movement.accel.addModifier(baseAccelDebuff);
-        else
-            accelMod.value = baseAccelDebuff;
+        currentAccelMod = baseAccelDebuff;
+        movement.Accel.AddModifier(currentAccelMod);
 
-        if (massMod == null)
-            massMod = movement.mass.addModifier(massBuff);
-        else
-            massMod.value = massBuff;
+        currentMassMod = massBuff;
+        movement.Mass.AddModifier(currentMassMod);
 
-        rigid.velocity = movement.maxSpeedTracker * direction.normalized;
+        rigid.velocity = movement.MaxSpeed * direction.normalized;
 
-        active = true;
-        float duration = 0;
-        while (active)
-        {
-            yield return new WaitForFixedUpdate();
-            duration += Time.fixedDeltaTime;
-            if (duration > maxDuration)
-            {
-                active = false;
+        float activeEndTime = Time.time + activeDuration;
+
+        yield return new WaitForSeconds(activeDuration);
+
+        float decayEndTime = activeEndTime + decayDuration;
+        while (Time.time < decayEndTime) {
+
+            float speedDecayLerpValue = (Time.time - activeEndTime) / speedDecayDuration;
+            if(speedDecayLerpValue <= 1) {
+                movement.MaxSpeed.RemoveModifier(currentSpeedMod);
+                currentSpeedMod = Mathf.Lerp(speedMultiplier, 1, speedDecayLerpValue);
+                movement.MaxSpeed.AddModifier(currentSpeedMod);
+
+                movement.Mass.RemoveModifier(currentMassMod);
+                currentMassMod = Mathf.Lerp(massBuff, 1, speedDecayLerpValue);
+                movement.Mass.AddModifier(currentMassMod);
             }
-        }
 
+            speedMod.value = Mathf.Lerp(speedMultiplier, 1, lerpValue);
+            massMod.value = Mathf.Lerp(massBuff, 1, lerpValue);
+            if (time > boostDecayTime) {
+                action.maxSpeedTracker.removeModifier(speedMod);
+                action.mass.removeModifier(massMod);
+                speedMod = null;
+                massMod = null;
+                yield break;
+            }
+
+            yield return null;
+        }
         StartCoroutine(DecaySpeed());
         StartCoroutine(DecayAccel());
     }

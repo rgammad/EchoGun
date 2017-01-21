@@ -15,7 +15,7 @@ public class AudioController : MonoBehaviour, ISpawnable {
     [SerializeField]
     protected AudioSource sound;
 
-    public void Create()
+    public void Spawn()
     {
         if (PlayOnAwake)
             Play();

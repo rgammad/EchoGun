@@ -21,23 +21,19 @@ public class SimpleRollerAI : MonoBehaviour {
         health.onDeath += Health_onDeath;
         health.onDamage += Health_onDamage;
     }
-
-   
-
+		
     // Update is called once per frame
     void Update () {
 		int pingCount = (int) Shader.GetGlobalFloat (Tags.ShaderParams.globalPingCount);
 		if (pingCount > 0) {
 			targetPos = Shader.GetGlobalVectorArray (Tags.ShaderParams.globalPingPos) [0]; //follow the most recent ping
 			following = true;
-			Debug.Log (targetPos);
 		}
 
 		if (following) {
-			//rigid.velocity = Vector2.ClampMagnitude (Vector2.MoveTowards (rigid.velocity, maxSpeed * rigid.velocity.normalized, maxSpeed * accel * Time.deltaTime), maxSpeed);
-			Vector2 move = targetPos - (Vector2) transform.position;
-			rigid.velocity = Vector2.ClampMagnitude (Vector2.MoveTowards (rigid.velocity, maxSpeed * move, maxSpeed * accel * Time.deltaTime), maxSpeed);
-			Debug.Log ("Veloctity: " + rigid.velocity);
+			float x = Random.Range (-6f, 6f);
+			float y = Random.Range (-6f, 6f);
+			rigid.velocity = Vector2.ClampMagnitude (Vector2.MoveTowards (rigid.velocity, maxSpeed * (targetPos - (Vector2) transform.position + new Vector2 (x, y)), maxSpeed * accel * Time.deltaTime), maxSpeed);
 		}
 	}
 

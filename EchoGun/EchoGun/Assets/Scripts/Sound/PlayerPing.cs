@@ -64,7 +64,7 @@ public class PlayerPing : MonoBehaviour {
         Shader.SetGlobalFloatArray(Tags.ShaderParams.globalPingRange, pingRanges);
     }
 
-    public void CreatePing(Vector2 position, float range) {
+    public static void CreatePing(Vector2 position, float range) {
         Ping newPing = new Ping(position, range);
         pings.Add(newPing);
 

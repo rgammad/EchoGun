@@ -36,6 +36,7 @@ public class EchoGunAPI : MonoBehaviour
                     if (hit.collider.CompareTag("Wall"))
                     {
                         laserEndPos = hit.point;
+                        PlayerPing.CreatePing(hit.point, 5.0f);
                         break;
                     }
                     if (hit.collider.CompareTag("Enemy"))
@@ -47,6 +48,18 @@ public class EchoGunAPI : MonoBehaviour
             case (WeaponType.WEAPON_EXPLOSION):
                 break;
             default:
+                foreach (RaycastHit2D hit in hitList)
+                {
+                    if (hit.collider.CompareTag("Wall"))
+                    {
+                        laserEndPos = hit.point;
+                        break;
+                    }
+                    if (hit.collider.CompareTag("Enemy"))
+                        break; //Lower enemy HP
+                    if (hit.collider.CompareTag("Destructible"))
+                        break;//lower object hp
+                }
                 break;
         }
         laserRender.SetPosition(0, this.transform.position);
@@ -58,16 +71,9 @@ public class EchoGunAPI : MonoBehaviour
     {
         ProjectileController pc = echoProjectilePrefab.GetComponent<ProjectileController>();
         pc.projSpeed = echoProjSpeed;
-        switch (type)
-        {
-            case (WeaponType.WEAPON_STANDARD):
 
-                break;
-            case (WeaponType.WEAPON_EXPLOSION):
-                break;
-            default:
-                break;
-        }
+        pc.weapType = type;
+
         SimplePool.Spawn(echoProjectilePrefab, transform.position, aimDir.ToRotation());
     }
 

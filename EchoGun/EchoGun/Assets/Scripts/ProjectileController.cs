@@ -7,6 +7,7 @@ public class ProjectileController : MonoBehaviour, ISpawnable
 {
 
     public int projSpeed = 10;
+    public float soundRange = 5.0f;
     public WeaponType weapType;
 
 
@@ -17,12 +18,14 @@ public class ProjectileController : MonoBehaviour, ISpawnable
             case (WeaponType.WEAPON_STANDARD):
                 if (other.gameObject.CompareTag("Wall"))
                 {
+                    PlayerPing.CreatePing(other.contacts[0].point, soundRange);
                     SimplePool.Despawn(this.gameObject);
                 }
                 break;
             case (WeaponType.WEAPON_EXPLOSION):
                 if (other.gameObject.CompareTag("Wall"))
                 {
+                    PlayerPing.CreatePing(other.contacts[0].point, soundRange);
                     SimplePool.Despawn(this.gameObject);
                 }
                 break;

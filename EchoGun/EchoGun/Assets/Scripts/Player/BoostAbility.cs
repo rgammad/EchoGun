@@ -82,7 +82,7 @@ public class BoostAbility : MonoBehaviour {
             }
 
             //always ping sound
-            ping.CreatePing(transform.position, soundRange);
+            PlayerPing.CreatePing(transform.position, soundRange);
         }
 
     }

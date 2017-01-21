@@ -8,6 +8,7 @@ public class EchoGun : MonoBehaviour {
     PlayerMovement playerMovement;
     EchoGunAPI egAPI;
     public WeaponType weapType;
+	GameObject muzzle;
 
     //enum for different types of weapons
     public enum eGun
@@ -20,6 +21,7 @@ public class EchoGun : MonoBehaviour {
     {
         egAPI = GetComponent<EchoGunAPI>();
         playerMovement = GetComponent<PlayerMovement>();
+		muzzle = GameObject.Find ("MuzzlePoint");
     }
 
     public eGun currentEchoType;    
@@ -39,13 +41,28 @@ public class EchoGun : MonoBehaviour {
         switch (currentEchoType)
         {
             case eGun.STANDARD:
+				muzzleFlash(eGun.STANDARD);
                 egAPI.echoStandard(weapType,playerMovement.rawAimingInput);
                 break;
-            case eGun.PROJECTILE:
+			case eGun.PROJECTILE:
+				muzzleFlash(eGun.PROJECTILE);
                 egAPI.echoProjectile(weapType,playerMovement.rawAimingInput);
                 break;
             default:
                 break;
         }
     }
+	private void muzzleFlash(eGun type){
+		switch (type)
+		{
+		case eGun.STANDARD:
+			
+			break;
+		case eGun.PROJECTILE:
+			
+			break;
+		default:
+			break;
+		}
+	}
 }

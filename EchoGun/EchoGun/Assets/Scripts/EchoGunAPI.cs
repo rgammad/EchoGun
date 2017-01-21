@@ -23,7 +23,7 @@ public class EchoGunAPI : MonoBehaviour
     {
         GameObject laser = (GameObject)Instantiate(echoStandardPrefab);
         LineRenderer laserRender = laser.GetComponent<LineRenderer>();
-        Vector2 initialPos = transform.position;
+		Vector2 initialPos = transform.position;
         Vector2 targetPos = aimDir;
         Vector2 laserEndPos = targetPos.normalized * 100;
 

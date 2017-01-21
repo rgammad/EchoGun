@@ -5,8 +5,6 @@ using UnityEngine;
 public class CameraFollowScript : MonoBehaviour {
     private Transform playerTransform;
     private Rigidbody2D playerRigid;
-    private float defaultPlayerSpeed;
-    private Vector2 velocity;
 
     public float playerBuffer = 5;
     public float cameraTrackDistance = .5f;
@@ -16,9 +14,7 @@ public class CameraFollowScript : MonoBehaviour {
 	void Start () {
         GameObject player = GameObject.FindGameObjectWithTag("player");
         playerTransform = player.transform;
-        defaultPlayerSpeed = player.GetComponent<PlayerMovement>().MaxSpeed;
         playerRigid = player.GetComponent<Rigidbody2D>();
-        velocity = new Vector2();
 	}
 	
 	// Update is called once per frame

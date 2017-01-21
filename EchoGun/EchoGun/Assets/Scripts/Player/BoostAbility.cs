@@ -71,7 +71,7 @@ public class BoostAbility : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Space)) {
 
             Vector2 boostDirection = movement.normalizedMovementInput;
-            if(boostDirection.magnitude == 0) {
+            if(boostDirection.magnitude != 0) {
                 //only boost if there is movement input
 
                 if (activationRoutine != null) { //if not currently active

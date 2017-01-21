@@ -13,6 +13,7 @@ public class BoostAbility : MonoBehaviour {
     AudioController sfx;
     ParticleSystem vfx;
     Rigidbody2D rigid;
+    PlayerPing ping;
 
     Coroutine activationRoutine = null;
 
@@ -58,6 +59,8 @@ public class BoostAbility : MonoBehaviour {
         //vfx.startSize = 2*transform.parent.GetComponentInChildren<CircleCollider2D>().radius;
         rigid = GetComponentInParent<Rigidbody2D>();
         Assert.IsNotNull(rigid);
+        ping = GetComponentInParent<PlayerPing>();
+        Assert.IsNotNull(ping);
     }
 
     void Update() {
@@ -79,6 +82,7 @@ public class BoostAbility : MonoBehaviour {
     }
 
     IEnumerator Boost(Vector2 direction) {
+        ping.Ping(transform.position);
 
         currentMassMod = massBuff;
         movement.Mass.AddModifier(currentMassMod);

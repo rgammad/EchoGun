@@ -1,4 +1,4 @@
-﻿Shader "Sprites/Default"
+﻿Shader "Custom/SoundLit"
 {
 	Properties
 	{
@@ -45,14 +45,19 @@
 				float4 vertex   : SV_POSITION;
 				fixed4 color    : COLOR;
 				float2 texcoord  : TEXCOORD0;
+                float2 worldPos : TEXCOORD1;
 			};
 			
 			fixed4 _Color;
+
+            float2 _GLOBAL_PING_POS;
+            float _GLOBAL_TIME_SINCE_PING;
 
 			v2f vert(appdata_t IN)
 			{
 				v2f OUT;
 				OUT.vertex = UnityObjectToClipPos(IN.vertex);
+                OUT.worldPos = mul(unity_ObjectToWorld, IN.vertex).xy;
 				OUT.texcoord = IN.texcoord;
 				OUT.color = IN.color * _Color;
 				#ifdef PIXELSNAP_ON
@@ -80,6 +85,18 @@
 			fixed4 frag(v2f IN) : SV_Target
 			{
 				fixed4 c = SampleSpriteTexture (IN.texcoord) * IN.color;
+
+                float travelSpeed = 50;
+                float travelTime = distance(IN.worldPos, _GLOBAL_PING_POS) / travelSpeed;
+
+                //1 if the wave has reached us, 0 otherwise
+                float pingAlpha = step(travelTime, _GLOBAL_TIME_SINCE_PING);
+
+                //1 when the wave reaches us, 0 when 5 seconds after the wave has reached us.
+                pingAlpha *= 1 - ((_GLOBAL_TIME_SINCE_PING - travelTime)/5);
+
+                c.a *= pingAlpha;
+
 				c.rgb *= c.a;
 				return c;
 			}

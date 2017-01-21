@@ -10,6 +10,7 @@ public class EchoGun : MonoBehaviour {
 	public WeaponType weapType;
 	GameObject muzzle;
 	GameObject flash1;
+	GameObject flash2;
 
 	//enum for different types of weapons
 	public enum eGun
@@ -24,6 +25,7 @@ public class EchoGun : MonoBehaviour {
 		playerMovement = GetComponent<PlayerMovement>();
 		muzzle = GameObject.Find ("MuzzlePoint");
 		flash1 = muzzle.transform.FindChild ("muzzle-flash-1").gameObject;
+		flash2 = muzzle.transform.FindChild ("muzzle-flash-2").gameObject;
 	}
 
 	public eGun currentEchoType;    
@@ -63,7 +65,8 @@ public class EchoGun : MonoBehaviour {
 			Invoke ("disableMuzzles", 0.1f);
 			break;
 		case eGun.PROJECTILE:
-
+			flash2.SetActive (true);
+			Invoke ("disableMuzzles", 0.1f);
 			break;
 		default:
 			break;
@@ -72,5 +75,6 @@ public class EchoGun : MonoBehaviour {
 
 	void disableMuzzles(){
 		flash1.SetActive (false);
+		flash2.SetActive (false);
 	}
 }

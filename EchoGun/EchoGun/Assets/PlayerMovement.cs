@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     protected float accel = 5;
 
+    [Range(0, 1)]
+    public float rotationSpeed = 0.2f;
+
     [System.Serializable]
     public class Bindings {
         [SerializeField]
@@ -28,33 +31,25 @@ public class PlayerMovement : MonoBehaviour {
 
     Rigidbody2D rigid;
 
-    Vector2 normalizedMovementInput { get { return new Vector2(Input.GetAxis(bindings.HorizontalMovementAxisName), Input.GetAxis(bindings.VerticalMovementAxisName)).normalized; } }
+    public Vector2 normalizedMovementInput { get { return new Vector2(Input.GetAxis(bindings.HorizontalMovementAxisName), Input.GetAxis(bindings.VerticalMovementAxisName)).normalized; } }
+
+    public Vector2 rawAimingInput { get { return Format.mousePosInWorld() - transform.position; } }
 
     private void Start() {
         rigid = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate() {
-        rigid.velocity = Vector2.ClampMagnitude(Vector2.MoveTowards(rigid.velocity, maxSpeed * normalizedMovementInput, maxSpeed * accel * Time.fixedDeltaTime), maxSpeed);
-
-        //rotation
-        /*
-        if (aimingInputDirection.sqrMagnitude == 0 && normalizedMovementInput.sqrMagnitude != 0) //aimingInput rotation is handled when the aiming input is set
-            rotateTowards(normalizedMovementInput);
-
-        for (int i = 0; i<postFixedUpdateDelegates.Count; i++)
-        {
-            postFixedUpdateDelegates[i]();
-        }
-
-        normalizedMovementInput = cachedNormalizedMovementInput; //undo any modifications made by reversal abilities
-        */
-	}
-    /*
-    void rotateTowards(Vector2 targetDirection) {
-    if (_rotationEnabled) {
-        rotating.rotation = Quaternion.Slerp(rotating.rotation, targetDirection.ToRotation(), rotationLerpValue); //it's in fixed update, and the direction property should be used instead of sampling the transform
-        _rotationDirection = targetDirection;
+    private void Update() {
+        rigid.velocity = Vector2.ClampMagnitude(Vector2.MoveTowards(rigid.velocity, maxSpeed * normalizedMovementInput, maxSpeed * accel * Time.deltaTime), maxSpeed);
     }
-    */
+
+    private void FixedUpdate() {
+        rotateTowards(rawAimingInput);
+	}
+
+    void rotateTowards(Vector2 targetDirection) {
+        //if (_rotationEnabled) {
+        rigid.MoveRotation(Quaternion.Slerp(transform.rotation, targetDirection.ToRotation(), rotationSpeed).eulerAngles.z);
+        //}
+    }
 }

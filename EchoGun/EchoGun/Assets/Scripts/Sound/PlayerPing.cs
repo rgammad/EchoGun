@@ -103,8 +103,6 @@ public class PlayerPing : MonoBehaviour {
             index++;
         }
 
-        Debug.Log(pings.Count);
-
         Shader.SetGlobalFloat(Tags.ShaderParams.globalPingCount, pings.Count);
         Shader.SetGlobalVectorArray(Tags.ShaderParams.globalPingPos, pingPositions);
         Shader.SetGlobalFloatArray(Tags.ShaderParams.globalTimeSincePing, timeSincePings);

@@ -7,12 +7,16 @@ using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour {
 
     [SerializeField]
-    protected MultiplierFloatStat maxSpeed = 15f;
+    protected MultiplierFloatStat maxSpeed = new MultiplierFloatStat(15);
     public MultiplierFloatStat MaxSpeed { get { return maxSpeed; } }
 
     [SerializeField]
-    protected MultiplierFloatStat accel = 5f;
+    protected MultiplierFloatStat accel = new MultiplierFloatStat(5);
     public MultiplierFloatStat Accel { get { return maxSpeed; } }
+
+    [SerializeField]
+    protected MultiplierFloatStat mass = new MultiplierFloatStat(1);
+    public MultiplierFloatStat Mass { get { return mass; } }
 
     [Range(0, 1)]
     public float rotationSpeed = 0.2f;
@@ -37,11 +41,19 @@ public class PlayerMovement : MonoBehaviour {
 
     public Vector2 rawAimingInput { get { return Format.mousePosInWorld() - transform.position; } }
 
+
     private void Start() {
         rigid = GetComponent<Rigidbody2D>();
+        mass.onValueChanged += Mass_onValueChanged;
+        Mass_onValueChanged();
     }
 
-    private void Update() {
+    private void Mass_onValueChanged() {
+        rigid.mass = mass;
+    }
+
+    void Update() {
+        Debug.Log(maxSpeed.Value);
         rigid.velocity = Vector2.ClampMagnitude(Vector2.MoveTowards(rigid.velocity, maxSpeed * normalizedMovementInput, maxSpeed * accel * Time.deltaTime), maxSpeed);
     }
 

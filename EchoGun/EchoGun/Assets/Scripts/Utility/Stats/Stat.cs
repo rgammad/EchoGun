@@ -13,6 +13,13 @@ public abstract class Stat<T> {
     protected T baseValue;
     public T BaseValue { get { return baseValue; } set { baseValue = value; dirty = true; } }
 
+    public delegate void ValueChanged();
+
+    /// <summary>
+    /// Called whenever the value is changed.
+    /// </summary>
+    public event ValueChanged onValueChanged = delegate { };
+
     /// <summary>
     /// A collection of all the modifiers applied to this stat. Allows duplicates.
     /// </summary>
@@ -22,18 +29,7 @@ public abstract class Stat<T> {
     {
         modifiers.Add(modifier);
         dirty = true;
-    }
-
-    public static Stat<T> operator +(Stat<T> self, T modifier)
-    {
-        self.AddModifier(modifier);
-        return self;
-    }
-
-    public static Stat<T> operator *(Stat<T> self, T modifier)
-    {
-        self.AddModifier(modifier);
-        return self;
+        onValueChanged();
     }
 
     public bool RemoveModifier(T modifier)
@@ -43,20 +39,9 @@ public abstract class Stat<T> {
         {
             //we only need to set dirty if something was actually removed
             dirty = true;
+            onValueChanged();
         }
         return result;
-    }
-
-    public static Stat<T> operator -(Stat<T> self, T modifier)
-    {
-        self.RemoveModifier(modifier);
-        return self;
-    }
-
-    public static Stat<T> operator /(Stat<T> self, T modifier)
-    {
-        self.RemoveModifier(modifier);
-        return self;
     }
 
     public void Reset() {

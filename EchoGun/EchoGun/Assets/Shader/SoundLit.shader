@@ -50,8 +50,9 @@
 			
 			fixed4 _Color;
 
-            float2 _GLOBAL_PING_POS;
-            float _GLOBAL_TIME_SINCE_PING;
+            uniform int _GLOBAL_PING_COUNT;
+            uniform float2 _GLOBAL_PING_POS [10];
+            uniform float _GLOBAL_TIME_SINCE_PING [10];
 
 			v2f vert(appdata_t IN)
 			{
@@ -86,16 +87,20 @@
 			{
 				fixed4 c = SampleSpriteTexture (IN.texcoord) * IN.color;
 
-                float travelSpeed = 50;
-                float travelTime = distance(IN.worldPos, _GLOBAL_PING_POS) / travelSpeed;
+                float totalPingAlpha = 0;
+                for (int i = 0; i < _GLOBAL_PING_COUNT; i ++)
+				{
+                    float travelSpeed = 50;
+                    float travelTime = distance(IN.worldPos, _GLOBAL_PING_POS[i]) / travelSpeed;
 
-                //1 if the wave has reached us, 0 otherwise
-                float pingAlpha = step(travelTime, _GLOBAL_TIME_SINCE_PING);
+                    //1 if the wave has reached us, 0 otherwise
+                    float pingAlpha = step(travelTime, _GLOBAL_TIME_SINCE_PING[i]);
 
-                //1 when the wave reaches us, 0 when 5 seconds after the wave has reached us.
-                pingAlpha *= 1 - ((_GLOBAL_TIME_SINCE_PING - travelTime)/5);
-
-                c.a *= pingAlpha;
+                    //1 when the wave reaches us, 0 when 5 seconds after the wave has reached us.
+                    pingAlpha *= 1 - ((_GLOBAL_TIME_SINCE_PING[i] - travelTime)/1);
+                    totalPingAlpha = max(pingAlpha, totalPingAlpha);
+                }
+                c.a *= totalPingAlpha;
 
 				c.rgb *= c.a;
 				return c;

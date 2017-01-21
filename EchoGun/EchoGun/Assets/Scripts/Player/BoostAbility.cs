@@ -82,7 +82,7 @@ public class BoostAbility : MonoBehaviour {
     }
 
     IEnumerator Boost(Vector2 direction) {
-        ping.Ping(transform.position);
+        ping.CreatePing(transform.position);
 
         currentMassMod = massBuff;
         movement.Mass.AddModifier(currentMassMod);

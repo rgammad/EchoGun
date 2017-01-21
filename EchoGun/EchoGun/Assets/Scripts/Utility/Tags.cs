@@ -58,6 +58,8 @@ public static class Tags {
         public static int imageStrength = Shader.PropertyToID("_ImageStrength");
         public static int alpha = Shader.PropertyToID("_MainTexAlpha");
 
+        public const int maxGlobalPingCount = 10;
+        public static string globalPingCount = "_GLOBAL_PING_COUNT";
         public static string globalPingPos = "_GLOBAL_PING_POS";
         public static string globalTimeSincePing = "_GLOBAL_TIME_SINCE_PING";
     }

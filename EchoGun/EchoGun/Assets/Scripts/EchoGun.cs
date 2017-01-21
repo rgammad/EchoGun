@@ -7,12 +7,13 @@ public class EchoGun : MonoBehaviour {
 
     PlayerMovement playerMovement;
     EchoGunAPI egAPI;
+    public WeaponType weapType;
 
     //enum for different types of weapons
     public enum eGun
     {
         STANDARD,
-        PROJECTILE
+        PROJECTILE,
     }
 
     void Start()
@@ -38,10 +39,10 @@ public class EchoGun : MonoBehaviour {
         switch (currentEchoType)
         {
             case eGun.STANDARD:
-                egAPI.echoStandard(playerMovement.rawAimingInput);
+                egAPI.echoStandard(weapType,playerMovement.rawAimingInput);
                 break;
             case eGun.PROJECTILE:
-                egAPI.echoProjectile(playerMovement.rawAimingInput);
+                egAPI.echoProjectile(weapType,playerMovement.rawAimingInput);
                 break;
             default:
                 break;

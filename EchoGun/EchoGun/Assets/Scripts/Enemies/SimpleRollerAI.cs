@@ -14,21 +14,28 @@ public class SimpleRollerAI : MonoBehaviour {
 	Vector2 targetPos;
 	bool following = false;
 
+	CircleCollider2D soundTrigger;
+	public float radius;
+
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponent<Rigidbody2D>();
         health = GetComponentInParent<Health>();
+
+		soundTrigger = transform.GetChild(0).GetComponent<CircleCollider2D> ();
+		soundTrigger.radius = radius;
+
         health.onDeath += Health_onDeath;
         health.onDamage += Health_onDamage;
     }
 		
     // Update is called once per frame
     void Update () {
-		int pingCount = (int) Shader.GetGlobalFloat (Tags.ShaderParams.globalPingCount);
-		if (pingCount > 0) {
-			targetPos = Shader.GetGlobalVectorArray (Tags.ShaderParams.globalPingPos) [0]; //follow the most recent ping
-			following = true;
-		}
+		//int pingCount = (int) Shader.GetGlobalFloat (Tags.ShaderParams.globalPingCount);
+		//if (pingCount > 0) {
+		//	targetPos = Shader.GetGlobalVectorArray (Tags.ShaderParams.globalPingPos) [0]; //follow the most recent ping
+		//	following = true;
+		//}
 
 		if (following) {
 			float x = Random.Range (-6f, 6f);
@@ -40,6 +47,19 @@ public class SimpleRollerAI : MonoBehaviour {
 	void FixedUpdate() {
 		if (following) {
 			rigid.MoveRotation (Quaternion.Slerp (transform.rotation, targetPos.ToRotation (), rotationSpeed).eulerAngles.z);
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D trigger) {
+		if (trigger.tag == "Sound Trigger") {
+			targetPos = trigger.transform.position;
+			following = true;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D trigger) {
+		if (trigger.tag == "Sound Trigger") {
+			following = false;
 		}
 	}
 

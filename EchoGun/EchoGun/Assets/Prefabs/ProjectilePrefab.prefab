@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58914023340890520}
   - component: {fileID: 50484658855970096}
   - component: {fileID: 114950482418822680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ProjectilePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649045b8f168124482b5c1e9d208060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projSpeed: 25
+  projSpeed: 20
   projDamage: 10
   soundRange: 5
   weapType: 0

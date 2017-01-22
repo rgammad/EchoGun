@@ -68,6 +68,7 @@ public class SimpleRollerAI : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.CompareTag("Player")) {
 			anim.SetBool ("Explode", true);
+			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().screenShake (.75f);
 			PlayerPing.CreatePing(transform.position, explodeWaveAmt);
 			player.GetComponent<Health> ().Damage (explodeDamage);
 			health.Kill ();

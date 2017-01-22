@@ -1,7 +1,8 @@
-﻿Shader "Custom/SoundLitGradient"
+﻿Shader "Custom/SoundLitTexture"
 {
 	Properties
 	{
+        _MainTex ("Main Texture", 2D) = "white" {}
         _GradientTex ("Gradient", 2D) = "white" {}
 	}
 
@@ -18,7 +19,7 @@
 		Cull Off
 		Lighting Off
 		ZWrite Off
-		Blend One One
+		Blend SrcAlpha OneMinusSrcAlpha
 
 		Pass
 		{
@@ -31,12 +32,14 @@
 			struct appdata_t
 			{
 				float4 vertex   : POSITION;
+                float2 texcoord : TEXCOORD0;
 			};
 
 			struct v2f
 			{
 				float4 vertex   : SV_POSITION;
                 float2 worldPos : TEXCOORD1;
+                float2 texcoord : TEXCOORD0;
 			};
 
             uniform int _GLOBAL_PING_COUNT;
@@ -49,15 +52,17 @@
 				v2f OUT;
 				OUT.vertex = UnityObjectToClipPos(IN.vertex);
                 OUT.worldPos = mul(unity_ObjectToWorld, IN.vertex).xy;
+                OUT.texcoord = IN.texcoord;
 
 				return OUT;
 			}
 
+			sampler2D _MainTex;
 			sampler2D _GradientTex;
 
 			fixed4 frag(v2f IN) : SV_Target
 			{
-				fixed4 c = fixed4(0, 0, 0, 0);
+				fixed4 c = tex2D(_MainTex, IN.texcoord);
 
                 float totalPingProgress = 0;
                 for (int i = 0; i < _GLOBAL_PING_COUNT; i ++)
@@ -74,12 +79,12 @@
 
                         //1 when the wave reaches us, 0 when 5 seconds after the wave has reached us.
                         pingProgress *= 1 - ((_GLOBAL_TIME_SINCE_PING[i] - travelTime)/1);
-                    
-
-                    fixed4 gradientColor = tex2D(_GradientTex, float2(pingProgress, 0.5));
-                    c.rgb += gradientColor.rgb * gradientColor.a;
+                        totalPingProgress = max(pingProgress, totalPingProgress);
                     //}
+
                 }
+                fixed4 gradientColor = tex2D(_GradientTex, float2(totalPingProgress, 0.5));
+                c.rgb *= gradientColor.rgb * gradientColor.a * 0.3;
 				return c;
 			}
 		ENDCG

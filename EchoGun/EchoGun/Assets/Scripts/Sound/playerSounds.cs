@@ -22,7 +22,7 @@ public class playerSounds : MonoBehaviour {
 
     public void playFootstep()
     {
-        System.Random r = System.Random();
+        System.Random r = new System.Random();
         
         playerAudio.pitch = (float)r.NextDouble() * 1.0f;
         playerAudio.PlayOneShot(sounds[0]);   

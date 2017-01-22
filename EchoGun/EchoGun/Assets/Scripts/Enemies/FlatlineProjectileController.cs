@@ -19,7 +19,7 @@ public class FlatlineProjectileController : MonoBehaviour, ISpawnable {
         }
         else if (other.gameObject.CompareTag("Player")) {
             other.transform.root.GetComponent<Health>().Damage(projDamage);
-            Camera.main.GetComponent<CameraShakeScript>().screenShake(0.5f);
+            Camera.main.GetComponent<CameraShakeScript>().screenShake(0.7f, 0.5f);
             SimplePool.Despawn(this.gameObject);
             SimplePool.Spawn(deathEffectFlesh);
         }

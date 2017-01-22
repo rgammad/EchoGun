@@ -137,6 +137,7 @@ public class StormtrooperAI : MonoBehaviour {
         //PlayerPing.CreatePing(transform.position, 2.5f);
 
         GetComponentInParent<StormtrooperSound>().playDeath();
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(0.7f, 0.3f);
         Destroy(transform.root.gameObject);
         health.onDeath -= Health_onDeath;
         SimplePool.Spawn(deathEffects);

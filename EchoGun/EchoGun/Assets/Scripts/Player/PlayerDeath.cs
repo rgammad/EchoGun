@@ -25,6 +25,7 @@ public class PlayerDeath : MonoBehaviour {
 
     private void Health_onDeath() {
         GetComponent<playerSounds>().playDeath();
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(3.0f, 5.0f);
         health.Heal(9999);
 
         canvasFlash.Flash();

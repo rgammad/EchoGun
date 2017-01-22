@@ -41,7 +41,7 @@ public class playerSounds : MonoBehaviour {
 
     public void playLaserSound()
     {
-        playerAudio.PlayOneShot(sounds[3],0.1f);
+        playerAudio.PlayOneShot(sounds[3],0.4f);
     }
 
     public void playHitscan()
@@ -61,11 +61,11 @@ public class playerSounds : MonoBehaviour {
 
     public void playWallImpact()
     {
-        playerAudio.PlayOneShot(sounds[7]);
+        playerAudio.PlayOneShot(sounds[7], 0.1f);
     }
 
     public void playFleshImpact()
     {
-        playerAudio.PlayOneShot(sounds[8]);
+        playerAudio.PlayOneShot(sounds[8], 0.1f);
     }
 }

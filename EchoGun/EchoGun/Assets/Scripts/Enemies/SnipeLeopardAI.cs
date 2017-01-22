@@ -139,6 +139,7 @@ public class SnipeLeopardAI : MonoBehaviour {
 
     private void Health_onDeath() {
         GetComponentInParent<SniperSound>().playDeath();
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(0.7f, 0.3f);
         enemyLaser.SetActive(false);
         Destroy(transform.root.gameObject);
         health.onDeath -= Health_onDeath;

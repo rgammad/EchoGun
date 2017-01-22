@@ -44,6 +44,7 @@ public class SnipeLeopardAI : MonoBehaviour {
 
         rigid = GetComponentInParent<Rigidbody2D>();
         health = GetComponentInParent<Health>();
+        health.onDeath += Health_onDeath;
         navigation = GetComponent<Navigation>();
 
         currentState = state.PATROLLING;

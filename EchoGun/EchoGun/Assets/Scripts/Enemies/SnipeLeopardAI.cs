@@ -9,6 +9,8 @@ public class SnipeLeopardAI : MonoBehaviour {
     protected GameObject enemyFlatlinePrefab;
     [SerializeField]
     protected float visionCheckRadius = 10;
+    [SerializeField]
+    protected Vector2 shotOffset;
 
     Health health;
     Rigidbody2D rigid;
@@ -56,12 +58,14 @@ public class SnipeLeopardAI : MonoBehaviour {
                 }
                 else {
                     //Fire
-                    enemyFlatlineProjectile = (GameObject)Instantiate(enemyFlatlinePrefab);
+                    enemyFlatlineProjectile = SimplePool.Spawn(enemyFlatlinePrefab, transform.TransformPoint(shotOffset), (lockPosition - (Vector2)transform.position).ToRotation());
+                    laserRender.SetPosition(0, transform.position);
                     currentState = state.WAITING;
                 }
                 break;
             case state.WAITING:
-                if (enemyFlatlineProjectile == null) {
+                laserRender.SetPosition(0, transform.position);
+                if (!enemyFlatlineProjectile.activeSelf) {
                     //switch state to patrol
                     enemyLaser.SetActive(false);
                     currentState = state.PATROLLING;
@@ -74,7 +78,7 @@ public class SnipeLeopardAI : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D trigger) {
-        if (trigger.tag == "Sound Trigger") {
+        if (currentState==state.PATROLLING && trigger.tag == "Sound Trigger") {
             //Check in an area around it
             Collider2D player = Physics2D.OverlapCircle(trigger.transform.position, visionCheckRadius, LayerMask.GetMask("Player"));
             //If player, do the thing

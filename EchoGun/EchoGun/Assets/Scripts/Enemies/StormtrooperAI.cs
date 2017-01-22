@@ -122,7 +122,7 @@ public class StormtrooperAI : MonoBehaviour {
     private void Health_onDeath() {
         //temporary until universal ping is created?
         //PlayerPing.CreatePing(transform.position, 2.5f);
-        Destroy(gameObject);
+        Destroy(transform.root.gameObject);
         health.onDeath -= Health_onDeath;
     }
 }

@@ -22,9 +22,8 @@ GameObject:
   - component: {fileID: 212755554435235798}
   - component: {fileID: 50886929567789518}
   - component: {fileID: 58403293308349516}
-  - component: {fileID: 95600141874522616}
   - component: {fileID: 114328796342519924}
-  - component: {fileID: 120561107915921734}
+  - component: {fileID: 95818085373520146}
   m_Layer: 10
   m_Name: StormTrooper
   m_TagString: Enemy
@@ -42,7 +41,7 @@ GameObject:
   - component: {fileID: 4247348253885822}
   - component: {fileID: 58745839420023442}
   - component: {fileID: 114619305538180070}
-  - component: {fileID: 114923492113073538}
+  - component: {fileID: 114293988166022004}
   m_Layer: 16
   m_Name: Sound Trigger
   m_TagString: Untagged
@@ -99,8 +98,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061854446641220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.16, y: -145.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 100.7, y: -367.5, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4247348253885822}
   - {fileID: 4049845092854114}
@@ -169,7 +168,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 20
---- !u!95 &95600141874522616
+--- !u!95 &95818085373520146
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -178,7 +177,7 @@ Animator:
   m_GameObject: {fileID: 1061854446641220}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a9c62198c09354fcfb22e299504e06f5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 937640bb1a6a4d94dbea1509267280ea, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -186,6 +185,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114293988166022004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752649849888552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f503aafab53bcdb4da6d86e5420326c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLaserPrefab: {fileID: 1683328256226662, guid: 4cedf10bf3f09e7498aaa99b9d1b462d,
+    type: 2}
+  enemyFlatlinePrefab: {fileID: 1909749543670176, guid: 8d4e2c59ec10b834c92f0bfc660d80f7,
+    type: 2}
+  visionCheckRadius: 10
+  shotOffset: {x: 0, y: 0}
 --- !u!114 &114328796342519924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,121 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e8d7360ec98174c9c1a061c84b2640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114923492113073538
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1752649849888552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0599a59c0e737bb4ba9855046d3977f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1510696620244360, guid: 534adae6bba0ff94fbfb02c4a31b1e9f,
-    type: 2}
-  speed: 5
-  firingDuration: 3
-  timePerShot: 0.1
-  shotSpread: 10
---- !u!120 &120561107915921734
-LineRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1061854446641220}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
-  m_Parameters:
-    serializedVersion: 2
-    widthMultiplier: 1
-    widthCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    colorGradient:
-      key0:
-        serializedVersion: 2
-        rgba: 4294967295
-      key1:
-        serializedVersion: 2
-        rgba: 4294967295
-      key2:
-        serializedVersion: 2
-        rgba: 0
-      key3:
-        serializedVersion: 2
-        rgba: 0
-      key4:
-        serializedVersion: 2
-        rgba: 0
-      key5:
-        serializedVersion: 2
-        rgba: 0
-      key6:
-        serializedVersion: 2
-        rgba: 0
-      key7:
-        serializedVersion: 2
-        rgba: 0
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
-    alignment: 0
-    textureMode: 0
-  m_UseWorldSpace: 1
 --- !u!212 &212755554435235798
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -355,7 +256,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b230bf6763c3b1241b2c84c3d07a746e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34f1e923f05357f4abc08e2beeae6a9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -12,6 +12,9 @@ public class EchoGun : MonoBehaviour {
 	GameObject flash1;
 	GameObject flash2;
 
+    private Animator anim;
+    private bool isShooting = false;
+
 	//enum for different types of weapons
 	public enum eGun
 	{
@@ -23,6 +26,7 @@ public class EchoGun : MonoBehaviour {
 	{
 		egAPI = GetComponent<EchoGunAPI>();
 		playerMovement = GetComponent<PlayerMovement>();
+        anim = GetComponentInChildren<Animator>();
 		muzzle = GameObject.Find ("MuzzlePoint");
 		flash1 = muzzle.transform.FindChild ("muzzle-flash-1").gameObject;
 		flash2 = muzzle.transform.FindChild ("muzzle-flash-2").gameObject;
@@ -32,13 +36,20 @@ public class EchoGun : MonoBehaviour {
 
 	void Update()
 	{
-
-		if (Input.GetKeyDown(KeyCode.Mouse0))
-		{
-			Shoot();
-		}
+        UpdateAnimator();
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Shoot();
+            isShooting = true;
+        }
+        else
+            isShooting = false;
 	}
 
+    void UpdateAnimator()
+    {
+        anim.SetBool("isShooting", isShooting);
+    }
 
 	private void Shoot()
 	{

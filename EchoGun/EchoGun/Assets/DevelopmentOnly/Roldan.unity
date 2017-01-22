@@ -613,45 +613,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1609281733873432, guid: 573403538a7989e40a40a289250fd0da, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1861305705604660, guid: 573403538a7989e40a40a289250fd0da, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1358469454357362, guid: 573403538a7989e40a40a289250fd0da, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285212888542752, guid: 573403538a7989e40a40a289250fd0da, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799782359007210, guid: 573403538a7989e40a40a289250fd0da, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1799273796024032, guid: 573403538a7989e40a40a289250fd0da, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1134006076752434, guid: 573403538a7989e40a40a289250fd0da, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114173073773476784, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: currentEchoType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114952084001165882, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: soundTriggerCollider
-      value: 
-      objectReference: {fileID: 1412505888259748, guid: c184e35e71734b849bda930ebc5b3491,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 573403538a7989e40a40a289250fd0da, type: 2}
   m_IsPrefabParent: 0

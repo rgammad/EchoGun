@@ -15,21 +15,18 @@ public class ProjectileController : MonoBehaviour, ISpawnable
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        switch (weapType)
+
+        if (other.gameObject.CompareTag("Wall"))
         {
-            case (WeaponType.WEAPON_STANDARD):
-                if (other.gameObject.CompareTag("Wall"))
-                {
-                    PlayerPing.CreatePing(other.contacts[0].point, soundRange);
-                    SimplePool.Despawn(this.gameObject);
-                }
-                if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Destructible"))
-                {
-                    other.transform.root.GetComponent<Health>().Damage(projDamage);
-                    PlayerPing.CreatePing(other.contacts[0].point, soundRange);
-                    SimplePool.Despawn(this.gameObject);
-                }
-                break;
+            PlayerPing.CreatePing(other.contacts[0].point, soundRange);
+            SimplePool.Despawn(this.gameObject);
+        }
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Destructible"))
+        {
+            other.transform.root.GetComponent<Health>().Damage(projDamage);
+            PlayerPing.CreatePing(other.contacts[0].point, soundRange);
+            SimplePool.Despawn(this.gameObject);
+        }
             //case (WeaponType.WEAPON_EXPLOSION):
             //    if (other.gameObject.CompareTag("Wall"))
             //    {
@@ -43,7 +40,6 @@ public class ProjectileController : MonoBehaviour, ISpawnable
             //        SimplePool.Despawn(this.gameObject);
             //    }
             //    break;
-        }
     }
 
     void ISpawnable.Spawn()

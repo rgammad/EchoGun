@@ -18,7 +18,8 @@ public class EchoGun : MonoBehaviour {
     private Animator anim;
     private bool isShooting = false;
 
-    public float shotTime = 0.25f;
+    public float laserShotTime = 1f;
+    public float projectileShotTime = 0.1f;
     float lastShotTime = 0;
 
 	//enum for different types of weapons
@@ -45,12 +46,30 @@ public class EchoGun : MonoBehaviour {
         UpdateAnimator();
         if (lastShotTime < Time.time && Input.GetKey(KeyCode.Mouse0))
         {
-            lastShotTime = Time.time + shotTime;
+            switch(currentEchoType) {
+                case eGun.PROJECTILE:
+                    lastShotTime = Time.time + projectileShotTime;
+                    break;
+                case eGun.STANDARD:
+                    lastShotTime = Time.time + laserShotTime;
+                    break;
+            }
             Shoot();
             isShooting = true;
         }
         else
             isShooting = false;
+
+        if(Input.GetKeyDown(KeyCode.Tab)) {
+            switch(currentEchoType) {
+                case eGun.PROJECTILE:
+                    currentEchoType = eGun.STANDARD;
+                    break;
+                case eGun.STANDARD:
+                    currentEchoType = eGun.PROJECTILE;
+                    break;
+            }
+        }
 	}
 
     void UpdateAnimator()

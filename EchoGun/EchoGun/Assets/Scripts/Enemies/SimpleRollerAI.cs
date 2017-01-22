@@ -67,8 +67,7 @@ public class SimpleRollerAI : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.CompareTag("Player")) {
-			anim.SetBool ("Explode", true);
-			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().screenShake (.75f);
+			Explode ();
 			PlayerPing.CreatePing(transform.position, explodeWaveAmt);
 			player.GetComponent<Health> ().Damage (explodeDamage);
 		}
@@ -76,6 +75,11 @@ public class SimpleRollerAI : MonoBehaviour {
 
 	public void Die() {
 		Destroy (this.gameObject);
+	}
+
+	void Explode() {
+		anim.SetBool ("Explode", true);
+		GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().screenShake (.75f);
 	}
 
 
@@ -100,9 +104,9 @@ public class SimpleRollerAI : MonoBehaviour {
 
 	private void Health_onDeath()
 	{
-		//temporary until universal ping is created?
+		Explode ();
 		PlayerPing.CreatePing(transform.position, 2.5f);
-		Destroy(gameObject);
 		health.onDeath -= Health_onDeath;
+
 	}
 }

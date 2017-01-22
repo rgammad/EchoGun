@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,9 +23,9 @@ public class playerSounds : MonoBehaviour {
 
     public void playFootstep()
     {
-        System.Random r = System.Random();
+        System.Random r = new System.Random();
         
-        playerAudio.pitch = (float)r.NextDouble() * 1.0f;
+        playerAudio.pitch = (float)r.NextDouble() * 0.5f;
         playerAudio.PlayOneShot(sounds[0]);   
     }
 
@@ -46,5 +47,10 @@ public class playerSounds : MonoBehaviour {
     public void playHitscan()
     {
         playerAudio.PlayOneShot(sounds[4]);
+    }
+
+    public void playBonk()
+    {
+        playerAudio.PlayOneShot(sounds[5]);
     }
 }

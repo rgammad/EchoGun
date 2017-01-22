@@ -11,6 +11,7 @@ public class Bonk : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
+            GetComponent<playerSounds>().playBonk();
             PlayerPing.CreatePing(other.contacts[0].point, soundRange);
         }
     }

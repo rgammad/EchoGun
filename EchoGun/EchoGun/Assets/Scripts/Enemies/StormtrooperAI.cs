@@ -123,7 +123,7 @@ public class StormtrooperAI : MonoBehaviour {
     }
 
     
-    private void Health_onDamage(float amount, int playerID) {
+    private void Health_onDamage(float amount) {
         //PlayerPing.CreatePing(transform.position, 1.0f);
         
     }

@@ -8,8 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DevelopmentOnly/MainMenu.unity
   - enabled: 1
-    path: Assets/DevelopmentOnly/Roldan.unity
+    path: Assets/DevelopmentOnly/Derek.unity
   - enabled: 1
     path: Assets/DevelopmentOnly/OptionsMenu.unity
-  - enabled: 0
-    path: Assets/DevelopmentOnly/Derek.unity
+  - enabled: 1
+    path: Assets/DevelopmentOnly/Roldan.unity

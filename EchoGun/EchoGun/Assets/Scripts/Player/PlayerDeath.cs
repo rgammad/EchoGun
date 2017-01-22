@@ -14,7 +14,13 @@ public class PlayerDeath : MonoBehaviour {
 	void Start () {
         health = GetComponent<Health>();
         health.onDeath += Health_onDeath;
+        health.onDamage += Health_onDamage;
 	}
+
+    private void Health_onDamage(float amount, int playerID)
+    {
+        GetComponent<playerSounds>().playDamage();
+    }
 
     private void Health_onDeath() {
         GetComponent<playerSounds>().playDeath();

@@ -8,8 +8,9 @@ public class ProjectileController : MonoBehaviour, ISpawnable
 
     public int projSpeed = 10;
     public float projDamage = 10f;
-    public float soundRange = 5.0f;
+    public float soundRange = 25.0f;
     public WeaponType weapType;
+    
 
 
     void OnCollisionEnter2D(Collision2D other)

@@ -13,7 +13,7 @@ public class EchoGunAPI : MonoBehaviour
 
     public GameObject echoStandardPrefab;
     public GameObject echoProjectilePrefab;
-    public Vector2 gunOffset = new Vector2(2.2f, -1.1f);
+    public Vector2 gunOffset = new Vector2(0.0f, -1.1f);
     public int echoProjSpeed;
     public float echoProjDamage;
     public float echoStandardDamage;
@@ -24,11 +24,11 @@ public class EchoGunAPI : MonoBehaviour
     {
         GameObject laser = (GameObject)Instantiate(echoStandardPrefab);
         LineRenderer laserRender = laser.GetComponent<LineRenderer>();
-		Vector2 initialPos = (Vector2)transform.position+(Vector2)transform.TransformVector(gunOffset);
-        Vector2 targetPos = (Vector2)Format.mousePosInWorld()-initialPos;
-        Vector2 laserEndPos = targetPos.normalized * 100;
+		Vector2 initialPos = (Vector2)transform.position;
+        Vector2 targetPos = (Vector2)Format.mousePosInWorld();
+        Vector2 laserEndPos = (targetPos - initialPos).normalized * 100;
 
-        RaycastHit2D[] hitList = Physics2D.RaycastAll(initialPos, targetPos);
+        RaycastHit2D[] hitList = Physics2D.RaycastAll(initialPos, laserEndPos);
 
         switch (type)
         {
@@ -74,7 +74,7 @@ public class EchoGunAPI : MonoBehaviour
                 }
                 break;
         }
-		laserRender.SetPosition(0, initialPos);
+		laserRender.SetPosition(0, (Vector2)transform.TransformPoint(gunOffset));
         laserRender.SetPosition(1, laserEndPos);
 
     }

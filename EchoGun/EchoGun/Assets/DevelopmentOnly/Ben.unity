@@ -130,16 +130,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: gunOffset.x
-      value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: gunOffset.y
-      value: -1.1
-      objectReference: {fileID: 0}
     - target: {fileID: 114173073773476784, guid: 573403538a7989e40a40a289250fd0da,
         type: 2}
       propertyPath: weapType
@@ -149,6 +139,20 @@ Prefab:
         type: 2}
       propertyPath: currentEchoType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: gunOffset.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: gunOffset.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191889848715848, guid: 573403538a7989e40a40a289250fd0da, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 573403538a7989e40a40a289250fd0da, type: 2}
@@ -235,6 +239,10 @@ Prefab:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1474005973711060, guid: ab5073523de7a5b49a29c85d922fa08b, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829251182287376, guid: ab5073523de7a5b49a29c85d922fa08b, type: 2}
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}

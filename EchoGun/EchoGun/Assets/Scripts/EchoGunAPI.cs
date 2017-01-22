@@ -81,15 +81,16 @@ public class EchoGunAPI : MonoBehaviour
 
     public void echoProjectile(WeaponType type)
     {
-        Vector2 initialPos = (Vector2)transform.position + (Vector2)transform.TransformVector(gunOffset);
-        Vector2 targetPos = (Vector2)Format.mousePosInWorld() - initialPos;
+        Vector2 initialPos = (Vector2)transform.position;
+        Vector2 targetPos = (Vector2)Format.mousePosInWorld();
+        Vector2 laserEndPos = (targetPos - initialPos).normalized * 100;
 
         ProjectileController pc = echoProjectilePrefab.GetComponent<ProjectileController>();
         pc.projSpeed = echoProjSpeed;
 
         pc.weapType = type;
 
-        SimplePool.Spawn(echoProjectilePrefab, initialPos, (targetPos - initialPos).ToRotation());
+        SimplePool.Spawn(echoProjectilePrefab, (Vector2)transform.TransformPoint(gunOffset), (targetPos - initialPos).ToRotation());
     }
 
 }

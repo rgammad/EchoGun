@@ -138,7 +138,7 @@ Prefab:
     - target: {fileID: 114173073773476784, guid: 573403538a7989e40a40a289250fd0da,
         type: 2}
       propertyPath: currentEchoType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
         type: 2}

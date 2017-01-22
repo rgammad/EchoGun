@@ -119,8 +119,6 @@ public class Navigation : MonoBehaviour {
         }
 
         while (frontierQueue.Count > 0) {
-            Debug.Log(frontierQueue.Count);
-
             PathfindingNode nextNode = frontierQueue.Dequeue();
 
             //while the node dequeued was already expanded

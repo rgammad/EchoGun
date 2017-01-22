@@ -55,5 +55,10 @@ MonoBehaviour:
   - {fileID: 1757257194635462, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
   - {fileID: 1061854446641220, guid: f7518e3cd58807f40a5d0d9275770222, type: 2}
   - {fileID: 1061854446641220, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
+  enemyCounts: 030000000200000001000000
+  destructablePrefabs:
+  - {fileID: 1457887095311262, guid: 462c94a2478eef44fad5ab0e5cb4e5c8, type: 2}
+  - {fileID: 1907048978263464, guid: 4d4069c604552fe47815fc5f2766dc15, type: 2}
   enemyRespawnTime: 10
+  numDestructables: 40
   enemiesActiveMultiplier: 0.1

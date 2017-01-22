@@ -9,6 +9,9 @@ public class StormtrooperAI : MonoBehaviour {
     protected GameObject bulletPrefab;
 
     [SerializeField]
+    protected GameObject deathEffects;
+
+    [SerializeField]
     protected float speed = 5;
 
     /// <summary>
@@ -40,7 +43,7 @@ public class StormtrooperAI : MonoBehaviour {
         navigation = GetComponent<Navigation>();
 
         health.onDeath += Health_onDeath;
-        //health.onDamage += Health_onDamage;
+        health.onDamage += Health_onDamage;
 
         stageBoundary = LayerMask.GetMask("StageBoundary");
     }
@@ -66,7 +69,7 @@ public class StormtrooperAI : MonoBehaviour {
             while(Time.time > nextShotTime) {
                 nextShotTime += timePerShot;
                 //fire a shot
-
+                GetComponentInParent<StormtrooperSound>().playBlasterSound();
                 Quaternion targetRotation = (targetPos - (Vector2)transform.position).ToRotation();
                 targetRotation = targetRotation * Quaternion.AngleAxis(shotSpread * ((2 * Random.value) - 1), Vector3.forward);
 
@@ -83,7 +86,7 @@ public class StormtrooperAI : MonoBehaviour {
 
                 //ensure path isn't too long, and destination is in the stage
 
-                while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
+                while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null) {// || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
                     destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
                 }
                 
@@ -118,19 +121,24 @@ public class StormtrooperAI : MonoBehaviour {
             targetPos = trigger.transform.position;
             firingEndTime = Time.time + firingDuration;
             nextShotTime = Time.time;
+            GetComponentInParent<StormtrooperSound>().playFiringLaser();
         }
     }
 
-    /*
-    private void Health_onDamage(float amount, int playerID) {
-        PlayerPing.CreatePing(transform.position, 1.0f);
+    
+    private void Health_onDamage(float amount) {
+        //PlayerPing.CreatePing(transform.position, 1.0f);
+        
     }
-    */
+    
 
     private void Health_onDeath() {
         //temporary until universal ping is created?
         //PlayerPing.CreatePing(transform.position, 2.5f);
+
+        GetComponentInParent<StormtrooperSound>().playDeath();
         Destroy(transform.root.gameObject);
         health.onDeath -= Health_onDeath;
+        SimplePool.Spawn(deathEffects);
     }
 }

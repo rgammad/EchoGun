@@ -13,11 +13,14 @@ public class SnipeLeopardAI : MonoBehaviour {
     protected Vector2 shotOffset;
     [SerializeField]
     protected float speed = 5;
+    [SerializeField]
+    protected GameObject deathEffects;
 
     Rigidbody2D rigid;
     List<Navigation.Coordinate2> pathWaypoints;
     Health health;
     Navigation navigation;
+    LayerMask stageBoundary;
 
     private enum state {
         FIRING,
@@ -36,24 +39,33 @@ public class SnipeLeopardAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        enemyLaser = (GameObject)Instantiate(enemyLaserPrefab);
+        enemyLaser = transform.root.FindChild("EnemyLaserPrefab").gameObject;
         laserRender = enemyLaser.GetComponent<LineRenderer>();
         enemyLaser.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         rigid = GetComponentInParent<Rigidbody2D>();
         health = GetComponentInParent<Health>();
+        health.onDeath += Health_onDeath;
         navigation = GetComponent<Navigation>();
 
         currentState = state.PATROLLING;
         firingTimer = 0;
-	}
+
+        stageBoundary = LayerMask.GetMask("StageBoundary");
+    }
 	
 	// Update is called once per frame
 	void Update () {
         switch (currentState) {
             case state.FIRING:
                 if (firingTimer > 0) {
+                    if (!GetComponentInParent<SniperSound>().WasPlayed())
+                    {
+                        if (Random.Range(0,4) == 0)
+                            GetComponentInParent<SniperSound>().playAiming();
+                        GetComponentInParent<SniperSound>().toggleWasPlayed(true);
+                    }
                     //Draw line toward target
                     enemyLaser.SetActive(true);
                     lockPosition = player.position;
@@ -63,8 +75,10 @@ public class SnipeLeopardAI : MonoBehaviour {
                 }
                 else {
                     //Fire
+                    GetComponentInParent<SniperSound>().playSniperFire();
                     enemyFlatlineProjectile = SimplePool.Spawn(enemyFlatlinePrefab, transform.TransformPoint(shotOffset), (lockPosition - (Vector2)transform.position).ToRotation());
                     laserRender.SetPosition(0, transform.position);
+                    GetComponentInParent<SniperSound>().toggleWasPlayed(false);
                     currentState = state.WAITING;
                 }
                 break;
@@ -82,10 +96,13 @@ public class SnipeLeopardAI : MonoBehaviour {
                     Navigation.Coordinate2 start = navigation.VectorToCoordinate(transform.position);
                     Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
 
-                    ////ensure path isn't too long
-                    //while ((destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
-                    //    destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
-                    //}
+                    //ensure path isn't too long, and destination is in the stage
+
+                    while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null) {// || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
+                        destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+                    }
+
+
                     pathWaypoints = navigation.pathToPlayer(start, destination);
                     /*
                      * For path debugging
@@ -110,6 +127,7 @@ public class SnipeLeopardAI : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D trigger) {
         if (currentState==state.PATROLLING && trigger.tag == "Sound Trigger") {
             //Check in an area around it
+            GetComponentInParent<SniperSound>().playWhatWasThat();
             Collider2D player = Physics2D.OverlapCircle(trigger.transform.position, visionCheckRadius, LayerMask.GetMask("Player"));
             //If player, do the thing
             if (player != null) {
@@ -120,7 +138,10 @@ public class SnipeLeopardAI : MonoBehaviour {
     }
 
     private void Health_onDeath() {
+        GetComponentInParent<SniperSound>().playDeath();
+        enemyLaser.SetActive(false);
         Destroy(transform.root.gameObject);
         health.onDeath -= Health_onDeath;
+        SimplePool.Spawn(deathEffects);
     }
 }

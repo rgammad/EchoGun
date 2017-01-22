@@ -70,7 +70,7 @@ public class BoostAbility : MonoBehaviour {
     void Update() {
 
         if(Input.GetKeyDown(KeyCode.Space)) {
-
+            GetComponent<playerSounds>().playDash();
             Vector2 boostDirection = movement.normalizedMovementInput;
             if(boostDirection.magnitude != 0) {
                 //only boost if there is movement input

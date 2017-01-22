@@ -6,6 +6,9 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Health))]
 public class PlayerDeath : MonoBehaviour {
 
+    [SerializeField]
+    protected CanvasFlash canvasFlash;
+
     Health health;
 
 	void Start () {
@@ -15,5 +18,8 @@ public class PlayerDeath : MonoBehaviour {
 
     private void Health_onDeath() {
         health.Heal(9999);
+
+        canvasFlash.Flash();
+        this.transform.root.position = new Vector3(100, -50);
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.Assertions;
 
-[RequireComponent(typeof(AudioController))]
 [RequireComponent(typeof(ParticleSystem))]
 public class BoostAbility : MonoBehaviour {
 
@@ -13,7 +12,7 @@ public class BoostAbility : MonoBehaviour {
     float currentSpeedMod = 1;
     float currentAccelMod = 1;
     float currentMassMod = 1;
-    AudioController sfx;
+    playerSounds soundController;
     ParticleSystem vfx;
     Rigidbody2D rigid;
     PlayerPing ping;
@@ -21,12 +20,6 @@ public class BoostAbility : MonoBehaviour {
     Coroutine activationRoutine = null;
 
     //ability hardcoded to keycode.space
-
-    protected void OnActivate()
-    {
-        sfx.Play();
-        //StartCoroutine(playFX());
-    }
 
     [SerializeField]
     protected float speedMultiplier = 2.5f;
@@ -50,8 +43,8 @@ public class BoostAbility : MonoBehaviour {
 
     protected void Awake()
     {
-        sfx = GetComponent<AudioController>();
         vfx = GetComponent<ParticleSystem>();
+        soundController = GetComponentInParent<playerSounds>();
         ParticleSystem.MainModule main = vfx.main;
         decayDuration = Mathf.Max(speedDecayDuration, accelNerfDecayDuration);
     }
@@ -70,7 +63,7 @@ public class BoostAbility : MonoBehaviour {
     void Update() {
 
         if(Input.GetKeyDown(KeyCode.Space)) {
-            GetComponent<playerSounds>().playDash();
+            soundController.playDash();
             Vector2 boostDirection = movement.normalizedMovementInput;
             if(boostDirection.magnitude != 0) {
                 //only boost if there is movement input

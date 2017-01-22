@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 114941527439481048}
   - component: {fileID: 114129750149730430}
   - component: {fileID: 114836406693345444}
-  - component: {fileID: 114544997412578922}
+  - component: {fileID: 114227761623448362}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799273796024032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.1, y: -390.8, z: 0}
+  m_LocalPosition: {x: 100, y: -50, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4453430000325098}
@@ -475,6 +475,18 @@ MonoBehaviour:
   laserShotTime: 1
   projectileShotTime: 0.07
   currentEchoType: 1
+--- !u!114 &114227761623448362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799273796024032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63194a88663d6e429a601935ba713a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healsPerSecond: 2
 --- !u!114 &114296843365108268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -523,18 +535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundRange: 5
---- !u!114 &114544997412578922
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1799273796024032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37523a3031449e44fa6ccdfd4a055c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &114710733199993250
 MonoBehaviour:
   m_ObjectHideFlags: 1

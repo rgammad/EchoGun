@@ -27,7 +27,7 @@ public class Health : MonoBehaviour {
     /// </summary>
     /// <param name="value"></param>
     /// <returns></returns>
-    private float SetHealth(float value) {
+    public float SetHealth(float value) {
         float healthBefore = health;
         health = value;
         if (health > maxHealth) {

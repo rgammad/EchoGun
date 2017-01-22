@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 82292532904469124}
   - component: {fileID: 114089372959328526}
   m_Layer: 0
-  m_Name: Roller Death
+  m_Name: Bullet Impact Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,4 +132,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ac4ebb20308884caf3e95d75a41510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 8300000, guid: 55e1cfe2a5deafb438e85cd9acef3e72, type: 3}
+  deathSound: {fileID: 8300000, guid: 83081fae1a2668c49a9831ac78945818, type: 3}

@@ -15,6 +15,8 @@ public class SnipeLeopardAI : MonoBehaviour {
     protected float speed = 5;
     [SerializeField]
     protected GameObject deathEffects;
+    [SerializeField]
+    protected float patrolSpeed = 3;
 
     Rigidbody2D rigid;
     List<Navigation.Coordinate2> pathWaypoints;
@@ -91,35 +93,36 @@ public class SnipeLeopardAI : MonoBehaviour {
                 }
                 break;
             case state.PATROLLING:
-                //ensure we have a path
-                while (pathWaypoints == null || pathWaypoints.Count == 0) {
-                    Navigation.Coordinate2 start = navigation.VectorToCoordinate(transform.position);
-                    Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+                rigid.MovePosition(transform.position + (transform.up * patrolSpeed * Time.deltaTime));
+                ////ensure we have a path
+                //while (pathWaypoints == null || pathWaypoints.Count == 0) {
+                //    Navigation.Coordinate2 start = navigation.VectorToCoordinate(transform.position);
+                //    Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
 
-                    //ensure path isn't too long, and destination is in the stage
+                //    //ensure path isn't too long, and destination is in the stage
 
-                    while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null || !navigation.navigationPointWalkable(destination)) {// || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
-                        destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
-                    }
+                //    while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null || !navigation.navigationPointWalkable(destination)) {// || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
+                //        destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+                //    }
 
 
-                    pathWaypoints = navigation.pathToPlayer(start, destination);
-                    /*
-                     * For path debugging
-                     * 
-                    if(pathWaypoints != null) {
-                        LineRenderer rend = GetComponent<LineRenderer>();
-                        rend.numPositions = pathWaypoints.Count;
-                        for(int i = 0; i < pathWaypoints.Count; i++) {
-                            rend.SetPosition(i, pathWaypoints[i].toVector2());
-                        }
-                    }
-                    */
-                }
-                rigid.MovePosition(Vector2.MoveTowards(transform.position, pathWaypoints[0].toVector2(), speed * Time.deltaTime));
-                if (Vector2.Distance(transform.position, pathWaypoints[0].toVector2()) < 0.33f) {
-                    pathWaypoints.RemoveAt(0);
-                }
+                //    pathWaypoints = navigation.pathToPlayer(start, destination);
+                //    /*
+                //     * For path debugging
+                //     * 
+                //    if(pathWaypoints != null) {
+                //        LineRenderer rend = GetComponent<LineRenderer>();
+                //        rend.numPositions = pathWaypoints.Count;
+                //        for(int i = 0; i < pathWaypoints.Count; i++) {
+                //            rend.SetPosition(i, pathWaypoints[i].toVector2());
+                //        }
+                //    }
+                //    */
+                //}
+                //rigid.MovePosition(Vector2.MoveTowards(transform.position, pathWaypoints[0].toVector2(), speed * Time.deltaTime));
+                //if (Vector2.Distance(transform.position, pathWaypoints[0].toVector2()) < 0.33f) {
+                //    pathWaypoints.RemoveAt(0);
+                //}
                 break;
         }
     }

@@ -76,6 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4049845092854114}
   - component: {fileID: 58113058699210788}
+  - component: {fileID: 114376078111670844}
   m_Layer: 14
   m_Name: WallCollision
   m_TagString: Enemy
@@ -151,7 +152,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 5
   m_LinearDrag: 0.5
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -316,7 +317,7 @@ MonoBehaviour:
   speed: 5
   deathEffects: {fileID: 1226001133976502, guid: e617f8f17ada86e43a66a046358036d4,
     type: 2}
-  movementSpeed: 3
+  patrolSpeed: 8
 --- !u!114 &114328796342519924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -329,6 +330,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &114376078111670844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949094512992940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac077504964072478ea667bb21a508a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114619305538180070
 MonoBehaviour:
   m_ObjectHideFlags: 1

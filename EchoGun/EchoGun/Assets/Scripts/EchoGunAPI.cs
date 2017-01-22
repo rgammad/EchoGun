@@ -20,12 +20,12 @@ public class EchoGunAPI : MonoBehaviour
 
 
 
-    public void echoStandard(WeaponType type, Vector2 aimDir)
+    public void echoStandard(WeaponType type)
     {
         GameObject laser = (GameObject)Instantiate(echoStandardPrefab);
         LineRenderer laserRender = laser.GetComponent<LineRenderer>();
 		Vector2 initialPos = (Vector2)transform.position+(Vector2)transform.TransformVector(gunOffset);
-        Vector2 targetPos = aimDir;
+        Vector2 targetPos = (Vector2)Format.mousePosInWorld()-initialPos;
         Vector2 laserEndPos = targetPos.normalized * 100;
 
         RaycastHit2D[] hitList = Physics2D.RaycastAll(initialPos, targetPos);
@@ -79,14 +79,17 @@ public class EchoGunAPI : MonoBehaviour
 
     }
 
-    public void echoProjectile(WeaponType type, Vector2 aimDir)
+    public void echoProjectile(WeaponType type)
     {
+        Vector2 initialPos = (Vector2)transform.position + (Vector2)transform.TransformVector(gunOffset);
+        Vector2 targetPos = (Vector2)Format.mousePosInWorld() - initialPos;
+
         ProjectileController pc = echoProjectilePrefab.GetComponent<ProjectileController>();
         pc.projSpeed = echoProjSpeed;
 
         pc.weapType = type;
 
-        SimplePool.Spawn(echoProjectilePrefab, transform.position, aimDir.ToRotation());
+        SimplePool.Spawn(echoProjectilePrefab, initialPos, (targetPos - initialPos).ToRotation());
     }
 
 }

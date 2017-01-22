@@ -130,6 +130,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: gunOffset.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: gunOffset.y
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114173073773476784, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: weapType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114173073773476784, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: currentEchoType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 573403538a7989e40a40a289250fd0da, type: 2}
   m_IsPrefabParent: 0
@@ -187,7 +207,7 @@ GameObject:
   - component: {fileID: 367941430}
   m_Layer: 0
   m_Name: RightWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,7 +286,7 @@ GameObject:
   - component: {fileID: 840533635}
   m_Layer: 0
   m_Name: TopWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,7 +365,7 @@ GameObject:
   - component: {fileID: 896730301}
   m_Layer: 0
   m_Name: LeftWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,6 +432,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
+--- !u!1 &1320392485 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1799273796024032, guid: 573403538a7989e40a40a289250fd0da,
+    type: 2}
+  m_PrefabInternal: {fileID: 148600213}
+--- !u!114 &1320392486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320392485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37523a3031449e44fa6ccdfd4a055c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1480301027
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +461,7 @@ GameObject:
   - component: {fileID: 1480301028}
   m_Layer: 0
   m_Name: BottomWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

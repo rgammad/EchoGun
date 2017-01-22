@@ -7,6 +7,9 @@ using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour {
 
     [SerializeField]
+    protected float distanceTravelled = 0;
+
+    [SerializeField]
     protected MultiplierFloatStat maxSpeed = new MultiplierFloatStat(15);
     public MultiplierFloatStat MaxSpeed { get { return maxSpeed; } }
 
@@ -37,6 +40,8 @@ public class PlayerMovement : MonoBehaviour {
 
     Rigidbody2D rigid;
 
+    Vector2 previousPos;
+
     public Vector2 normalizedMovementInput { get { return new Vector2(Input.GetAxisRaw(bindings.HorizontalMovementAxisName), Input.GetAxisRaw(bindings.VerticalMovementAxisName)).normalized; } }
 
     public Vector2 rawAimingInput { get { return Format.mousePosInWorld() - transform.position; } }
@@ -46,6 +51,7 @@ public class PlayerMovement : MonoBehaviour {
         rigid = GetComponent<Rigidbody2D>();
         mass.onValueChanged += Mass_onValueChanged;
         Mass_onValueChanged();
+        previousPos = transform.position;
     }
 
     private void Mass_onValueChanged() {
@@ -54,6 +60,16 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() {
         rigid.velocity = Vector2.ClampMagnitude(Vector2.MoveTowards(rigid.velocity, maxSpeed * normalizedMovementInput, maxSpeed * accel * Time.deltaTime), maxSpeed);
+
+        distanceTravelled += (previousPos - (Vector2)transform.position).magnitude;
+        previousPos = transform.position;
+
+        while(distanceTravelled > 1.0f)
+        {
+            distanceTravelled -= 1.0f;
+            //play sound
+            GetComponent<playerSounds>().playFootstep();
+        }
     }
 
     private void FixedUpdate() {

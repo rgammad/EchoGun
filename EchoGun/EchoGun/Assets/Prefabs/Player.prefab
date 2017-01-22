@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799273796024032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.840013, y: -1.2195973, z: -0.08532572}
+  m_LocalPosition: {x: -0.80234, y: -1.2240826, z: -0.08532572}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4453430000325098}
@@ -457,7 +457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapType: 0
   shootingSoundRange: 25
-  shotTime: 0.25
+  laserShotTime: 1
+  projectileShotTime: 0.1
   currentEchoType: 1
 --- !u!114 &114296843365108268
 MonoBehaviour:
@@ -484,6 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fed6dc4790bf2242bc0a53a1626a430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceTravelled: 0
   maxSpeed:
     baseValue: 15
   accel:
@@ -569,7 +571,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a7751d6f4049841b1832096fd79ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - {fileID: 8300000, guid: 7ec10aa0c8c41034783e4e7379ff4582, type: 3}
+  - {fileID: 8300000, guid: 25dbf5ba0b8b3624385d9994f9ccb29f, type: 3}
+  - {fileID: 8300000, guid: 68ef3596594479f44b2eda5ec51f8bea, type: 3}
+  - {fileID: 8300000, guid: 1e75dc67a5aebe04b9049a5cd4a4a409, type: 3}
+  - {fileID: 8300000, guid: 4dcbf6966592a5548aad8d8245fd2614, type: 3}
 --- !u!114 &114952084001165882
 MonoBehaviour:
   m_ObjectHideFlags: 1

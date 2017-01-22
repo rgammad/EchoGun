@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 114387020256191646}
   - component: {fileID: 82175942315012174}
   - component: {fileID: 114941527439481048}
+  - component: {fileID: 114129750149730430}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -211,7 +212,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799273796024032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.840013, y: -1.2195973, z: -0.08532572}
+  m_LocalPosition: {x: 100, y: -50, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4453430000325098}
@@ -444,6 +445,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114129750149730430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799273796024032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b52c2b170fa3c841a760bfb387b913a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasFlash: {fileID: 0}
 --- !u!114 &114173073773476784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -457,7 +470,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapType: 0
   shootingSoundRange: 25
-  shotTime: 0.25
+  laserShotTime: 1
+  projectileShotTime: 0.1
   currentEchoType: 1
 --- !u!114 &114296843365108268
 MonoBehaviour:

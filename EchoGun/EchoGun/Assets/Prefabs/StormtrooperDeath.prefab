@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4496342849934174}
   - component: {fileID: 82292532904469124}
-  - component: {fileID: 114089372959328526}
+  - component: {fileID: 114364370012090772}
   m_Layer: 0
   m_Name: StormtrooperDeath
   m_TagString: Untagged
@@ -121,7 +121,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114089372959328526
+--- !u!114 &114364370012090772
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -129,7 +129,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1226001133976502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6ac4ebb20308884caf3e95d75a41510, type: 3}
+  m_Script: {fileID: 11500000, guid: 8db8380d74d015047a4d2b2654dd2442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 8300000, guid: 0a92138b8276b68469ce37c7d918268a, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 0a92138b8276b68469ce37c7d918268a, type: 3}
+  - {fileID: 8300000, guid: c01cd68123b7c284988c20270ccea0a3, type: 3}
+  - {fileID: 8300000, guid: 1d9a8915f0b3ae54485c023907eb334d, type: 3}
+  lengthOfArray: 3

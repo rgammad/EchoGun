@@ -4,21 +4,21 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SimpleRollerAI : MonoBehaviour {
-	public float targetPlayerDist;
+	public float radius;
 	public float explodeDist;
 	public float explodeDamage;
 	public float explodeWaveAmt;
 
-	Rigidbody2D rigid;
-	float maxSpeed = 5;
+	public float maxSpeed;
 	float accel = 4;
 	float rotationSpeed = 0.2f;
+
+	Rigidbody2D rigid;
 
 	Vector2 targetPos;
 	bool following = false;
 
 	CircleCollider2D soundTrigger;
-	public float radius;
 
 	Health health;
 	GameObject player;
@@ -46,7 +46,7 @@ public class SimpleRollerAI : MonoBehaviour {
 		//	following = true;
 		//}
 
-		if (Vector2.Distance (this.transform.position, player.transform.position) <= targetPlayerDist) {
+		if (Vector2.Distance (this.transform.position, player.transform.position) <= radius) {
 			targetPos = player.transform.position;
 			following = true;
 		}

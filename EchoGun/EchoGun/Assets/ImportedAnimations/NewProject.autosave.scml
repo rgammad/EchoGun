@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r10">
+    <folder id="0">
+        <file id="0" name="blut_shot_impact1.png" width="163" height="148" pivot_x="0.5" pivot_y="0"/>
+        <file id="1" name="blue_shot_impact2.png" width="172" height="136" pivot_x="0.5" pivot_y="0"/>
+        <file id="2" name="blut_shot_impact3.png" width="175" height="106" pivot_x="0.5" pivot_y="0"/>
+    </folder>
+    <entity id="0" name="entity_000">
+        <animation id="0" name="NewAnimation" length="125" interval="100" looping="false">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="62">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="125">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="blut_shot_impact1">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-0" y="-0.000004" scale_x="0.00001" scale_y="0.00001"/>
+                </key>
+                <key id="1" time="62" spin="0">
+                    <object folder="0" file="1" x="-0" y="-0.000004" scale_x="1.107319" scale_y="1.116366"/>
+                </key>
+                <key id="2" time="125" spin="0">
+                    <object folder="0" file="1" x="-0" y="-0.000004" scale_x="2.033568" scale_y="1.65692" a="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

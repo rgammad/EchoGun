@@ -249,66 +249,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab5073523de7a5b49a29c85d922fa08b, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &643125066
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4650585006921800, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 100.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650585006921800, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -367.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650585006921800, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650585006921800, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650585006921800, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650585006921800, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650585006921800, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4650585006921800, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 212755554435235798, guid: 51d3badd695758e4cbc68570d05c0dff,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 910f8995dcc756b49b193a23ce8492ab,
-        type: 3}
-    - target: {fileID: 212755554435235798, guid: 51d3badd695758e4cbc68570d05c0dff,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1061854446641220, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-      propertyPath: m_Name
-      value: SnipeLeopard
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 95600141874522616, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-    - {fileID: 120561107915921734, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-    - {fileID: 114923492113073538, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1247314927
 Prefab:
   m_ObjectHideFlags: 0
@@ -431,24 +371,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1950143220 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1752649849888552, guid: 51d3badd695758e4cbc68570d05c0dff,
-    type: 2}
-  m_PrefabInternal: {fileID: 643125066}
---- !u!114 &1950143222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1950143220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f503aafab53bcdb4da6d86e5420326c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyLaserPrefab: {fileID: 1683328256226662, guid: 4cedf10bf3f09e7498aaa99b9d1b462d,
-    type: 2}
-  enemyFlatlinePrefab: {fileID: 1909749543670176, guid: 8d4e2c59ec10b834c92f0bfc660d80f7,
-    type: 2}
-  visionCheckRadius: 10

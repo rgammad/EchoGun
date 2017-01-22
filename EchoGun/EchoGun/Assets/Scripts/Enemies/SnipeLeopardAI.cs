@@ -78,7 +78,7 @@ public class SnipeLeopardAI : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D trigger) {
-        if (trigger.tag == "Sound Trigger") {
+        if (currentState==state.PATROLLING && trigger.tag == "Sound Trigger") {
             //Check in an area around it
             Collider2D player = Physics2D.OverlapCircle(trigger.transform.position, visionCheckRadius, LayerMask.GetMask("Player"));
             //If player, do the thing

@@ -16,6 +16,11 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+	public void ControlsButton()
+	{
+		SceneManager.LoadScene (3);
+	}
+
     public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);

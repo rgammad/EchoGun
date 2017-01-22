@@ -28,6 +28,8 @@ public class SimpleRollerAI : MonoBehaviour {
 	GameObject player;
 	Animator anim;
 
+	bool isExploding = false;
+
 	void Start () {
 		rigid = GetComponent<Rigidbody2D>();
 		health = GetComponent<Health>();
@@ -71,9 +73,10 @@ public class SimpleRollerAI : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		if (coll.gameObject.CompareTag("Player")) {
+		if (coll.gameObject.CompareTag("Player") && !isExploding) {
 			Explode ();
-			player.GetComponent<Health> ().Damage (explodeDamage);
+			//player.GetComponent<Health> ().Damage (explodeDamage);
+			player.GetComponent<Health>().SetHealth(player.GetComponent<Health>().HealthValue - explodeDamage);
 		}
 	}
 
@@ -83,9 +86,11 @@ public class SimpleRollerAI : MonoBehaviour {
 	}
 
 	void Explode() {
+		isExploding = true;
 		anim.SetBool ("Explode", true);
 		GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().screenShake (.75f);
-		GetComponent<RollerSounds>().playExplosion();
+		SimplePool.Spawn(deathEffects);
+		PlayerPing.CreatePing(transform.position, explodeWaveAmt);
 	}
 
 
@@ -110,10 +115,8 @@ public class SimpleRollerAI : MonoBehaviour {
 
 	private void Health_onDeath()
 	{
-		Explode ();
-		PlayerPing.CreatePing(transform.position, explodeWaveAmt);
-		health.onDeath -= Health_onDeath;
-        SimplePool.Spawn(deathEffects);
-
+		if (!isExploding) {
+			Explode ();
+		}
     }
 }

@@ -20,7 +20,7 @@ public class EnemyProjectileController : MonoBehaviour, ISpawnable {
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Wall")) {
             SimplePool.Despawn(this.gameObject);
-            SimplePool.Spawn(deathEffectWall);
+            SimplePool.Spawn(deathEffectWall, transform.position);
         }
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Destructible")) {
             other.transform.root.GetComponent<Health>().Damage(projDamage);

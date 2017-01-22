@@ -7,6 +7,7 @@ using UnityEngine;
 public class DeathAudio : MonoBehaviour, ISpawnable {
 
     AudioSource sound;
+    ParticleSystem particles;
 
     [SerializeField]
     protected AudioClip deathSound;
@@ -14,12 +15,13 @@ public class DeathAudio : MonoBehaviour, ISpawnable {
     void ISpawnable.Spawn()
     {
         sound.PlayOneShot(deathSound);
+        particles.Play();
         Callback.FireAndForget(() => SimplePool.Despawn(this.transform.root.gameObject), deathSound.length, this);
     }
 
     // Use this for initialization
     void Awake () {
         sound = GetComponent<AudioSource>();
-
+        particles = GetComponent<ParticleSystem>();
     }
 }

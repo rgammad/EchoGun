@@ -13,6 +13,7 @@ public class EchoGunAPI : MonoBehaviour
 
     public GameObject echoStandardPrefab;
     public GameObject echoProjectilePrefab;
+    public Vector2 gunOffset = new Vector2(2.2f, -1.1f);
     public int echoProjSpeed;
     public float echoProjDamage;
     public float echoStandardDamage;
@@ -23,7 +24,7 @@ public class EchoGunAPI : MonoBehaviour
     {
         GameObject laser = (GameObject)Instantiate(echoStandardPrefab);
         LineRenderer laserRender = laser.GetComponent<LineRenderer>();
-		Vector2 initialPos = transform.position;
+		Vector2 initialPos = (Vector2)transform.position+(Vector2)transform.TransformVector(gunOffset);
         Vector2 targetPos = aimDir;
         Vector2 laserEndPos = targetPos.normalized * 100;
 
@@ -41,17 +42,9 @@ public class EchoGunAPI : MonoBehaviour
                         laserEndPos = hit.point;
                         break;
                     }
-                    if (hit.collider.CompareTag("Enemy"))
+                    if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible"))
                     {
-                        //lower Enemy health
-                        PlayerPing.CreatePing(hit.point, 10.0f);
-                        hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
-                        laserEndPos = hit.point;
-                        break;
-                    }
-                    if (hit.collider.CompareTag("Destructible"))
-                    {
-                        //lower destructible health
+                        //lower Enemy health or Destructible object health
                         PlayerPing.CreatePing(hit.point, 10.0f);
                         hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
                         laserEndPos = hit.point;
@@ -70,24 +63,18 @@ public class EchoGunAPI : MonoBehaviour
                         laserEndPos = hit.point;
                         break;
                     }
-                    if (hit.collider.CompareTag("Enemy"))
+                    if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible"))
                     {
-                        PlayerPing.CreatePing(hit.point, 1.0f);
-                        hit.transform.root.GetComponent<Health>().Damage(echoStandardDamage);
-                        laserEndPos = hit.point;
-                        break;
-                    }
-                    if (hit.collider.CompareTag("Destructible"))
-                    {
+                        //lower Enemy health or Destructible object health
                         PlayerPing.CreatePing(hit.point, 10.0f);
-                        hit.transform.root.GetComponent<Health>().Damage(echoStandardDamage);
+                        hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
                         laserEndPos = hit.point;
                         break;
                     }
                 }
                 break;
         }
-		laserRender.SetPosition(0, this.transform.position);
+		laserRender.SetPosition(0, initialPos);
         laserRender.SetPosition(1, laserEndPos);
 
     }

@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - Enemy
   - Destructible
+  - Sound Trigger
   - TestTag1
   - TestTag2
   - TestTag3

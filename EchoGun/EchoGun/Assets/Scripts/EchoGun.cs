@@ -18,6 +18,9 @@ public class EchoGun : MonoBehaviour {
     private Animator anim;
     private bool isShooting = false;
 
+    public float shotTime = 0.25f;
+    float lastShotTime = 0;
+
 	//enum for different types of weapons
 	public enum eGun
 	{
@@ -40,8 +43,9 @@ public class EchoGun : MonoBehaviour {
 	void Update()
 	{
         UpdateAnimator();
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (lastShotTime < Time.time && Input.GetKey(KeyCode.Mouse0))
         {
+            lastShotTime = Time.time + shotTime;
             Shoot();
             isShooting = true;
         }

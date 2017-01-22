@@ -100,9 +100,10 @@ public class SimpleRollerAI : MonoBehaviour {
 
 	private void Health_onDeath()
 	{
-		//temporary until universal ping is created?
+		anim.SetBool ("Explode", true);
+		GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().screenShake (.75f);
 		PlayerPing.CreatePing(transform.position, 2.5f);
-		Destroy(gameObject);
 		health.onDeath -= Health_onDeath;
+
 	}
 }

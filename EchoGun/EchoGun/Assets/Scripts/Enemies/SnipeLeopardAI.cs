@@ -13,6 +13,8 @@ public class SnipeLeopardAI : MonoBehaviour {
     protected Vector2 shotOffset;
     [SerializeField]
     protected float speed = 5;
+    [SerializeField]
+    protected GameObject deathEffects;
 
     Rigidbody2D rigid;
     List<Navigation.Coordinate2> pathWaypoints;
@@ -57,6 +59,12 @@ public class SnipeLeopardAI : MonoBehaviour {
         switch (currentState) {
             case state.FIRING:
                 if (firingTimer > 0) {
+                    if (!GetComponentInParent<SniperSound>().WasPlayed())
+                    {
+                        if (Random.Range(0,4) == 0)
+                            GetComponentInParent<SniperSound>().playAiming();
+                        GetComponentInParent<SniperSound>().toggleWasPlayed(true);
+                    }
                     //Draw line toward target
                     enemyLaser.SetActive(true);
                     lockPosition = player.position;
@@ -66,8 +74,10 @@ public class SnipeLeopardAI : MonoBehaviour {
                 }
                 else {
                     //Fire
+                    GetComponentInParent<SniperSound>().playSniperFire();
                     enemyFlatlineProjectile = SimplePool.Spawn(enemyFlatlinePrefab, transform.TransformPoint(shotOffset), (lockPosition - (Vector2)transform.position).ToRotation());
                     laserRender.SetPosition(0, transform.position);
+                    GetComponentInParent<SniperSound>().toggleWasPlayed(false);
                     currentState = state.WAITING;
                 }
                 break;
@@ -116,6 +126,7 @@ public class SnipeLeopardAI : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D trigger) {
         if (currentState==state.PATROLLING && trigger.tag == "Sound Trigger") {
             //Check in an area around it
+            GetComponentInParent<SniperSound>().playWhatWasThat();
             Collider2D player = Physics2D.OverlapCircle(trigger.transform.position, visionCheckRadius, LayerMask.GetMask("Player"));
             //If player, do the thing
             if (player != null) {
@@ -126,7 +137,9 @@ public class SnipeLeopardAI : MonoBehaviour {
     }
 
     private void Health_onDeath() {
+        GetComponentInParent<SniperSound>().playDeath();
         Destroy(transform.root.gameObject);
         health.onDeath -= Health_onDeath;
+        SimplePool.Spawn(deathEffects);
     }
 }

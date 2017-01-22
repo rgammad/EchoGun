@@ -34,6 +34,6 @@ public class StormtrooperSound : MonoBehaviour {
 
     public void playBlasterSound()
     {
-        stormtrooperAudio.PlayOneShot(sounds[7],0.25f);
+        stormtrooperAudio.PlayOneShot(sounds[7],0.1f);
     }
 }

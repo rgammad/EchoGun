@@ -259,6 +259,16 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.9632353
       objectReference: {fileID: 0}
+    - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: echoProjSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114173073773476784, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: projectileShotTime
+      value: 0.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 573403538a7989e40a40a289250fd0da, type: 2}
   m_IsPrefabParent: 0

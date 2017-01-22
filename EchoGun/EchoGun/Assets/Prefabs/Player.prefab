@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 114941527439481048}
   - component: {fileID: 114129750149730430}
   - component: {fileID: 114836406693345444}
+  - component: {fileID: 114544997412578922}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -145,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609281733873432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.19, y: -1.08, z: 0}
+  m_LocalPosition: {x: 2.19, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4518854295162846}
@@ -213,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799273796024032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: -50, z: 0}
+  m_LocalPosition: {x: 100.1, y: -390.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4453430000325098}
@@ -287,7 +288,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -336,7 +337,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -472,7 +473,7 @@ MonoBehaviour:
   weapType: 0
   shootingSoundRange: 25
   laserShotTime: 1
-  projectileShotTime: 0.1
+  projectileShotTime: 0.07
   currentEchoType: 1
 --- !u!114 &114296843365108268
 MonoBehaviour:
@@ -522,6 +523,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundRange: 5
+--- !u!114 &114544997412578922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799273796024032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37523a3031449e44fa6ccdfd4a055c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &114710733199993250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -568,10 +581,10 @@ MonoBehaviour:
     type: 2}
   echoProjectilePrefab: {fileID: 1211702066321486, guid: bbf32f3e81686f04b962035e72269f15,
     type: 2}
-  gunOffset: {x: 2.2, y: -1.1}
-  echoProjSpeed: 50
+  gunOffset: {x: 2.2, y: 0.1}
+  echoProjSpeed: 100
   echoProjDamage: 20
-  echoStandardDamage: 10
+  echoStandardDamage: 50
   echoStandardSoundRange: 30
   echoProjSoundRange: 25
 --- !u!114 &114836406693345444
@@ -3294,7 +3307,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 78cfe52393eb60f41b4fc8394c0877d5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9191176, g: 0.5919266, b: 0.006758224, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212543275887082732
@@ -3364,7 +3377,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5b136f79427c33b42a03299f652d91ab, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.88351923, b: 0.9632353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212829520435128526

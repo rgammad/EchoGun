@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 82292532904469124}
   - component: {fileID: 114089372959328526}
   m_Layer: 0
-  m_Name: StormtrooperDeath
+  m_Name: SniperDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,4 +132,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ac4ebb20308884caf3e95d75a41510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 8300000, guid: 0a92138b8276b68469ce37c7d918268a, type: 3}
+  deathSound: {fileID: 8300000, guid: 5e2e33a84f6a3594f8ab3bdec3658190, type: 3}

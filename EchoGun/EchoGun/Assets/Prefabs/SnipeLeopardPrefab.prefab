@@ -232,6 +232,8 @@ MonoBehaviour:
   visionCheckRadius: 10
   shotOffset: {x: 0, y: 0}
   speed: 5
+  deathEffects: {fileID: 1226001133976502, guid: e617f8f17ada86e43a66a046358036d4,
+    type: 2}
 --- !u!114 &114328796342519924
 MonoBehaviour:
   m_ObjectHideFlags: 1

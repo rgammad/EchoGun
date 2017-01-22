@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Navigation))]
 public class StormtrooperAI : MonoBehaviour {
 
     [SerializeField]
@@ -21,6 +20,7 @@ public class StormtrooperAI : MonoBehaviour {
 
     Health health;
     Rigidbody2D rigid;
+    Navigation navigation;
 
     Vector2 targetPos;
 
@@ -33,12 +33,15 @@ public class StormtrooperAI : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        rigid = GetComponent<Rigidbody2D>();
+        rigid = GetComponentInParent<Rigidbody2D>();
         health = GetComponentInParent<Health>();
+        navigation = GetComponent<Navigation>();
 
         health.onDeath += Health_onDeath;
         //health.onDamage += Health_onDamage;
     }
+
+    List<Navigation.Coordinate2> pathWaypoints;
 
     // Update is called once per frame
     void Update() {
@@ -69,13 +72,40 @@ public class StormtrooperAI : MonoBehaviour {
 
         }
         else {
-            //random walk
+            //ensure we have a path
+            while(pathWaypoints == null || pathWaypoints.Count == 0) {
+                Navigation.Coordinate2 start = navigation.VectorToCoordinate(transform.position);
+                Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+
+                //ensure path isn't too long
+                while ((destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
+                    destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+                }
+                pathWaypoints = navigation.pathToPlayer(start, destination);
+                /*
+                 * For path debugging
+                 * 
+                if(pathWaypoints != null) {
+                    LineRenderer rend = GetComponent<LineRenderer>();
+                    rend.numPositions = pathWaypoints.Count;
+                    for(int i = 0; i < pathWaypoints.Count; i++) {
+                        rend.SetPosition(i, pathWaypoints[i].toVector2());
+                    }
+                }
+                */
+            }
+            rigid.MovePosition(Vector2.MoveTowards(transform.position, pathWaypoints[0].toVector2(), speed * Time.deltaTime));
+            if(Vector2.Distance(transform.position, pathWaypoints[0].toVector2()) < 0.33f) {
+                pathWaypoints.RemoveAt(0);
+            }
         }
 
         //rigid.velocity = Vector2.ClampMagnitude(Vector2.MoveTowards(rigid.velocity, speed * (targetPos - (Vector2)transform.position + new Vector2(x, y)), maxSpeed * accel * Time.deltaTime), maxSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D trigger) {
+        Debug.Log(trigger);
+        Debug.Log(trigger.tag);
         if (trigger.tag == "Sound Trigger") {
             targetPos = trigger.transform.position;
             firingEndTime = Time.time + firingDuration;

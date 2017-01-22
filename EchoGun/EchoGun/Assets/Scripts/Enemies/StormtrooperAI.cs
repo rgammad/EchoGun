@@ -22,6 +22,8 @@ public class StormtrooperAI : MonoBehaviour {
     Rigidbody2D rigid;
     Navigation navigation;
 
+    LayerMask stageBoundary;
+
     Vector2 targetPos;
 
     [SerializeField]
@@ -39,6 +41,8 @@ public class StormtrooperAI : MonoBehaviour {
 
         health.onDeath += Health_onDeath;
         //health.onDamage += Health_onDamage;
+
+        stageBoundary = LayerMask.GetMask("StageBoundary");
     }
 
     List<Navigation.Coordinate2> pathWaypoints;
@@ -77,12 +81,12 @@ public class StormtrooperAI : MonoBehaviour {
                 Navigation.Coordinate2 start = navigation.VectorToCoordinate(transform.position);
                 Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
 
-                //ensure path isn't too long
-                /*
-                while ((destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
+                //ensure path isn't too long, and destination is in the stage
+
+                while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
                     destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
                 }
-                */
+                
 
                 pathWaypoints = navigation.pathToPlayer(start, destination);
                 /*

@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 212314146406388320}
   - component: {fileID: 61164034724358222}
   - component: {fileID: 114633269546935858}
-  m_Layer: 0
+  - component: {fileID: 50339061698759026}
+  m_Layer: 11
   m_Name: FlatlineProjectilePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,6 +43,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50339061698759026
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1909749543670176}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61164034724358222
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -67,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62ee4acfdf9e5b48b6904b2fa80598b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projSpeed: 10
+  projSpeed: 100
   projDamage: 50
 --- !u!212 &212314146406388320
 SpriteRenderer:

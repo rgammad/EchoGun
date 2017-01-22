@@ -25,11 +25,11 @@ TagManager:
   - Enemy
   - EnemyProjectile
   - 
+  - Wall
+  - WallOnly
   - 
-  - 
-  - 
-  - 
-  - 
+  - SoundListener
+  - SoundNoise
   - 
   - 
   - 

@@ -7,10 +7,13 @@ public class EchoGun : MonoBehaviour {
 
 	PlayerMovement playerMovement;
 	EchoGunAPI egAPI;
-	public WeaponType weapType;
+
 	GameObject muzzle;
 	GameObject flash1;
 	GameObject flash2;
+
+    public WeaponType weapType;
+    public float shootingSoundRange = 25.0f;
 
     private Animator anim;
     private bool isShooting = false;
@@ -53,6 +56,7 @@ public class EchoGun : MonoBehaviour {
 
 	private void Shoot()
 	{
+        PlayerPing.CreatePing(transform.position, shootingSoundRange);
 		switch (currentEchoType)
 		{
 		case eGun.STANDARD:

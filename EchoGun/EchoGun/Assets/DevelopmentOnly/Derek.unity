@@ -263,7 +263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e8d7360ec98174c9c1a061c84b2640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1721616639}
 --- !u!4 &174130825
 Transform:
   m_ObjectHideFlags: 0
@@ -492,6 +491,84 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98da91b2b5d36534d93d3dd364485c36, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1567828268
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4421546801028156, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421546801028156, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421546801028156, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421546801028156, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421546801028156, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421546801028156, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421546801028156, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421546801028156, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757257194635462, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_Name
+      value: StormTrooper
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421546801028156, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421546801028156, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114903642190277096, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+    - {fileID: 95560444396811894, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1567828269 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1757257194635462, guid: eafb6b7de83074c5889db186eae0d3ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 1567828268}
+--- !u!114 &1567828270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1567828269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0599a59c0e737bb4ba9855046d3977f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1510696620244360, guid: 534adae6bba0ff94fbfb02c4a31b1e9f,
+    type: 2}
+  speed: 5
+  firingDuration: 3
+  timePerShot: 0.1
+  shotSpread: 10
 --- !u!4 &1721616639 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4955230706942388, guid: 573403538a7989e40a40a289250fd0da,

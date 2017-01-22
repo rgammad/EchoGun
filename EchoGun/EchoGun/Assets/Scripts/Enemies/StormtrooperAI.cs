@@ -78,9 +78,12 @@ public class StormtrooperAI : MonoBehaviour {
                 Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
 
                 //ensure path isn't too long
+                /*
                 while ((destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
                     destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
                 }
+                */
+
                 pathWaypoints = navigation.pathToPlayer(start, destination);
                 /*
                  * For path debugging
@@ -95,6 +98,7 @@ public class StormtrooperAI : MonoBehaviour {
                 */
             }
             rigid.MovePosition(Vector2.MoveTowards(transform.position, pathWaypoints[0].toVector2(), speed * Time.deltaTime));
+            rigid.MoveRotation((pathWaypoints[0].toVector2() - (Vector2)(transform.position)).ToAngle());
             if(Vector2.Distance(transform.position, pathWaypoints[0].toVector2()) < 0.33f) {
                 pathWaypoints.RemoveAt(0);
             }

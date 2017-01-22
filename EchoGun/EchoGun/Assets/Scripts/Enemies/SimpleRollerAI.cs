@@ -62,11 +62,13 @@ public class SimpleRollerAI : MonoBehaviour {
 	void FixedUpdate() {
 		if (following) {
 			rigid.MoveRotation (Quaternion.Slerp (transform.rotation, targetPos.ToRotation (), rotationSpeed).eulerAngles.z);
+            GetComponent<RollerSounds>().playRollingSound();
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.CompareTag("Player")) {
+            GetComponent<RollerSounds>().playExplosion();
 			Explode ();
 			PlayerPing.CreatePing(transform.position, explodeWaveAmt);
 			player.GetComponent<Health> ().Damage (explodeDamage);

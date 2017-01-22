@@ -4,7 +4,11 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SimpleRollerAI : MonoBehaviour {
-	public float radius;
+
+    [SerializeField]
+    protected GameObject deathEffects;
+
+    public float radius;
 	public float explodeDist;
 	public float explodeDamage;
 	public float explodeWaveAmt;
@@ -109,6 +113,7 @@ public class SimpleRollerAI : MonoBehaviour {
 		Explode ();
 		PlayerPing.CreatePing(transform.position, explodeWaveAmt);
 		health.onDeath -= Health_onDeath;
+        SimplePool.Spawn(deathEffects);
 
-	}
+    }
 }

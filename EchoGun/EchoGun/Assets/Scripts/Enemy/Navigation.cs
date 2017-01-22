@@ -5,9 +5,6 @@ using System.Collections.Generic;
 
 public class Navigation : MonoBehaviour {
 
-    [SerializeField]
-    Transform player;
-
     const int navigationWidth = 100;
     const int navigationHeight = 100;
 
@@ -65,22 +62,6 @@ public class Navigation : MonoBehaviour {
     /// </summary>
     Dictionary<Coordinate2, PathfindingNode> traversedNodes = new Dictionary<Coordinate2, PathfindingNode>();
 
-    float nextTime = 1;
-
-    void Update() {
-
-        if (Time.time > nextTime) {
-            nextTime += 2;
-
-            List<Coordinate2> path = pathToPlayer(new Coordinate2(45, 30), VectorToCoordinate(player.position));
-            LineRenderer rend = GetComponent<LineRenderer>();
-            rend.numPositions = path.Count;
-            for (int i = 0; i < path.Count; i++) {
-                rend.SetPosition(i, new Vector3(path[i].x, path[i].y, 0));
-            }
-        }
-    }
-
     int navigationDataAtPoint(int x, int y) {
         return navigationData[x + (100 * y)];
     }
@@ -102,6 +83,8 @@ public class Navigation : MonoBehaviour {
     private List<Coordinate2> calculatePath(Coordinate2 source, Coordinate2 destination) {
         Assert.IsTrue(navigationPointWalkable(source));
         Assert.IsTrue(navigationPointWalkable(destination));
+        traversedNodes.Clear();
+        frontierQueue.Clear();
 
         //check if they're the same
         if (source.Equals(destination)) {
@@ -183,10 +166,5 @@ public class Navigation : MonoBehaviour {
             float priority = node.Cost + Mathf.Abs(destination.x - node.Coordinate.x) + Mathf.Abs(destination.y - node.Coordinate.y);
             frontierQueue.Enqueue(node, priority);
         }
-    }
-
-    private void LateUpdate() {
-        traversedNodes.Clear();
-        frontierQueue.Clear();
     }
 }

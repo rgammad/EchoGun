@@ -39,7 +39,7 @@ public class SnipeLeopardAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        enemyLaser = (GameObject)Instantiate(enemyLaserPrefab);
+        enemyLaser = transform.root.FindChild("EnemyLaserPrefab").gameObject;
         laserRender = enemyLaser.GetComponent<LineRenderer>();
         enemyLaser.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -139,6 +139,7 @@ public class SnipeLeopardAI : MonoBehaviour {
 
     private void Health_onDeath() {
         GetComponentInParent<SniperSound>().playDeath();
+        enemyLaser.SetActive(false);
         Destroy(transform.root.gameObject);
         health.onDeath -= Health_onDeath;
         SimplePool.Spawn(deathEffects);

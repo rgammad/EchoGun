@@ -17,6 +17,8 @@ public class EchoGunAPI : MonoBehaviour
     public int echoProjSpeed;
     public float echoProjDamage;
     public float echoStandardDamage;
+    public float echoStandardSoundRange = 30.0f;
+    public float echoProjSoundRange = 25.0f;
 
 
 
@@ -38,14 +40,14 @@ public class EchoGunAPI : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("Wall"))
                     {
-                        PlayerPing.CreatePing(hit.point, 10.0f);
+                        PlayerPing.CreatePing(hit.point, echoStandardSoundRange);
                         laserEndPos = hit.point;
                         break;
                     }
                     if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible"))
                     {
                         //lower Enemy health or Destructible object health
-                        PlayerPing.CreatePing(hit.point, 10.0f);
+                        PlayerPing.CreatePing(hit.point, echoStandardSoundRange);
                         hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
                         laserEndPos = hit.point;
                         break;
@@ -53,25 +55,6 @@ public class EchoGunAPI : MonoBehaviour
                 }
                 break;
             case (WeaponType.WEAPON_EXPLOSION):
-                break;
-            default:
-                foreach (RaycastHit2D hit in hitList)
-                {
-                    if (hit.collider.CompareTag("Wall"))
-                    {
-                        PlayerPing.CreatePing(hit.point, 10.0f);
-                        laserEndPos = hit.point;
-                        break;
-                    }
-                    if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible"))
-                    {
-                        //lower Enemy health or Destructible object health
-                        PlayerPing.CreatePing(hit.point, 10.0f);
-                        hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
-                        laserEndPos = hit.point;
-                        break;
-                    }
-                }
                 break;
         }
 		laserRender.SetPosition(0, (Vector2)transform.TransformPoint(gunOffset));
@@ -87,7 +70,7 @@ public class EchoGunAPI : MonoBehaviour
 
         ProjectileController pc = echoProjectilePrefab.GetComponent<ProjectileController>();
         pc.projSpeed = echoProjSpeed;
-
+        pc.soundRange = echoProjSoundRange;
         pc.weapType = type;
 
         SimplePool.Spawn(echoProjectilePrefab, (Vector2)transform.TransformPoint(gunOffset), (targetPos - initialPos).ToRotation());

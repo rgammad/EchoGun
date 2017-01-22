@@ -7,13 +7,19 @@ public class EchoGun : MonoBehaviour {
 
 	PlayerMovement playerMovement;
 	EchoGunAPI egAPI;
-	public WeaponType weapType;
+
 	GameObject muzzle;
 	GameObject flash1;
 	GameObject flash2;
 
+    public WeaponType weapType;
+    public float shootingSoundRange = 25.0f;
+
     private Animator anim;
     private bool isShooting = false;
+
+    public float shotTime = 0.25f;
+    float lastShotTime = 0;
 
 	//enum for different types of weapons
 	public enum eGun
@@ -37,8 +43,9 @@ public class EchoGun : MonoBehaviour {
 	void Update()
 	{
         UpdateAnimator();
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (lastShotTime < Time.time && Input.GetKey(KeyCode.Mouse0))
         {
+            lastShotTime = Time.time + shotTime;
             Shoot();
             isShooting = true;
         }
@@ -53,6 +60,7 @@ public class EchoGun : MonoBehaviour {
 
 	private void Shoot()
 	{
+        PlayerPing.CreatePing(transform.position, shootingSoundRange);
 		switch (currentEchoType)
 		{
 		case eGun.STANDARD:

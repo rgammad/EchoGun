@@ -52,6 +52,7 @@ public class BoostAbility : MonoBehaviour {
     {
         sfx = GetComponent<AudioController>();
         vfx = GetComponent<ParticleSystem>();
+        ParticleSystem.MainModule main = vfx.main;
         decayDuration = Mathf.Max(speedDecayDuration, accelNerfDecayDuration);
     }
 
@@ -78,6 +79,7 @@ public class BoostAbility : MonoBehaviour {
                     Reset();
                 }
 
+                vfx.Play();
                 activationRoutine = StartCoroutine(Boost(boostDirection));
             }
 

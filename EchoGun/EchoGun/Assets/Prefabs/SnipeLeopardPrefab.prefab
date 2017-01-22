@@ -40,6 +40,8 @@ GameObject:
   - component: {fileID: 58403293308349516}
   - component: {fileID: 114328796342519924}
   - component: {fileID: 95818085373520146}
+  - component: {fileID: 82464835566692562}
+  - component: {fileID: 114765930380524950}
   m_Layer: 10
   m_Name: SnipeLeopardPrefab
   m_TagString: Enemy
@@ -198,6 +200,86 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 20
+--- !u!82 &82464835566692562
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061854446641220}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95818085373520146
 Animator:
   serializedVersion: 3
@@ -257,6 +339,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e8d7360ec98174c9c1a061c84b2640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114765930380524950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061854446641220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8fed73208e88e448e0597070b4a477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 5e2e33a84f6a3594f8ab3bdec3658190, type: 3}
+  - {fileID: 8300000, guid: f9a684273f3a4f3489a0b175ff9c2701, type: 3}
+  - {fileID: 8300000, guid: d594c50c3e90b834d8c196ed3f24f2e8, type: 3}
+  - {fileID: 8300000, guid: 0fa3d4bf24664d8459c5b627192e7431, type: 3}
+  - {fileID: 8300000, guid: cae86a83d8f3c47448f03779f5e82cf7, type: 3}
+  - {fileID: 8300000, guid: 1be35c5ab4712d8429ac43c36b081076, type: 3}
+  - {fileID: 8300000, guid: db3b99ce860c19446968298e17fb5ced, type: 3}
+  - {fileID: 8300000, guid: 885b8f3afe6538146ad9bb59f357a6b1, type: 3}
+  - {fileID: 8300000, guid: c947d984019de2c4785c9ad30897055c, type: 3}
 --- !u!120 &120837208262517182
 LineRenderer:
   m_ObjectHideFlags: 1

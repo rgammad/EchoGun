@@ -11,7 +11,8 @@ public class Bonk : MonoBehaviour
         GetComponent<Health>().onDamage += Bonk_onDamage;
     }
 
-    private void Bonk_onDamage(float amount, int playerID) {
+    private void Bonk_onDamage(float amount) {
+        Debug.Log("Hit");
         PlayerPing.CreatePing(transform.position, soundRange);
     }
 

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 // add this script to anything that should have health and be damageable
 public class Health : MonoBehaviour {
 
-    public delegate void OnDamage(float amount, int playerID);
-    public delegate void OnHeal(float amount, int playerID);
+    public delegate void OnDamage(float amount);
+    public delegate void OnHeal(float amount);
 
     public delegate void HealthChanged();
 
@@ -68,11 +68,13 @@ public class Health : MonoBehaviour {
 
     public virtual float Damage(float amount) {
         Assert.IsTrue(amount >= 0);
+        onDamage(amount);
         return SetHealth(health - amount);
     }
 
     public virtual float Heal(float amount) {
         Assert.IsTrue(amount >= 0);
+        onHeal(amount);
         return SetHealth(health + amount);
     }
 

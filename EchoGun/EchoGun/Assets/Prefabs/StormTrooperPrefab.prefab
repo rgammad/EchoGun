@@ -303,6 +303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1510696620244360, guid: 534adae6bba0ff94fbfb02c4a31b1e9f,
     type: 2}
+  deathEffects: {fileID: 1226001133976502, guid: e75e16b63faa9b646806bc9996264d7d,
+    type: 2}
   speed: 5
   firingDuration: 3
   timePerShot: 0.1

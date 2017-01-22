@@ -31,7 +31,7 @@ public class playerSounds : MonoBehaviour {
 
     public void playDash()
     {
-        playerAudio.PlayOneShot(sounds[1]);
+        playerAudio.PlayOneShot(sounds[1],0.20f);
     }
 
     public void playDeath()
@@ -41,12 +41,12 @@ public class playerSounds : MonoBehaviour {
 
     public void playLaserSound()
     {
-        playerAudio.PlayOneShot(sounds[3]);
+        playerAudio.PlayOneShot(sounds[3],0.1f);
     }
 
     public void playHitscan()
     {
-        playerAudio.PlayOneShot(sounds[4]);
+        playerAudio.PlayOneShot(sounds[4],0.25f);
     }
 
     public void playBonk()

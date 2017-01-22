@@ -9,6 +9,9 @@ public class StormtrooperAI : MonoBehaviour {
     protected GameObject bulletPrefab;
 
     [SerializeField]
+    protected GameObject deathEffects;
+
+    [SerializeField]
     protected float speed = 5;
 
     /// <summary>
@@ -123,7 +126,7 @@ public class StormtrooperAI : MonoBehaviour {
     }
 
     
-    private void Health_onDamage(float amount, int playerID) {
+    private void Health_onDamage(float amount) {
         //PlayerPing.CreatePing(transform.position, 1.0f);
         
     }
@@ -132,8 +135,10 @@ public class StormtrooperAI : MonoBehaviour {
     private void Health_onDeath() {
         //temporary until universal ping is created?
         //PlayerPing.CreatePing(transform.position, 2.5f);
+
         GetComponentInParent<StormtrooperSound>().playDeath();
         Destroy(transform.root.gameObject);
         health.onDeath -= Health_onDeath;
+        SimplePool.Spawn(deathEffects);
     }
 }

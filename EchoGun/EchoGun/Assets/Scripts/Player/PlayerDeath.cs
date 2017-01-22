@@ -17,7 +17,7 @@ public class PlayerDeath : MonoBehaviour {
         health.onDamage += Health_onDamage;
 	}
 
-    private void Health_onDamage(float amount, int playerID)
+    private void Health_onDamage(float amount)
     {
         //Debug.Log("I got into on damage");
         GetComponent<playerSounds>().playDamage();

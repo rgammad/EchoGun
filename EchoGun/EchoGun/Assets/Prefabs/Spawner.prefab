@@ -55,5 +55,6 @@ MonoBehaviour:
   - {fileID: 1757257194635462, guid: eafb6b7de83074c5889db186eae0d3ac, type: 2}
   - {fileID: 1061854446641220, guid: f7518e3cd58807f40a5d0d9275770222, type: 2}
   - {fileID: 1061854446641220, guid: 51d3badd695758e4cbc68570d05c0dff, type: 2}
+  enemyCounts: 030000000200000001000000
   enemyRespawnTime: 10
   enemiesActiveMultiplier: 0.1

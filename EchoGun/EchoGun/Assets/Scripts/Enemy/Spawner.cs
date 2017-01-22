@@ -9,6 +9,9 @@ public class Spawner : MonoBehaviour {
     protected GameObject[] enemyPrefabs;
 
     [SerializeField]
+    protected int[] enemyCounts;
+
+    [SerializeField]
     protected float enemyRespawnTime = 10;
 
     /// <summary>
@@ -17,11 +20,12 @@ public class Spawner : MonoBehaviour {
     [SerializeField]
     float enemiesActiveMultiplier = 0.1f;
 
-    int numEnemiesActive = 0;
+    float numEnemiesActive = 0;
     LayerMask stageBoundary;
 
     void Start () {
         stageBoundary = LayerMask.GetMask("StageBoundary");
+        Assert.IsTrue(enemyPrefabs.Length == enemyCounts.Length);
     }
 	
 	void Update () {
@@ -39,9 +43,25 @@ public class Spawner : MonoBehaviour {
             location = new Vector2(Random.value * Navigation.navigationWidth, -Random.value * Navigation.navigationHeight);
         }
 
+        //choose which enemy type to spawn
         int enemyIndex = Random.Range(0, enemyPrefabs.Length);
 
-        GameObject enemy = Instantiate(enemyPrefabs[enemyIndex]);
-        enemy.transform.position = location;
+        //spawn a group of enemies
+        for (int i = 0; i < enemyCounts[enemyIndex]; i++) {
+            GameObject enemy = Instantiate(enemyPrefabs[enemyIndex]);
+
+
+            SpawnTracker spawnTracker = enemy.AddComponent<SpawnTracker>();
+            //set up death tracking
+            spawnTracker.source = this;
+            spawnTracker.weight = 1f / enemyCounts[enemyIndex];
+            //move to location
+            enemy.transform.position = location;
+        }
+    }
+
+    public void EnemyDeath(float weight) {
+        Debug.Log(numEnemiesActive);
+        numEnemiesActive-= weight;
     }
 }

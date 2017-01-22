@@ -18,6 +18,7 @@ public class SnipeLeopardAI : MonoBehaviour {
     List<Navigation.Coordinate2> pathWaypoints;
     Health health;
     Navigation navigation;
+    LayerMask stageBoundary;
 
     private enum state {
         FIRING,
@@ -47,7 +48,9 @@ public class SnipeLeopardAI : MonoBehaviour {
 
         currentState = state.PATROLLING;
         firingTimer = 0;
-	}
+
+        stageBoundary = LayerMask.GetMask("StageBoundary");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -82,10 +85,13 @@ public class SnipeLeopardAI : MonoBehaviour {
                     Navigation.Coordinate2 start = navigation.VectorToCoordinate(transform.position);
                     Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
 
-                    ////ensure path isn't too long
-                    //while ((destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
-                    //    destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
-                    //}
+                    //ensure path isn't too long, and destination is in the stage
+
+                    while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null) {// || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
+                        destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+                    }
+
+
                     pathWaypoints = navigation.pathToPlayer(start, destination);
                     /*
                      * For path debugging

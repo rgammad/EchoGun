@@ -43,8 +43,6 @@ public class ProjectileController : MonoBehaviour, ISpawnable
             //        SimplePool.Despawn(this.gameObject);
             //    }
             //    break;
-            default:
-                break;
         }
     }
 

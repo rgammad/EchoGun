@@ -12,7 +12,13 @@ public class Spawner : MonoBehaviour {
     protected int[] enemyCounts;
 
     [SerializeField]
+    protected GameObject destructablePrefab;
+
+    [SerializeField]
     protected float enemyRespawnTime = 10;
+
+    [SerializeField]
+    protected int numDestructables = 40;
 
     /// <summary>
     /// Multiplied by Time.timeSinceLevelLoad to determine how many enemies should be active.
@@ -21,6 +27,7 @@ public class Spawner : MonoBehaviour {
     float enemiesActiveMultiplier = 0.1f;
 
     float numEnemiesActive = 0;
+    int currentDestructables = 0;
     LayerMask stageBoundary;
 
     void Start () {
@@ -33,6 +40,25 @@ public class Spawner : MonoBehaviour {
         while(numEnemiesActive < Mathf.Ceil(Time.timeSinceLevelLoad * enemiesActiveMultiplier)) {
             numEnemiesActive++;
             Callback.FireAndForget(SpawnEnemy, enemyRespawnTime, this);
+        }
+
+        while (currentDestructables < numDestructables) {
+            currentDestructables++;
+            Vector2 location = new Vector2(Random.value * Navigation.navigationWidth, -Random.value * Navigation.navigationHeight);
+            //while location is not in the walkable map
+            while (Physics2D.OverlapPoint(location, stageBoundary) == null) {
+                location = new Vector2(Random.value * Navigation.navigationWidth, -Random.value * Navigation.navigationHeight);
+            }
+
+            GameObject destructable = Instantiate(destructablePrefab);
+
+
+            DestructibleTracker destructibleTracker = destructable.AddComponent<DestructibleTracker>();
+            //set up death tracking
+            destructibleTracker.source = this;
+            //move to location
+            destructable.transform.position = location;
+
         }
 	}
 
@@ -63,5 +89,9 @@ public class Spawner : MonoBehaviour {
     public void EnemyDeath(float weight) {
         Debug.Log(numEnemiesActive);
         numEnemiesActive-= weight;
+    }
+
+    public void DestructibleDeath() {
+        numDestructables--;
     }
 }

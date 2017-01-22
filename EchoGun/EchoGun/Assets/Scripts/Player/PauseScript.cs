@@ -25,7 +25,11 @@ public class PauseScript : MonoBehaviour {
 		if (isPause) {
 			GUIStyle centeredStyle = GUI.skin.GetStyle("Label");
 			centeredStyle.alignment = TextAnchor.UpperCenter;
-			GUI.Label (new Rect (Screen.width/2-50, Screen.height/2-25, 100, 50), "BLAH", centeredStyle);
+			GUI.Label (new Rect (Screen.width/2-50, Screen.height/2-25, 100, 50), "Paused", centeredStyle);
+			if (GUI.Button(new Rect(Screen.width/2-50, Screen.height/2-100, 100, 50), "Restart"))
+				Debug.Log("Clicked the button with text");
+			if (GUI.Button(new Rect(Screen.width/2-50, Screen.height/2-150, 100, 50), "Main Menu"))
+				Debug.Log("Clicked the button with text");
 		}
 	}
 }

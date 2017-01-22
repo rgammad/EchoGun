@@ -19,6 +19,7 @@ public class PlayerDeath : MonoBehaviour {
 
     private void Health_onDamage(float amount, int playerID)
     {
+        //Debug.Log("I got into on damage");
         GetComponent<playerSounds>().playDamage();
     }
 

@@ -84,10 +84,12 @@ public class EchoGun : MonoBehaviour {
 		{
 		case eGun.STANDARD:
 			muzzleFlash(eGun.STANDARD);
+            GetComponent<playerSounds>().playHitscan();
 			egAPI.echoStandard(weapType);
 			break;
 		case eGun.PROJECTILE:
 			muzzleFlash(eGun.PROJECTILE);
+            GetComponent<playerSounds>().playLaserSound();
 			egAPI.echoProjectile(weapType);
 			break;
 		default:

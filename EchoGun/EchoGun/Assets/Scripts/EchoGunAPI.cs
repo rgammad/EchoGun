@@ -67,6 +67,7 @@ public class EchoGunAPI : MonoBehaviour
         }
 		laserRender.SetPosition(0, (Vector2)transform.TransformPoint(gunOffset));
         laserRender.SetPosition(1, laserEndPos);
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(0.2f, 0.1f);
 
     }
 
@@ -82,6 +83,8 @@ public class EchoGunAPI : MonoBehaviour
 
         Quaternion targetRotation = (targetPos - initialPos).ToRotation();
         targetRotation = targetRotation * Quaternion.AngleAxis(shotSpread * ((2 * Random.value) - 1), Vector3.forward);
+
+        Camera.main.GetComponent<CameraShakeScript>().screenShake(0.1f, 0.1f);
 
         SimplePool.Spawn(echoProjectilePrefab, (Vector2)transform.TransformPoint(gunOffset), targetRotation);
     }

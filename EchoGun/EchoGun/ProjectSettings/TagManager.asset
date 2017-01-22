@@ -24,7 +24,7 @@ TagManager:
   - PlayerProjectile
   - Enemy
   - EnemyProjectile
-  - 
+  - SniperProjectile
   - Wall
   - WallOnly
   - 

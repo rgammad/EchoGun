@@ -15,7 +15,9 @@ public class DeathAudio : MonoBehaviour, ISpawnable {
     void ISpawnable.Spawn()
     {
         sound.PlayOneShot(deathSound);
-        particles.Play();
+        if (particles != null) {
+            particles.Play();
+        }
         Callback.FireAndForget(() => SimplePool.Despawn(this.transform.root.gameObject), deathSound.length, this);
     }
 

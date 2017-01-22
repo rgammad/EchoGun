@@ -17,6 +17,7 @@ public class PlayerDeath : MonoBehaviour {
 	}
 
     private void Health_onDeath() {
+        GetComponent<playerSounds>().playDeath();
         health.Heal(9999);
 
         canvasFlash.Flash();

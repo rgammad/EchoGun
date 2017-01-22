@@ -64,9 +64,9 @@ public class PlayerMovement : MonoBehaviour {
         distanceTravelled += (previousPos - (Vector2)transform.position).magnitude;
         previousPos = transform.position;
 
-        while(distanceTravelled > 1.0f)
+        while(distanceTravelled > 10.0f)
         {
-            distanceTravelled -= 1.0f;
+            distanceTravelled -= 10.0f;
             //play sound
             GetComponent<playerSounds>().playFootstep();
         }

@@ -11,9 +11,13 @@ public class SnipeLeopardAI : MonoBehaviour {
     protected float visionCheckRadius = 10;
     [SerializeField]
     protected Vector2 shotOffset;
+    [SerializeField]
+    protected float speed = 5;
 
     Health health;
     Rigidbody2D rigid;
+    List<Navigation.Coordinate2> pathWaypoints;
+    Navigation navigation;
 
     private enum state {
         FIRING,
@@ -39,6 +43,7 @@ public class SnipeLeopardAI : MonoBehaviour {
 
         health = GetComponent<Health>();
         rigid = GetComponent<Rigidbody2D>();
+        navigation = GetComponent<Navigation>();
 
         currentState = state.PATROLLING;
         firingTimer = 0;
@@ -72,7 +77,32 @@ public class SnipeLeopardAI : MonoBehaviour {
                 }
                 break;
             case state.PATROLLING:
-                //random patrol
+                //ensure we have a path
+                while (pathWaypoints == null || pathWaypoints.Count == 0) {
+                    Navigation.Coordinate2 start = navigation.VectorToCoordinate(transform.position);
+                    Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+
+                    //ensure path isn't too long
+                    while ((destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
+                        destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+                    }
+                    pathWaypoints = navigation.pathToPlayer(start, destination);
+                    /*
+                     * For path debugging
+                     * 
+                    if(pathWaypoints != null) {
+                        LineRenderer rend = GetComponent<LineRenderer>();
+                        rend.numPositions = pathWaypoints.Count;
+                        for(int i = 0; i < pathWaypoints.Count; i++) {
+                            rend.SetPosition(i, pathWaypoints[i].toVector2());
+                        }
+                    }
+                    */
+                }
+                rigid.MovePosition(Vector2.MoveTowards(transform.position, pathWaypoints[0].toVector2(), speed * Time.deltaTime));
+                if (Vector2.Distance(transform.position, pathWaypoints[0].toVector2()) < 0.33f) {
+                    pathWaypoints.RemoveAt(0);
+                }
                 break;
         }
     }

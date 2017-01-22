@@ -20523,15 +20523,15 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 0
     FileId: 4
-    Sprite: {fileID: 21300000, guid: e2f2824d768bd4447a7118b468a9e03e, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 0
     FileId: 5
     Sprite: {fileID: 0}
-    Sound: {fileID: 8300000, guid: 9e95f404f4fff0e47bd78f3f7a4088cd, type: 3}
+    Sound: {fileID: 0}
   - FolderId: 1
     FileId: 0
-    Sprite: {fileID: 21300000, guid: f5429c9018bb49c479703d918f89240e, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 1
     FileId: 1
@@ -20539,11 +20539,11 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 1
     FileId: 2
-    Sprite: {fileID: 21300000, guid: d45d7b6d0c46b86449ab7a1020793e3a, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 1
     FileId: 3
-    Sprite: {fileID: 21300000, guid: f7f96a5a04c34ae4fb3df7fa986a2996, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 1
     FileId: 4
@@ -20571,7 +20571,7 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 1
     FileId: 10
-    Sprite: {fileID: 21300000, guid: d7ff701ade536e64e8e83cc5597d157f, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 1
     FileId: 11
@@ -20583,7 +20583,7 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 2
     FileId: 0
-    Sprite: {fileID: 21300000, guid: dc7d9b615fd5afd47aa71708616059ef, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 2
     FileId: 1
@@ -20611,15 +20611,15 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 2
     FileId: 7
-    Sprite: {fileID: 21300000, guid: fc133f0a7d39d2741a9bd0b198cc0d09, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 2
     FileId: 8
-    Sprite: {fileID: 21300000, guid: eb6881afd4767984896ada28e27ca5bc, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 2
     FileId: 9
-    Sprite: {fileID: 21300000, guid: ebdbabe13d20a1b42b96277b4998aade, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 2
     FileId: 10
@@ -20663,7 +20663,7 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 3
     FileId: 8
-    Sprite: {fileID: 21300000, guid: fb83a5efd148c824e8b68046e250756c, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 3
     FileId: 9
@@ -20691,7 +20691,7 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 3
     FileId: 15
-    Sprite: {fileID: 21300000, guid: f10e6922b872f164cbdbf3f8bb826256, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 3
     FileId: 16
@@ -20707,7 +20707,7 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 3
     FileId: 19
-    Sprite: {fileID: 21300000, guid: d3a8973b0d72a7a4f88c368288d3bc20, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 3
     FileId: 20
@@ -20723,7 +20723,7 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 4
     FileId: 0
-    Sprite: {fileID: 21300000, guid: fbc4d2abf3f6e084cac6dad2f5e413fb, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 4
     FileId: 1
@@ -20743,7 +20743,7 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 4
     FileId: 5
-    Sprite: {fileID: 21300000, guid: f87e2bbb3b75ea640ab23b935f93883f, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 4
     FileId: 6
@@ -20755,7 +20755,7 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 4
     FileId: 8
-    Sprite: {fileID: 21300000, guid: e8f304309dce7ad4c87e19fd0be78f85, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 5
     FileId: 0
@@ -20775,7 +20775,7 @@ MonoBehaviour:
     Sound: {fileID: 0}
   - FolderId: 5
     FileId: 4
-    Sprite: {fileID: 21300000, guid: e4d5474efca380642a7cbf34612b0b6d, type: 3}
+    Sprite: {fileID: 0}
     Sound: {fileID: 0}
   - FolderId: 5
     FileId: 5

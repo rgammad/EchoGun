@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour {
     protected int[] enemyCounts;
 
     [SerializeField]
-    protected GameObject destructablePrefab;
+    protected GameObject[] destructablePrefabs;
 
     [SerializeField]
     protected float enemyRespawnTime = 10;
@@ -50,7 +50,9 @@ public class Spawner : MonoBehaviour {
                 location = new Vector2(Random.value * Navigation.navigationWidth, -Random.value * Navigation.navigationHeight);
             }
 
-            GameObject destructable = Instantiate(destructablePrefab);
+            //choose which enemy type to spawn
+            int destructibleIndex = Random.Range(0, destructablePrefabs.Length);
+            GameObject destructable = Instantiate(destructablePrefabs[destructibleIndex]);
 
 
             DestructibleTracker destructibleTracker = destructable.AddComponent<DestructibleTracker>();

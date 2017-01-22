@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 82292532904469124}
   - component: {fileID: 114089372959328526}
   m_Layer: 0
-  m_Name: StormtrooperDeath
+  m_Name: SniperDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

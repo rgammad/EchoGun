@@ -71,9 +71,11 @@ public class SimpleRollerAI : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().screenShake (.75f);
 			PlayerPing.CreatePing(transform.position, explodeWaveAmt);
 			player.GetComponent<Health> ().Damage (explodeDamage);
-			health.Kill ();
-			Destroy (this.gameObject);
 		}
+	}
+
+	public void Die() {
+		Destroy (this.gameObject);
 	}
 
 

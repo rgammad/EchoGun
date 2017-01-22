@@ -53,4 +53,9 @@ public class playerSounds : MonoBehaviour {
     {
         playerAudio.PlayOneShot(sounds[5]);
     }
+
+    public void playDamage()
+    {
+        playerAudio.PlayOneShot(sounds[6]);
+    }
 }

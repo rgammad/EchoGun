@@ -86,7 +86,7 @@ public class StormtrooperAI : MonoBehaviour {
 
                 //ensure path isn't too long, and destination is in the stage
 
-                while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null) {// || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
+                while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null || !navigation.navigationPointWalkable(destination)) {// || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
                     destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
                 }
                 

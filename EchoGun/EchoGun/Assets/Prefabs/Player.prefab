@@ -582,6 +582,7 @@ MonoBehaviour:
   echoProjectilePrefab: {fileID: 1211702066321486, guid: bbf32f3e81686f04b962035e72269f15,
     type: 2}
   gunOffset: {x: 2.2, y: 0.1}
+  shotSpread: 3
   echoProjSpeed: 100
   echoProjDamage: 20
   echoStandardDamage: 50

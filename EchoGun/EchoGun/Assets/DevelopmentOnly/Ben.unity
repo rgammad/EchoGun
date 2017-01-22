@@ -180,45 +180,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114173073773476784, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: weapType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114173073773476784, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: currentEchoType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: gunOffset.x
-      value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: gunOffset.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4191889848715848, guid: 573403538a7989e40a40a289250fd0da, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 82175942315012174, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82175942315012174, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82175942315012174, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: DopplerLevel
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114129750149730430, guid: 573403538a7989e40a40a289250fd0da,
         type: 2}
       propertyPath: canvasFlash
@@ -226,48 +187,8 @@ Prefab:
       objectReference: {fileID: 431398655}
     - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
         type: 2}
-      propertyPath: echoStandardDamage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 212245581405767428, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.9191176
-      objectReference: {fileID: 0}
-    - target: {fileID: 212245581405767428, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0.5919266
-      objectReference: {fileID: 0}
-    - target: {fileID: 212245581405767428, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0.006758224
-      objectReference: {fileID: 0}
-    - target: {fileID: 212802622060601428, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212802622060601428, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0.88351923
-      objectReference: {fileID: 0}
-    - target: {fileID: 212802622060601428, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0.9632353
-      objectReference: {fileID: 0}
-    - target: {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: echoProjSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114173073773476784, guid: 573403538a7989e40a40a289250fd0da,
-        type: 2}
-      propertyPath: projectileShotTime
-      value: 0.07
+      propertyPath: shotSpread
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 573403538a7989e40a40a289250fd0da, type: 2}
@@ -462,23 +383,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 431398654}
   m_Script: {fileID: 11500000, guid: 5241605d75d61314dabda4126c8777c2, type: 3}
---- !u!1 &1320392485 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1799273796024032, guid: 573403538a7989e40a40a289250fd0da,
-    type: 2}
-  m_PrefabInternal: {fileID: 148600213}
---- !u!114 &1320392486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1320392485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37523a3031449e44fa6ccdfd4a055c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!1001 &1335910238
 Prefab:
   m_ObjectHideFlags: 0

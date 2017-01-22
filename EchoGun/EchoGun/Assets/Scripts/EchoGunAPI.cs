@@ -11,9 +11,15 @@ public enum WeaponType
 public class EchoGunAPI : MonoBehaviour
 {
 
-    public GameObject echoStandardPrefab;
-    public GameObject echoProjectilePrefab;
-    public Vector2 gunOffset = new Vector2(0.0f, -1.1f);
+    [SerializeField]
+    protected GameObject echoStandardPrefab;
+    [SerializeField]
+    protected GameObject echoProjectilePrefab;
+    [SerializeField]
+    protected Vector2 gunOffset = new Vector2(0.0f, -1.1f);
+    [SerializeField]
+    protected float shotSpread = 10f;
+
     public int echoProjSpeed;
     public float echoProjDamage;
     public float echoStandardDamage;
@@ -72,7 +78,10 @@ public class EchoGunAPI : MonoBehaviour
         pc.soundRange = echoProjSoundRange;
         pc.weapType = type;
 
-        SimplePool.Spawn(echoProjectilePrefab, (Vector2)transform.TransformPoint(gunOffset), (targetPos - initialPos).ToRotation());
+        Quaternion targetRotation = (targetPos - initialPos).ToRotation();
+        targetRotation = targetRotation * Quaternion.AngleAxis(shotSpread * ((2 * Random.value) - 1), Vector3.forward);
+
+        SimplePool.Spawn(echoProjectilePrefab, (Vector2)transform.TransformPoint(gunOffset), targetRotation);
     }
 
 }

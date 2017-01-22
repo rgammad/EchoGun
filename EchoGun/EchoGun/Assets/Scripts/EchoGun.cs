@@ -46,11 +46,11 @@ public class EchoGun : MonoBehaviour {
 		{
 		case eGun.STANDARD:
 			muzzleFlash(eGun.STANDARD);
-			egAPI.echoStandard(weapType,playerMovement.rawAimingInput);
+			egAPI.echoStandard(weapType);
 			break;
 		case eGun.PROJECTILE:
 			muzzleFlash(eGun.PROJECTILE);
-			egAPI.echoProjectile(weapType,playerMovement.rawAimingInput);
+			egAPI.echoProjectile(weapType);
 			break;
 		default:
 			break;

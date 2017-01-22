@@ -70,12 +70,12 @@ public class SimpleRollerAI : MonoBehaviour {
 		if (coll.gameObject.CompareTag("Player")) {
             GetComponent<RollerSounds>().playExplosion();
 			Explode ();
-			PlayerPing.CreatePing(transform.position, explodeWaveAmt);
 			player.GetComponent<Health> ().Damage (explodeDamage);
 		}
 	}
 
 	public void Die() {
+		health.Kill ();
 		Destroy (this.gameObject);
 	}
 
@@ -107,7 +107,7 @@ public class SimpleRollerAI : MonoBehaviour {
 	private void Health_onDeath()
 	{
 		Explode ();
-		PlayerPing.CreatePing(transform.position, 2.5f);
+		PlayerPing.CreatePing(transform.position, explodeWaveAmt);
 		health.onDeath -= Health_onDeath;
 
 	}

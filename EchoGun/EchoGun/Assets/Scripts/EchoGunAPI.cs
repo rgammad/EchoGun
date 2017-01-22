@@ -48,6 +48,7 @@ public class EchoGunAPI : MonoBehaviour
                     {
                         PlayerPing.CreatePing(hit.point, echoStandardSoundRange);
                         laserEndPos = hit.point;
+                        GetComponent<playerSounds>().playWallImpact();
                         break;
                     }
                     if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible"))
@@ -56,6 +57,7 @@ public class EchoGunAPI : MonoBehaviour
                         PlayerPing.CreatePing(hit.point, echoStandardSoundRange);
                         hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
                         laserEndPos = hit.point;
+                        GetComponent<playerSounds>().playFleshImpact();
                         break;
                     }
                 }

@@ -58,4 +58,14 @@ public class playerSounds : MonoBehaviour {
     {
         playerAudio.PlayOneShot(sounds[6]);
     }
+
+    public void playWallImpact()
+    {
+        playerAudio.PlayOneShot(sounds[7]);
+    }
+
+    public void playFleshImpact()
+    {
+        playerAudio.PlayOneShot(sounds[8]);
+    }
 }

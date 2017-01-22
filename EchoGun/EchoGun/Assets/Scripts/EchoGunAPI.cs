@@ -87,7 +87,7 @@ public class EchoGunAPI : MonoBehaviour
                 }
                 break;
         }
-        laserRender.SetPosition(0, this.transform.position);
+		laserRender.SetPosition(0, this.transform.position);
         laserRender.SetPosition(1, laserEndPos);
 
     }

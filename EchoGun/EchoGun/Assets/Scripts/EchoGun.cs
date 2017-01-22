@@ -22,7 +22,7 @@ public class EchoGun : MonoBehaviour {
 	void Start()
 	{
 		egAPI = GetComponent<EchoGunAPI>();
-		playerMovement = GetComponentInParent<PlayerMovement>();
+		playerMovement = GetComponent<PlayerMovement>();
 		muzzle = GameObject.Find ("MuzzlePoint");
 		flash1 = muzzle.transform.FindChild ("muzzle-flash-1").gameObject;
 		flash2 = muzzle.transform.FindChild ("muzzle-flash-2").gameObject;

@@ -16,6 +16,6 @@ public class Healing : MonoBehaviour {
     }
 	
 	void Update () {
-        health.Heal(Time.time * healsPerSecond);
+        health.Heal(Time.deltaTime * healsPerSecond);
     }
 }

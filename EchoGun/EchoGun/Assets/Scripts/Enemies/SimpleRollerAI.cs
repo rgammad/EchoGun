@@ -4,9 +4,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SimpleRollerAI : MonoBehaviour {
-    Health health;
+	public float targetPlayerDist;
+	public float explodeDist;
+	public float explodeDamage;
+	public float explodeWaveAmt;
 
-    Rigidbody2D rigid;
+	Rigidbody2D rigid;
 	float maxSpeed = 5;
 	float accel = 4;
 	float rotationSpeed = 0.2f;
@@ -17,31 +20,43 @@ public class SimpleRollerAI : MonoBehaviour {
 	CircleCollider2D soundTrigger;
 	public float radius;
 
-	// Use this for initialization
+	Health health;
+	GameObject player;
+	Animator anim;
+
 	void Start () {
 		rigid = GetComponent<Rigidbody2D>();
-        health = GetComponentInParent<Health>();
+		health = GetComponent<Health>();
+		anim = GetComponent<Animator> ();
+		anim.SetBool ("Explode", false);
 
 		soundTrigger = transform.GetChild(0).GetComponent<CircleCollider2D> ();
 		soundTrigger.radius = radius;
+		health.onDeath += Health_onDeath;
+		health.onDamage += Health_onDamage;
 
-        health.onDeath += Health_onDeath;
-        health.onDamage += Health_onDamage;
-    }
-		
-    // Update is called once per frame
-    void Update () {
+		player = GameObject.FindGameObjectWithTag ("Player");
+
+	}
+
+	void Update () {
 		//int pingCount = (int) Shader.GetGlobalFloat (Tags.ShaderParams.globalPingCount);
 		//if (pingCount > 0) {
 		//	targetPos = Shader.GetGlobalVectorArray (Tags.ShaderParams.globalPingPos) [0]; //follow the most recent ping
 		//	following = true;
 		//}
 
+		if (Vector2.Distance (this.transform.position, player.transform.position) <= targetPlayerDist) {
+			targetPos = player.transform.position;
+			following = true;
+		}
+
 		if (following) {
 			float x = Random.Range (-6f, 6f);
 			float y = Random.Range (-6f, 6f);
 			rigid.velocity = Vector2.ClampMagnitude (Vector2.MoveTowards (rigid.velocity, maxSpeed * (targetPos - (Vector2) transform.position + new Vector2 (x, y)), maxSpeed * accel * Time.deltaTime), maxSpeed);
 		}
+
 	}
 
 	void FixedUpdate() {
@@ -50,30 +65,41 @@ public class SimpleRollerAI : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.CompareTag("Player")) {
+			anim.SetBool ("Explode", true);
+			PlayerPing.CreatePing(transform.position, explodeWaveAmt);
+			player.GetComponent<Health> ().Damage (explodeDamage);
+			health.Kill ();
+			Destroy (this.gameObject);
+		}
+	}
+
+
 	void OnTriggerEnter2D(Collider2D trigger) {
-		if (trigger.tag == "Sound Trigger") {
+		if (trigger.CompareTag("Sound Trigger")) {
 			targetPos = trigger.transform.position;
 			following = true;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D trigger) {
-		if (trigger.tag == "Sound Trigger") {
+		if (trigger.CompareTag("Sound Trigger")) {
 			following = false;
 		}
 	}
 
 
-    private void Health_onDamage(float amount, int playerID)
-    {
-        PlayerPing.CreatePing(transform.position, 1.0f);
-    }
+	private void Health_onDamage(float amount, int playerID)
+	{
+		PlayerPing.CreatePing(transform.position, 1.0f);
+	}
 
-    private void Health_onDeath()
-    {
-        //temporary until universal ping is created?
-        PlayerPing.CreatePing(transform.position, 2.5f);
-        Destroy(gameObject);
-        health.onDeath -= Health_onDeath;
-    }
+	private void Health_onDeath()
+	{
+		//temporary until universal ping is created?
+		PlayerPing.CreatePing(transform.position, 2.5f);
+		Destroy(gameObject);
+		health.onDeath -= Health_onDeath;
+	}
 }

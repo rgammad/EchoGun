@@ -163,6 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7821ee8f208ec4875871b658b3bf5e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPlayerDist: 20
+  explodeDist: 3
+  explodeDamage: 25
+  explodeWaveAmt: 25
   radius: 20
 --- !u!212 &212436894739484244
 SpriteRenderer:

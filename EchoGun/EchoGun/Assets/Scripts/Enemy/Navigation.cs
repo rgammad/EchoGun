@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 public class Navigation : MonoBehaviour {
 
+    [SerializeField]
+    Transform player;
+
     const int navigationWidth = 100;
     const int navigationHeight = 100;
 
@@ -36,6 +39,10 @@ public class Navigation : MonoBehaviour {
         }
     }
 
+    public Coordinate2 VectorToCoordinate(Vector2 input) {
+        return new Coordinate2(Mathf.FloorToInt(input.x), Mathf.FloorToInt(-input.y));
+    }
+
     public class PathfindingNode : Priority_Queue.FastPriorityQueueNode {
         private readonly Coordinate2 coordinate;
         public Coordinate2 Coordinate { get { return coordinate; } }
@@ -58,10 +65,19 @@ public class Navigation : MonoBehaviour {
     /// </summary>
     Dictionary<Coordinate2, PathfindingNode> traversedNodes = new Dictionary<Coordinate2, PathfindingNode>();
 
-    void Start() {
-        List<Coordinate2> path = pathToPlayer(new Coordinate2(0, 0), new Coordinate2(5, 5));
-        foreach(Coordinate2 coordinate in path) {
-            Debug.Log(coordinate);
+    float nextTime = 1;
+
+    void Update() {
+
+        if (Time.time > nextTime) {
+            nextTime += 2;
+
+            List<Coordinate2> path = pathToPlayer(new Coordinate2(45, 30), VectorToCoordinate(player.position));
+            LineRenderer rend = GetComponent<LineRenderer>();
+            rend.numPositions = path.Count;
+            for (int i = 0; i < path.Count; i++) {
+                rend.SetPosition(i, new Vector3(path[i].x, path[i].y, 0));
+            }
         }
     }
 
@@ -92,16 +108,19 @@ public class Navigation : MonoBehaviour {
             return new List<Coordinate2>() { source };
         }
 
-        traversedNodes.Add(source, new PathfindingNode(source, 0, source));
-        Expand(source, 0, destination);
-
         //check destination isn't already in traversedNodes
         if(traversedNodes.ContainsKey(destination)) {
             return readPath(traversedNodes[destination], source);
         }
 
+        if (!traversedNodes.ContainsKey(source)) {
+            traversedNodes.Add(source, new PathfindingNode(source, 0, source));
+            Expand(source, 0, destination);
+        }
+
         while (frontierQueue.Count > 0) {
             Debug.Log(frontierQueue.Count);
+
             PathfindingNode nextNode = frontierQueue.Dequeue();
 
             //while the node dequeued was already expanded
@@ -161,6 +180,7 @@ public class Navigation : MonoBehaviour {
 
     void TryAddNode(PathfindingNode node, Coordinate2 destination) {
         //check passable point
+        if (!navigationPointWalkable(node.Coordinate)) { return; }
         if (!traversedNodes.ContainsKey(node.Coordinate)) {
             float priority = node.Cost + Mathf.Abs(destination.x - node.Coordinate.x) + Mathf.Abs(destination.y - node.Coordinate.y);
             frontierQueue.Enqueue(node, priority);

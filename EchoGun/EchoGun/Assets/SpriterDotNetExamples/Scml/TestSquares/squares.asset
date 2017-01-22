@@ -14,51 +14,51 @@ MonoBehaviour:
   Spriter:
     Folders:
     - Id: 0
-      Name: 696d61676573
+      Name: images
       Files:
       - Id: 0
-        Name: 696d616765732f6269672e706e67
+        Name: images/big.png
         Type: 0
         PivotX: 0
         PivotY: 1
         Width: 512
         Height: 256
       - Id: 1
-        Name: 696d616765732f736d616c6c2e706e67
+        Name: images/small.png
         Type: 0
         PivotX: 0
         PivotY: 1
         Width: 256
         Height: 128
     - Id: 1
-      Name: 696d616765735f616c7465726e61746531
+      Name: images_alternate1
       Files:
       - Id: 0
-        Name: 696d616765735f616c7465726e617465312f6269672e706e67
+        Name: images_alternate1/big.png
         Type: 0
         PivotX: 0
         PivotY: 1
         Width: 512
         Height: 256
       - Id: 1
-        Name: 696d616765735f616c7465726e617465312f736d616c6c2e706e67
+        Name: images_alternate1/small.png
         Type: 0
         PivotX: 0
         PivotY: 1
         Width: 256
         Height: 128
     - Id: 2
-      Name: 696d616765735f616c7465726e61746532
+      Name: images_alternate2
       Files:
       - Id: 0
-        Name: 696d616765735f616c7465726e617465322f6269672e706e67
+        Name: images_alternate2/big.png
         Type: 0
         PivotX: 0
         PivotY: 1
         Width: 512
         Height: 256
       - Id: 1
-        Name: 696d616765735f616c7465726e617465322f736d616c6c2e706e67
+        Name: images_alternate2/small.png
         Type: 0
         PivotX: 0
         PivotY: 1
@@ -66,10 +66,10 @@ MonoBehaviour:
         Height: 128
     Entities:
     - Id: 0
-      Name: 73717561726573
+      Name: squares
       ObjectInfos:
       - Id: 0
-        Name: 626f6e655f303030
+        Name: bone_000
         ObjectType: 1
         Width: 483.009
         Height: 10
@@ -77,7 +77,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 626f6e655f303031
+        Name: bone_001
         ObjectType: 1
         Width: 271.131
         Height: 10
@@ -85,7 +85,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 626f785f303030
+        Name: box_000
         ObjectType: 2
         Width: 51
         Height: 126
@@ -94,7 +94,7 @@ MonoBehaviour:
         Variables: []
       CharacterMaps:
       - Id: 0
-        Name: 616c7465726e6174652031
+        Name: alternate 1
         Maps:
         - FolderId: 0
           FileId: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
           TargetFolderId: 1
           TargetFileId: 1
       - Id: 1
-        Name: 616c7465726e6174652032
+        Name: alternate 2
         Maps:
         - FolderId: 0
           FileId: 1
@@ -117,7 +117,7 @@ MonoBehaviour:
           TargetFileId: -1
       Animations:
       - Id: 0
-        Name: 5363616c6558
+        Name: ScaleX
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -155,7 +155,7 @@ MonoBehaviour:
             ZIndex: 0
         Timelines:
         - Id: 0
-          Name: 677265656e
+          Name: green
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -230,7 +230,7 @@ MonoBehaviour:
           Tagline:
             Keys: []
       - Id: 1
-        Name: 5363616c6559
+        Name: ScaleY
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -268,7 +268,7 @@ MonoBehaviour:
             ZIndex: 0
         Timelines:
         - Id: 0
-          Name: 677265656e
+          Name: green
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -343,7 +343,7 @@ MonoBehaviour:
           Tagline:
             Keys: []
       - Id: 2
-        Name: 496e7374616e74
+        Name: Instant
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -393,7 +393,7 @@ MonoBehaviour:
             ZIndex: 1
         Timelines:
         - Id: 0
-          Name: 677265656e
+          Name: green
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -432,7 +432,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 726564
+          Name: red
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -507,7 +507,7 @@ MonoBehaviour:
           Tagline:
             Keys: []
       - Id: 3
-        Name: 4c696e656172
+        Name: Linear
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -557,7 +557,7 @@ MonoBehaviour:
             ZIndex: 1
         Timelines:
         - Id: 0
-          Name: 677265656e
+          Name: green
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -686,7 +686,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 726564
+          Name: red
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -761,7 +761,7 @@ MonoBehaviour:
           Tagline:
             Keys: []
       - Id: 4
-        Name: 517561647261746963
+        Name: Quadratic
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -811,7 +811,7 @@ MonoBehaviour:
             ZIndex: 1
         Timelines:
         - Id: 0
-          Name: 677265656e
+          Name: green
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -850,7 +850,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 726564
+          Name: red
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -925,7 +925,7 @@ MonoBehaviour:
           Tagline:
             Keys: []
       - Id: 5
-        Name: 4375626963
+        Name: Cubic
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -975,7 +975,7 @@ MonoBehaviour:
             ZIndex: 1
         Timelines:
         - Id: 0
-          Name: 677265656e
+          Name: green
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -1044,7 +1044,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 726564
+          Name: red
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -1119,7 +1119,7 @@ MonoBehaviour:
           Tagline:
             Keys: []
       - Id: 6
-        Name: 51756172746963
+        Name: Quartic
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -1169,7 +1169,7 @@ MonoBehaviour:
             ZIndex: 1
         Timelines:
         - Id: 0
-          Name: 677265656e
+          Name: green
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -1238,7 +1238,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 726564
+          Name: red
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -1313,7 +1313,7 @@ MonoBehaviour:
           Tagline:
             Keys: []
       - Id: 7
-        Name: 5175696e746963
+        Name: Quintic
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -1363,7 +1363,7 @@ MonoBehaviour:
             ZIndex: 1
         Timelines:
         - Id: 0
-          Name: 677265656e
+          Name: green
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -1432,7 +1432,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 726564
+          Name: red
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -1507,7 +1507,7 @@ MonoBehaviour:
           Tagline:
             Keys: []
       - Id: 8
-        Name: 42657a696572
+        Name: Bezier
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -1557,7 +1557,7 @@ MonoBehaviour:
             ZIndex: 1
         Timelines:
         - Id: 0
-          Name: 677265656e
+          Name: green
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -1626,7 +1626,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 726564
+          Name: red
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -1701,7 +1701,7 @@ MonoBehaviour:
           Tagline:
             Keys: []
       - Id: 9
-        Name: 4d65746164617461
+        Name: Metadata
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -1783,7 +1783,7 @@ MonoBehaviour:
             ZIndex: 2
         Timelines:
         - Id: 0
-          Name: 677265656e
+          Name: green
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -1822,7 +1822,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 726564
+          Name: red
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -1861,7 +1861,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 2
-          Name: 626f6e655f303030
+          Name: bone_000
           ObjectType: 1
           ObjectId: 0
           Keys:
@@ -1900,7 +1900,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 3
-          Name: 626f6e655f303031
+          Name: bone_001
           ObjectType: 1
           ObjectId: 1
           Keys:
@@ -1969,7 +1969,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 4
-          Name: 626f785f303030
+          Name: box_000
           ObjectType: 2
           ObjectId: 2
           Keys:

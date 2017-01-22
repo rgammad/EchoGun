@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114328796342519924}
   - component: {fileID: 95818085373520146}
   m_Layer: 10
-  m_Name: StormTrooper
+  m_Name: SnipeLeopardPrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

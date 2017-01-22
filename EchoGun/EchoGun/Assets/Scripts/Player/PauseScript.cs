@@ -1,35 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour {
 	bool isPause = false;
+	public Text text;
+	public Button resume;
+	public Button quit;
+	public Image image;
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if( Input.GetKeyDown(KeyCode.Escape))
-		{
-			isPause = !isPause;
-				if(isPause)
-					Time.timeScale = 0;
-				else
-					Time.timeScale = 1;
-		}
+		resume.onClick.AddListener(proc);
+		quit.onClick.AddListener(fini);
 	}
 
-	void onGUI() {
-		if (isPause) {
-			GUIStyle centeredStyle = GUI.skin.GetStyle("Label");
-			centeredStyle.alignment = TextAnchor.UpperCenter;
-			GUI.Label (new Rect (Screen.width/2-50, Screen.height/2-25, 100, 50), "Paused", centeredStyle);
-			if (GUI.Button(new Rect(Screen.width/2-50, Screen.height/2-100, 100, 50), "Restart"))
-				Debug.Log("Clicked the button with text");
-			if (GUI.Button(new Rect(Screen.width/2-50, Screen.height/2-150, 100, 50), "Main Menu"))
-				Debug.Log("Clicked the button with text");
-		}
+	void fini () {
+		Time.timeScale = 1;
+		SceneManager.LoadScene (0);
 	}
+
+	void proc () {
+		Time.timeScale = 1;
+		text.gameObject.SetActive (false);
+		resume.gameObject.SetActive (false);
+		quit.gameObject.SetActive (false);
+		image.gameObject.SetActive (false);
+	}
+
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			isPause = !isPause;
+			if (isPause) {
+				Time.timeScale = 0;
+				text.gameObject.SetActive (true);
+				resume.gameObject.SetActive (true);
+				quit.gameObject.SetActive (true);
+				image.gameObject.SetActive (true);
+			} else {
+				Time.timeScale = 1;
+				text.gameObject.SetActive (false);
+				resume.gameObject.SetActive (false);
+				quit.gameObject.SetActive (false);
+				image.gameObject.SetActive (false);
+			}
+		}
+
+	}
+
 }

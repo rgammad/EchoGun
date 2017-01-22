@@ -40,7 +40,7 @@ public class StormtrooperAI : MonoBehaviour {
         navigation = GetComponent<Navigation>();
 
         health.onDeath += Health_onDeath;
-        //health.onDamage += Health_onDamage;
+        health.onDamage += Health_onDamage;
 
         stageBoundary = LayerMask.GetMask("StageBoundary");
     }
@@ -66,7 +66,7 @@ public class StormtrooperAI : MonoBehaviour {
             while(Time.time > nextShotTime) {
                 nextShotTime += timePerShot;
                 //fire a shot
-
+                GetComponentInParent<StormtrooperSound>().playBlasterSound();
                 Quaternion targetRotation = (targetPos - (Vector2)transform.position).ToRotation();
                 targetRotation = targetRotation * Quaternion.AngleAxis(shotSpread * ((2 * Random.value) - 1), Vector3.forward);
 
@@ -118,18 +118,21 @@ public class StormtrooperAI : MonoBehaviour {
             targetPos = trigger.transform.position;
             firingEndTime = Time.time + firingDuration;
             nextShotTime = Time.time;
+            GetComponentInParent<StormtrooperSound>().playFiringLaser();
         }
     }
 
-    /*
+    
     private void Health_onDamage(float amount, int playerID) {
-        PlayerPing.CreatePing(transform.position, 1.0f);
+        //PlayerPing.CreatePing(transform.position, 1.0f);
+        
     }
-    */
+    
 
     private void Health_onDeath() {
         //temporary until universal ping is created?
         //PlayerPing.CreatePing(transform.position, 2.5f);
+        GetComponentInParent<StormtrooperSound>().playDeath();
         Destroy(transform.root.gameObject);
         health.onDeath -= Health_onDeath;
     }

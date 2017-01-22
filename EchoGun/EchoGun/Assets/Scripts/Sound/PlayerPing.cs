@@ -6,9 +6,12 @@ using System.Linq;
 
 public class PlayerPing : MonoBehaviour {
 
+    private static PlayerPing main = null;
 
-    private class Ping {
-        const float pingSpeed = 50;
+    public class Ping {
+        private const float pingSpeed = 50;
+        public float PingSpeed { get { return pingSpeed; } }
+
         const float pingFalloffDuration = 1;
 
         private readonly Vector2 position;
@@ -58,7 +61,12 @@ public class PlayerPing : MonoBehaviour {
     /// </summary>
     static float[] pingRanges = new float[Tags.ShaderParams.maxGlobalPingCount];
 
+    //sound ping Trigger Collider
+    public GameObject soundTriggerCollider;
+
+
     void Start () {
+        main = this;
         //set arrays to max length values, and ping count to zero.
         Shader.SetGlobalFloat(Tags.ShaderParams.globalPingCount, 0);
         Shader.SetGlobalVectorArray(Tags.ShaderParams.globalPingPos, pingPositions);
@@ -83,6 +91,13 @@ public class PlayerPing : MonoBehaviour {
         }
 
         SetShaderVariables();
+
+        GameObject stc = (GameObject)Instantiate(main.soundTriggerCollider);
+        stc.transform.position = position;
+        stc.gameObject.GetComponent<SoundTriggerBehavior>().GrowthRate = newPing.PingSpeed;
+        stc.gameObject.GetComponent<SoundTriggerBehavior>().MaxRadius = range;
+        stc.gameObject.GetComponent<SoundTriggerBehavior>().StartTime = newPing.PingTime;
+        
     }
 
     private void Update() {

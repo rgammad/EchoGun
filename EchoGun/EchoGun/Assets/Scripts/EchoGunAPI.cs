@@ -42,17 +42,9 @@ public class EchoGunAPI : MonoBehaviour
                         laserEndPos = hit.point;
                         break;
                     }
-                    if (hit.collider.CompareTag("Enemy"))
+                    if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible"))
                     {
-                        //lower Enemy health
-                        PlayerPing.CreatePing(hit.point, 10.0f);
-                        hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
-                        laserEndPos = hit.point;
-                        break;
-                    }
-                    if (hit.collider.CompareTag("Destructible"))
-                    {
-                        //lower destructible health
+                        //lower Enemy health or Destructible object health
                         PlayerPing.CreatePing(hit.point, 10.0f);
                         hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
                         laserEndPos = hit.point;
@@ -71,17 +63,11 @@ public class EchoGunAPI : MonoBehaviour
                         laserEndPos = hit.point;
                         break;
                     }
-                    if (hit.collider.CompareTag("Enemy"))
+                    if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible"))
                     {
-                        PlayerPing.CreatePing(hit.point, 1.0f);
-                        hit.transform.root.GetComponent<Health>().Damage(echoStandardDamage);
-                        laserEndPos = hit.point;
-                        break;
-                    }
-                    if (hit.collider.CompareTag("Destructible"))
-                    {
+                        //lower Enemy health or Destructible object health
                         PlayerPing.CreatePing(hit.point, 10.0f);
-                        hit.transform.root.GetComponent<Health>().Damage(echoStandardDamage);
+                        hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
                         laserEndPos = hit.point;
                         break;
                     }

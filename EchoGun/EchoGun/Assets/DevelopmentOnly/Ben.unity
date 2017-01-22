@@ -229,6 +229,36 @@ Prefab:
       propertyPath: echoStandardDamage
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 212245581405767428, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.9191176
+      objectReference: {fileID: 0}
+    - target: {fileID: 212245581405767428, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.5919266
+      objectReference: {fileID: 0}
+    - target: {fileID: 212245581405767428, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.006758224
+      objectReference: {fileID: 0}
+    - target: {fileID: 212802622060601428, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212802622060601428, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.88351923
+      objectReference: {fileID: 0}
+    - target: {fileID: 212802622060601428, guid: 573403538a7989e40a40a289250fd0da,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.9632353
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 573403538a7989e40a40a289250fd0da, type: 2}
   m_IsPrefabParent: 0

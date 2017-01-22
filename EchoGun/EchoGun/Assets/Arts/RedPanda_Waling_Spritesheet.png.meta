@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: d358dafb8a38f014c940b85f96a97439
+timeCreated: 1485046333
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RedPanda_Waling_Spritesheet_0
+    21300002: RedPanda_Waling_Spritesheet_1
+    21300004: RedPanda_Waling_Spritesheet_2
+    21300006: RedPanda_Waling_Spritesheet_3
+    21300008: RedPanda_Waling_Spritesheet_4
+    21300010: RedPanda_Waling_Spritesheet_5
+    21300012: RedPanda_Waling_Spritesheet_6
+    21300014: RedPanda_Waling_Spritesheet_7
+    21300016: RedPanda_Waling_Spritesheet_8
+    21300018: RedPanda_Waling_Spritesheet_9
+    21300020: RedPanda_Waling_Spritesheet_10
+    21300022: RedPanda_Waling_Spritesheet_11
+    21300024: RedPanda_Waling_Spritesheet_12
+    21300026: RedPanda_Waling_Spritesheet_13
+    21300028: RedPanda_Waling_Spritesheet_14
+    21300030: RedPanda_Waling_Spritesheet_15
+    21300032: RedPanda_Waling_Spritesheet_16
+    21300034: RedPanda_Waling_Spritesheet_17
+    21300036: RedPanda_Waling_Spritesheet_18
+    21300038: RedPanda_Waling_Spritesheet_19
+    21300040: RedPanda_Waling_Spritesheet_20
+    21300042: RedPanda_Waling_Spritesheet_21
+    21300044: RedPanda_Waling_Spritesheet_22
+    21300046: RedPanda_Waling_Spritesheet_23
+    21300048: RedPanda_Waling_Spritesheet_24
+    21300050: RedPanda_Waling_Spritesheet_25
+    21300052: RedPanda_Waling_Spritesheet_26
+    21300054: RedPanda_Waling_Spritesheet_27
+    21300056: RedPanda_Waling_Spritesheet_28
+    21300058: RedPanda_Waling_Spritesheet_29
+    21300060: RedPanda_Waling_Spritesheet_30
+    21300062: RedPanda_Waling_Spritesheet_31
+    21300064: RedPanda_Waling_Spritesheet_32
+    21300066: RedPanda_Waling_Spritesheet_33
+    21300068: RedPanda_Waling_Spritesheet_34
+    21300070: RedPanda_Waling_Spritesheet_35
+    21300072: RedPanda_Waling_Spritesheet_36
+    21300074: RedPanda_Waling_Spritesheet_37
+    21300076: RedPanda_Waling_Spritesheet_38
+    21300078: RedPanda_Waling_Spritesheet_39
+    21300080: RedPanda_Waling_Spritesheet_40
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 2429
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 2776
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 3123
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 3470
+        y: 1677
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 2429
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 2776
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 3123
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 3470
+        y: 1118
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 2429
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 2776
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 3123
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 3470
+        y: 559
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 0
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 0
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 0
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 0
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 0
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 0
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RedPanda_Waling_Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 2429
+        y: 0
+        width: 347
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

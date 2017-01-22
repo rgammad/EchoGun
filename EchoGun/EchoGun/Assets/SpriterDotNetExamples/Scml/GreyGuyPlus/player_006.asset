@@ -14,501 +14,501 @@ MonoBehaviour:
   Spriter:
     Folders:
     - Id: 0
-      Name: 746f72736f
+      Name: torso
       Files:
       - Id: 0
-        Name: 746f72736f2f705f746f72736f5f69646c652e706e67
+        Name: torso/p_torso_idle.png
         Type: 0
         PivotX: 0.911111
         PivotY: 0.555556
         Width: 88
         Height: 88
       - Id: 1
-        Name: 746f72736f2f705f746f72736f5f77616c6b2e706e67
+        Name: torso/p_torso_walk.png
         Type: 0
         PivotX: 0.911111
         PivotY: 0.555556
         Width: 88
         Height: 88
       - Id: 2
-        Name: 746f72736f2f705f746f72736f5f6a756d702e706e67
+        Name: torso/p_torso_jump.png
         Type: 0
         PivotX: 0.911111
         PivotY: 0.555556
         Width: 88
         Height: 88
       - Id: 3
-        Name: 746f72736f2f705f746f72736f5f66726f6e742e706e67
+        Name: torso/p_torso_front.png
         Type: 0
         PivotX: 0.877778
         PivotY: 0.511111
         Width: 88
         Height: 88
       - Id: 4
-        Name: 746f72736f2f705f746f72736f5f70756e63685f302e706e67
+        Name: torso/p_torso_punch_0.png
         Type: 0
         PivotX: 0.911111
         PivotY: 0.555556
         Width: 88
         Height: 88
       - Id: 5
-        Name: 746f72736f2f626565702d30332e776176
+        Name: torso/beep-03.wav
         Type: 1
         PivotX: 0
         PivotY: 1
         Width: 0
         Height: 0
     - Id: 1
-      Name: 68656164
+      Name: head
       Files:
       - Id: 0
-        Name: 686561642f705f686561645f69646c652e706e67
+        Name: head/p_head_idle.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 1
-        Name: 686561642f705f686561645f77616c6b2e706e67
+        Name: head/p_head_walk.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 2
-        Name: 686561642f705f686561645f636f6e6365726e2e706e67
+        Name: head/p_head_concern.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 3
-        Name: 686561642f705f686561645f687572742e706e67
+        Name: head/p_head_hurt.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 4
-        Name: 686561642f705f686561645f6469652e706e67
+        Name: head/p_head_die.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 5
-        Name: 686561642f705f686561645f707573682e706e67
+        Name: head/p_head_push.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 6
-        Name: 686561642f705f686561645f7475726e5f302e706e67
+        Name: head/p_head_turn_0.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 7
-        Name: 686561642f705f686561645f69646c655f626c696e6b5f302e706e67
+        Name: head/p_head_idle_blink_0.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 8
-        Name: 686561642f705f686561645f69646c655f626c696e6b5f312e706e67
+        Name: head/p_head_idle_blink_1.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 9
-        Name: 686561642f705f686561645f626c696e6b5f302e706e67
+        Name: head/p_head_blink_0.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 10
-        Name: 686561642f705f686561645f626c696e6b5f312e706e67
+        Name: head/p_head_blink_1.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 11
-        Name: 686561642f705f686561645f636f6e6365726e5f626c696e6b5f302e706e67
+        Name: head/p_head_concern_blink_0.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
       - Id: 12
-        Name: 686561642f705f686561645f636f6e6365726e5f626c696e6b5f312e706e67
+        Name: head/p_head_concern_blink_1.png
         Type: 0
         PivotX: 0.696262
         PivotY: 0.453704
         Width: 212
         Height: 214
     - Id: 2
-      Name: 61726d73
+      Name: arms
       Files:
       - Id: 0
-        Name: 61726d732f705f61726d5f69646c655f612e706e67
+        Name: arms/p_arm_idle_a.png
         Type: 0
         PivotX: 0.388889
         PivotY: 0.487179
         Width: 52
         Height: 37
       - Id: 1
-        Name: 61726d732f705f666f7261726d5f77616c6b5f612e706e67
+        Name: arms/p_forarm_walk_a.png
         Type: 0
         PivotX: 0.403846
         PivotY: 0.526316
         Width: 50
         Height: 36
       - Id: 2
-        Name: 61726d732f705f61726d5f69646c652e706e67
+        Name: arms/p_arm_idle.png
         Type: 0
         PivotX: 0.338235
         PivotY: 0.509804
         Width: 66
         Height: 49
       - Id: 3
-        Name: 61726d732f705f666f7261726d5f69646c655f302e706e67
+        Name: arms/p_forarm_idle_0.png
         Type: 0
         PivotX: 0.363636
         PivotY: 0.5
         Width: 53
         Height: 44
       - Id: 4
-        Name: 61726d732f705f61726d5f77616c6b2e706e67
+        Name: arms/p_arm_walk.png
         Type: 0
         PivotX: 0.338235
         PivotY: 0.509804
         Width: 66
         Height: 49
       - Id: 5
-        Name: 61726d732f705f61726d5f7468726f775f302e706e67
+        Name: arms/p_arm_throw_0.png
         Type: 0
         PivotX: 0.338235
         PivotY: 0.509804
         Width: 66
         Height: 49
       - Id: 6
-        Name: 61726d732f705f666f7261726d5f6a756d705f302e706e67
+        Name: arms/p_forarm_jump_0.png
         Type: 0
         PivotX: 0.363636
         PivotY: 0.5
         Width: 53
         Height: 44
       - Id: 7
-        Name: 61726d732f705f666f7261726d5f69646c655f612e706e67
+        Name: arms/p_forarm_idle_a.png
         Type: 0
         PivotX: 0.403846
         PivotY: 0.526316
         Width: 50
         Height: 36
       - Id: 8
-        Name: 61726d732f7468726f775f626c75725f302e706e67
+        Name: arms/throw_blur_0.png
         Type: 0
         PivotX: 0
         PivotY: 1
         Width: 257
         Height: 227
       - Id: 9
-        Name: 61726d732f705f666f7261726d5f736964655f302e706e67
+        Name: arms/p_forarm_side_0.png
         Type: 0
         PivotX: 0.363636
         PivotY: 0.5
         Width: 53
         Height: 44
       - Id: 10
-        Name: 61726d732f705f61726d5f736c6964655f302e706e67
+        Name: arms/p_arm_slide_0.png
         Type: 0
         PivotX: 0.338235
         PivotY: 0.5
         Width: 66
         Height: 49
       - Id: 11
-        Name: 61726d732f705f666f7261726d5f756e6465725f302e706e67
+        Name: arms/p_forarm_under_0.png
         Type: 0
         PivotX: 0.363636
         PivotY: 0.5
         Width: 53
         Height: 44
     - Id: 3
-      Name: 68616e6473
+      Name: hands
       Files:
       - Id: 0
-        Name: 68616e64732f705f68616e645f622e706e67
+        Name: hands/p_hand_b.png
         Type: 0
         PivotX: 0.345679
         PivotY: 0.45
         Width: 79
         Height: 78
       - Id: 1
-        Name: 68616e64732f705f68616e645f69646c655f302e706e67
+        Name: hands/p_hand_idle_0.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 2
-        Name: 68616e64732f705f68616e645f612e706e67
+        Name: hands/p_hand_a.png
         Type: 0
         PivotX: 0.345679
         PivotY: 0.45
         Width: 79
         Height: 78
       - Id: 3
-        Name: 68616e64732f705f68616e645f632e706e67
+        Name: hands/p_hand_c.png
         Type: 0
         PivotX: 0.345679
         PivotY: 0.45
         Width: 79
         Height: 78
       - Id: 4
-        Name: 68616e64732f705f68616e645f322e706e67
+        Name: hands/p_hand_2.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 5
-        Name: 68616e64732f705f68616e645f6a756d705f302e706e67
+        Name: hands/p_hand_jump_0.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 6
-        Name: 68616e64732f705f68616e645f6869745f302e706e67
+        Name: hands/p_hand_hit_0.png
         Type: 0
         PivotX: 0.432099
         PivotY: 0.594937
         Width: 79
         Height: 77
       - Id: 7
-        Name: 68616e64732f705f68616e645f736c6964655f302e706e67
+        Name: hands/p_hand_slide_0.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 8
-        Name: 68616e64732f705f68616e645f312e706e67
+        Name: hands/p_hand_1.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 9
-        Name: 68616e64732f705f68616e645f6869745f612e706e67
+        Name: hands/p_hand_hit_a.png
         Type: 0
         PivotX: 0.37037
         PivotY: 0.475
         Width: 79
         Height: 78
       - Id: 10
-        Name: 68616e64732f705f68616e645f707573685f302e706e67
+        Name: hands/p_hand_push_0.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 11
-        Name: 68616e64732f705f68616e645f707573685f612e706e67
+        Name: hands/p_hand_push_a.png
         Type: 0
         PivotX: 0.345679
         PivotY: 0.45
         Width: 79
         Height: 78
       - Id: 12
-        Name: 68616e64732f705f68616e645f656467655f302e706e67
+        Name: hands/p_hand_edge_0.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 13
-        Name: 68616e64732f705f68616e645f615f656467652e706e67
+        Name: hands/p_hand_a_edge.png
         Type: 0
         PivotX: 0.345679
         PivotY: 0.45
         Width: 79
         Height: 78
       - Id: 14
-        Name: 68616e64732f705f68616e645f68616e675f302e706e67
+        Name: hands/p_hand_hang_0.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 15
-        Name: 68616e64732f705f68616e645f68616e675f312e706e67
+        Name: hands/p_hand_hang_1.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 16
-        Name: 68616e64732f705f68616e645f68616e675f612e706e67
+        Name: hands/p_hand_hang_a.png
         Type: 0
         PivotX: 0.345679
         PivotY: 0.45
         Width: 79
         Height: 78
       - Id: 17
-        Name: 68616e64732f705f68616e645f7468726f775f302e706e67
+        Name: hands/p_hand_throw_0.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 18
-        Name: 68616e64732f705f68616e645f70756e63685f302e706e67
+        Name: hands/p_hand_punch_0.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 19
-        Name: 68616e64732f705f68616e645f70726570756e63685f302e706e67
+        Name: hands/p_hand_prepunch_0.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 20
-        Name: 68616e64732f705f68616e645f70726570756e63685f782e706e67
+        Name: hands/p_hand_prepunch_x.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
       - Id: 21
-        Name: 68616e64732f705f70756e63685f626c75722e706e67
+        Name: hands/p_punch_blur.png
         Type: 0
         PivotX: 0
         PivotY: 1
         Width: 191
         Height: 56
       - Id: 22
-        Name: 68616e64732f705f68616e645f666c6f61745f302e706e67
+        Name: hands/p_hand_float_0.png
         Type: 0
         PivotX: 0.185185
         PivotY: 0.506329
         Width: 79
         Height: 77
     - Id: 4
-      Name: 6c656773
+      Name: legs
       Files:
       - Id: 0
-        Name: 6c6567732f705f6c65675f612e706e67
+        Name: legs/p_leg_a.png
         Type: 0
         PivotX: 0.253968
         PivotY: 0.468085
         Width: 61
         Height: 45
       - Id: 1
-        Name: 6c6567732f705f74686967685f612e706e67
+        Name: legs/p_thigh_a.png
         Type: 0
         PivotX: 0.254545
         PivotY: 0.425
         Width: 53
         Height: 38
       - Id: 2
-        Name: 6c6567732f705f70656c7669735f69646c652e706e67
+        Name: legs/p_pelvis_idle.png
         Type: 0
         PivotX: 0.18
         PivotY: 0.584615
         Width: 48
         Height: 63
       - Id: 3
-        Name: 6c6567732f705f74686967685f69646c655f302e706e67
+        Name: legs/p_thigh_idle_0.png
         Type: 0
         PivotX: 0.233333
         PivotY: 0.431818
         Width: 58
         Height: 42
       - Id: 4
-        Name: 6c6567732f705f6c65675f69646c655f302e706e67
+        Name: legs/p_leg_idle_0.png
         Type: 0
         PivotX: 0.208955
         PivotY: 0.518519
         Width: 65
         Height: 52
       - Id: 5
-        Name: 6c6567732f705f70656c7669735f77616c6b2e706e67
+        Name: legs/p_pelvis_walk.png
         Type: 0
         PivotX: 0.18
         PivotY: 0.584615
         Width: 48
         Height: 63
       - Id: 6
-        Name: 6c6567732f705f74686967685f77616c6b5f302e706e67
+        Name: legs/p_thigh_walk_0.png
         Type: 0
         PivotX: 0.233333
         PivotY: 0.431818
         Width: 58
         Height: 42
       - Id: 7
-        Name: 6c6567732f705f6c65675f77616c6b5f302e706e67
+        Name: legs/p_leg_walk_0.png
         Type: 0
         PivotX: 0.208955
         PivotY: 0.518519
         Width: 65
         Height: 52
       - Id: 8
-        Name: 6c6567732f705f70656c7669735f6469652e706e67
+        Name: legs/p_pelvis_die.png
         Type: 0
         PivotX: 0.16
         PivotY: 0.507692
         Width: 48
         Height: 63
     - Id: 5
-      Name: 66656574
+      Name: feet
       Files:
       - Id: 0
-        Name: 666565742f705f666f6f745f69646c655f302e706e67
+        Name: feet/p_foot_idle_0.png
         Type: 0
         PivotX: 0.4
         PivotY: 0.425
         Width: 53
         Height: 78
       - Id: 1
-        Name: 666565742f705f666f6f745f77616c6b5f612e706e67
+        Name: feet/p_foot_walk_a.png
         Type: 0
         PivotX: 0.456522
         PivotY: 0.445946
         Width: 44
         Height: 72
       - Id: 2
-        Name: 666565742f705f666f6f745f77616c6b5f302e706e67
+        Name: feet/p_foot_walk_0.png
         Type: 0
         PivotX: 0.4
         PivotY: 0.425
         Width: 53
         Height: 78
       - Id: 3
-        Name: 666565742f705f666f6f745f6a756d705f302e706e67
+        Name: feet/p_foot_jump_0.png
         Type: 0
         PivotX: 0.4
         PivotY: 0.425
         Width: 53
         Height: 78
       - Id: 4
-        Name: 666565742f705f666f6f745f686f745f302e706e67
+        Name: feet/p_foot_hot_0.png
         Type: 0
         PivotX: 0.717647
         PivotY: 0.484375
         Width: 83
         Height: 62
       - Id: 5
-        Name: 666565742f705f666f6f745f6869745f612e706e67
+        Name: feet/p_foot_hit_a.png
         Type: 0
         PivotX: 0.456522
         PivotY: 0.445946
@@ -516,10 +516,10 @@ MonoBehaviour:
         Height: 78
     Entities:
     - Id: 0
-      Name: 506c61796572
+      Name: Player
       ObjectInfos:
       - Id: 0
-        Name: 70656c766973
+        Name: pelvis
         ObjectType: 1
         Width: 200
         Height: 10
@@ -527,7 +527,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 6368657374
+        Name: chest
         ObjectType: 1
         Width: 200
         Height: 10
@@ -535,7 +535,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 68656164
+        Name: head
         ObjectType: 1
         Width: 200
         Height: 10
@@ -543,11 +543,11 @@ MonoBehaviour:
         PivotY: 0
         Variables:
         - Id: 0
-          Name: 74657374566172
+          Name: testVar
           Type: 2
-          DefaultValue: 313030
+          DefaultValue: 100
       - Id: 0
-        Name: 66726f6e745f61726d
+        Name: front_arm
         ObjectType: 1
         Width: 200
         Height: 10
@@ -555,7 +555,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 66726f6e745f666f7261726d
+        Name: front_forarm
         ObjectType: 1
         Width: 200
         Height: 10
@@ -563,7 +563,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 66726f6e745f68616e64
+        Name: front_hand
         ObjectType: 1
         Width: 200
         Height: 10
@@ -571,7 +571,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 6261636b5f61726d
+        Name: back_arm
         ObjectType: 1
         Width: 200
         Height: 10
@@ -579,7 +579,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 6261636b5f666f7261726d
+        Name: back_forarm
         ObjectType: 1
         Width: 200
         Height: 10
@@ -587,7 +587,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 6261636b5f68616e64
+        Name: back_hand
         ObjectType: 1
         Width: 200
         Height: 10
@@ -595,7 +595,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 66726f6e745f7468696768
+        Name: front_thigh
         ObjectType: 1
         Width: 200
         Height: 10
@@ -603,7 +603,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 66726f6e745f7368696e
+        Name: front_shin
         ObjectType: 1
         Width: 200
         Height: 10
@@ -611,7 +611,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 66726f6e745f666f6f74
+        Name: front_foot
         ObjectType: 1
         Width: 200
         Height: 10
@@ -619,7 +619,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 6261636b5f7468696768
+        Name: back_thigh
         ObjectType: 1
         Width: 200
         Height: 10
@@ -627,7 +627,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 6261636b5f7368696e
+        Name: back_shin
         ObjectType: 1
         Width: 200
         Height: 10
@@ -635,7 +635,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 6261636b5f666f6f74
+        Name: back_foot
         ObjectType: 1
         Width: 200
         Height: 10
@@ -645,7 +645,7 @@ MonoBehaviour:
       CharacterMaps: []
       Animations:
       - Id: 0
-        Name: 69646c65
+        Name: idle
         Length: 4000
         Looping: 1
         MainlineKeys:
@@ -3451,7 +3451,7 @@ MonoBehaviour:
             ZIndex: 14
         Timelines:
         - Id: 0
-          Name: 705f746f72736f5f69646c65
+          Name: p_torso_idle
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -3820,7 +3820,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 705f686561645f69646c65
+          Name: p_head_idle
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -4249,7 +4249,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 2
-          Name: 705f61726d5f69646c655f61
+          Name: p_arm_idle_a
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -4618,7 +4618,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 3
-          Name: 705f666f726561726d5f77616c6b5f61
+          Name: p_forearm_walk_a
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -4987,7 +4987,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 4
-          Name: 705f68616e645f62
+          Name: p_hand_b
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -5356,7 +5356,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 5
-          Name: 705f61726d5f69646c65
+          Name: p_arm_idle
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -5725,7 +5725,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 6
-          Name: 705f666f726561726d5f69646c655f30
+          Name: p_forearm_idle_0
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -6094,7 +6094,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 7
-          Name: 705f68616e645f69646c655f30
+          Name: p_hand_idle_0
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -6463,7 +6463,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 8
-          Name: 705f6c65675f61
+          Name: p_leg_a
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -6832,7 +6832,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 9
-          Name: 705f74686967685f61
+          Name: p_thigh_a
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -7201,7 +7201,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 10
-          Name: 705f70656c7669735f69646c65
+          Name: p_pelvis_idle
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -7570,7 +7570,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 11
-          Name: 705f74686967685f69646c655f30
+          Name: p_thigh_idle_0
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -7939,7 +7939,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 12
-          Name: 705f6c65675f69646c655f30
+          Name: p_leg_idle_0
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -8308,7 +8308,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 13
-          Name: 705f666f6f745f69646c655f30
+          Name: p_foot_idle_0
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -8677,7 +8677,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 14
-          Name: 705f666f6f745f77616c6b5f61
+          Name: p_foot_walk_a
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -9046,7 +9046,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 15
-          Name: 70656c766973
+          Name: pelvis
           ObjectType: 1
           ObjectId: 0
           Keys:
@@ -9445,7 +9445,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 16
-          Name: 6368657374
+          Name: chest
           ObjectType: 1
           ObjectId: 1
           Keys:
@@ -9844,7 +9844,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 17
-          Name: 68656164
+          Name: head
           ObjectType: 1
           ObjectId: 2
           Keys:
@@ -10222,7 +10222,7 @@ MonoBehaviour:
                 C2: 0
                 C3: 0
                 C4: 0
-                Value: 33
+                Value: 3
               - Id: 1
                 Name: 
                 Time: 2826
@@ -10231,7 +10231,7 @@ MonoBehaviour:
                 C2: 0
                 C3: 0
                 C4: 0
-                Value: 33
+                Value: 3
             Tagline:
               Keys:
               - Id: 0
@@ -10274,7 +10274,7 @@ MonoBehaviour:
                   Name: 
                   TagId: 1
         - Id: 18
-          Name: 66726f6e745f61726d
+          Name: front_arm
           ObjectType: 1
           ObjectId: 3
           Keys:
@@ -10673,7 +10673,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 19
-          Name: 66726f6e745f666f7261726d
+          Name: front_forarm
           ObjectType: 1
           ObjectId: 4
           Keys:
@@ -11072,7 +11072,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 20
-          Name: 66726f6e745f68616e64
+          Name: front_hand
           ObjectType: 1
           ObjectId: 5
           Keys:
@@ -11441,7 +11441,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 21
-          Name: 6261636b5f61726d
+          Name: back_arm
           ObjectType: 1
           ObjectId: 6
           Keys:
@@ -11870,7 +11870,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 22
-          Name: 6261636b5f666f7261726d
+          Name: back_forarm
           ObjectType: 1
           ObjectId: 7
           Keys:
@@ -12299,7 +12299,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 23
-          Name: 6261636b5f68616e64
+          Name: back_hand
           ObjectType: 1
           ObjectId: 8
           Keys:
@@ -12668,7 +12668,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 24
-          Name: 66726f6e745f7468696768
+          Name: front_thigh
           ObjectType: 1
           ObjectId: 9
           Keys:
@@ -13037,7 +13037,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 25
-          Name: 66726f6e745f7368696e
+          Name: front_shin
           ObjectType: 1
           ObjectId: 10
           Keys:
@@ -13436,7 +13436,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 26
-          Name: 66726f6e745f666f6f74
+          Name: front_foot
           ObjectType: 1
           ObjectId: 11
           Keys:
@@ -13805,7 +13805,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 27
-          Name: 6261636b5f7468696768
+          Name: back_thigh
           ObjectType: 1
           ObjectId: 12
           Keys:
@@ -14174,7 +14174,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 28
-          Name: 6261636b5f7368696e
+          Name: back_shin
           ObjectType: 1
           ObjectId: 13
           Keys:
@@ -14573,7 +14573,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 29
-          Name: 6261636b5f666f6f74
+          Name: back_foot
           ObjectType: 1
           ObjectId: 14
           Keys:
@@ -14943,7 +14943,7 @@ MonoBehaviour:
               Keys: []
         Eventlines:
         - Id: 0
-          Name: 7465737454726967676572
+          Name: testTrigger
           Keys:
           - Id: 0
             Name: 
@@ -14971,7 +14971,7 @@ MonoBehaviour:
             C4: 0
         Soundlines:
         - Id: -1
-          Name: 626565702d3033
+          Name: beep-03
           Keys:
           - Id: 0
             Name: 
@@ -15019,7 +15019,7 @@ MonoBehaviour:
               C2: 0
               C3: 0
               C4: 0
-              Value: 226f6e6522
+              Value: '"one"'
             - Id: 1
               Name: 
               Time: 1418
@@ -15028,7 +15028,7 @@ MonoBehaviour:
               C2: 0
               C3: 0
               C4: 0
-              Value: 2274776f22
+              Value: '"two"'
             - Id: 2
               Name: 
               Time: 2734
@@ -15037,7 +15037,7 @@ MonoBehaviour:
               C2: 0
               C3: 0
               C4: 0
-              Value: 22746872656522
+              Value: '"three"'
           - Id: 1
             Name: 
             Def: 1
@@ -15050,7 +15050,7 @@ MonoBehaviour:
               C2: 0
               C3: 0
               C4: 0
-              Value: 3130
+              Value: 10
             - Id: 1
               Name: 
               Time: 2347
@@ -15059,7 +15059,7 @@ MonoBehaviour:
               C2: 0
               C3: 0
               C4: 0
-              Value: 30
+              Value: 0
           - Id: 2
             Name: 
             Def: 2
@@ -15072,7 +15072,7 @@ MonoBehaviour:
               C2: 0
               C3: 0
               C4: 0
-              Value: 33
+              Value: 3
             - Id: 1
               Name: 
               Time: 2347
@@ -15081,7 +15081,7 @@ MonoBehaviour:
               C2: 0
               C3: 0
               C4: 0
-              Value: 30
+              Value: 0
           Tagline:
             Keys:
             - Id: 0
@@ -15121,7 +15121,7 @@ MonoBehaviour:
               C4: 0
               Tags: []
       - Id: 1
-        Name: 6869745f30
+        Name: hit_0
         Length: 390
         Looping: 0
         MainlineKeys:
@@ -15827,7 +15827,7 @@ MonoBehaviour:
             ZIndex: 14
         Timelines:
         - Id: 0
-          Name: 705f746f72736f5f69646c65
+          Name: p_torso_idle
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -15956,7 +15956,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 705f686561645f69646c65
+          Name: p_head_idle
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -16085,7 +16085,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 2
-          Name: 705f61726d5f69646c655f61
+          Name: p_arm_idle_a
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -16214,7 +16214,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 3
-          Name: 705f666f726561726d5f77616c6b5f61
+          Name: p_forearm_walk_a
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -16343,7 +16343,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 4
-          Name: 705f68616e645f62
+          Name: p_hand_b
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -16472,7 +16472,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 5
-          Name: 705f61726d5f69646c65
+          Name: p_arm_idle
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -16601,7 +16601,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 6
-          Name: 705f666f726561726d5f69646c655f30
+          Name: p_forearm_idle_0
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -16730,7 +16730,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 7
-          Name: 705f68616e645f69646c655f30
+          Name: p_hand_idle_0
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -16859,7 +16859,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 8
-          Name: 705f6c65675f61
+          Name: p_leg_a
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -16988,7 +16988,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 9
-          Name: 705f74686967685f61
+          Name: p_thigh_a
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -17117,7 +17117,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 10
-          Name: 705f70656c7669735f69646c65
+          Name: p_pelvis_idle
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -17216,7 +17216,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 11
-          Name: 705f74686967685f69646c655f30
+          Name: p_thigh_idle_0
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -17315,7 +17315,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 12
-          Name: 705f6c65675f69646c655f30
+          Name: p_leg_idle_0
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -17444,7 +17444,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 13
-          Name: 705f666f6f745f69646c655f30
+          Name: p_foot_idle_0
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -17573,7 +17573,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 14
-          Name: 705f666f6f745f77616c6b5f61
+          Name: p_foot_walk_a
           ObjectType: 0
           ObjectId: 0
           Keys:
@@ -17702,7 +17702,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 15
-          Name: 70656c766973
+          Name: pelvis
           ObjectType: 1
           ObjectId: 0
           Keys:
@@ -17801,7 +17801,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 16
-          Name: 6368657374
+          Name: chest
           ObjectType: 1
           ObjectId: 1
           Keys:
@@ -17930,7 +17930,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 17
-          Name: 68656164
+          Name: head
           ObjectType: 1
           ObjectId: 2
           Keys:
@@ -18068,7 +18068,7 @@ MonoBehaviour:
                 C2: 0
                 C3: 0
                 C4: 0
-                Value: 313030
+                Value: 100
               - Id: 1
                 Name: 
                 Time: 150
@@ -18077,11 +18077,11 @@ MonoBehaviour:
                 C2: 0
                 C3: 0
                 C4: 0
-                Value: 30
+                Value: 0
             Tagline:
               Keys: []
         - Id: 18
-          Name: 66726f6e745f61726d
+          Name: front_arm
           ObjectType: 1
           ObjectId: 3
           Keys:
@@ -18210,7 +18210,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 19
-          Name: 66726f6e745f666f7261726d
+          Name: front_forarm
           ObjectType: 1
           ObjectId: 4
           Keys:
@@ -18339,7 +18339,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 20
-          Name: 66726f6e745f68616e64
+          Name: front_hand
           ObjectType: 1
           ObjectId: 5
           Keys:
@@ -18468,7 +18468,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 21
-          Name: 6261636b5f61726d
+          Name: back_arm
           ObjectType: 1
           ObjectId: 6
           Keys:
@@ -18597,7 +18597,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 22
-          Name: 6261636b5f666f7261726d
+          Name: back_forarm
           ObjectType: 1
           ObjectId: 7
           Keys:
@@ -18726,7 +18726,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 23
-          Name: 6261636b5f68616e64
+          Name: back_hand
           ObjectType: 1
           ObjectId: 8
           Keys:
@@ -18855,7 +18855,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 24
-          Name: 66726f6e745f7468696768
+          Name: front_thigh
           ObjectType: 1
           ObjectId: 9
           Keys:
@@ -18954,7 +18954,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 25
-          Name: 66726f6e745f7368696e
+          Name: front_shin
           ObjectType: 1
           ObjectId: 10
           Keys:
@@ -19083,7 +19083,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 26
-          Name: 66726f6e745f666f6f74
+          Name: front_foot
           ObjectType: 1
           ObjectId: 11
           Keys:
@@ -19212,7 +19212,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 27
-          Name: 6261636b5f7468696768
+          Name: back_thigh
           ObjectType: 1
           ObjectId: 12
           Keys:
@@ -19341,7 +19341,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 28
-          Name: 6261636b5f7368696e
+          Name: back_shin
           ObjectType: 1
           ObjectId: 13
           Keys:
@@ -19470,7 +19470,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 29
-          Name: 6261636b5f666f6f74
+          Name: back_foot
           ObjectType: 1
           ObjectId: 14
           Keys:
@@ -19639,22 +19639,22 @@ MonoBehaviour:
                 TagId: 2
       Variables:
       - Id: 0
-        Name: 74657374537472696e67
+        Name: testString
         Type: 0
-        DefaultValue: 2268656c6c6f22
+        DefaultValue: '"hello"'
       - Id: 1
-        Name: 74657374496e74
+        Name: testInt
         Type: 1
-        DefaultValue: 3230
+        DefaultValue: 20
       - Id: 2
-        Name: 74657374466c6f6174
+        Name: testFloat
         Type: 2
-        DefaultValue: 3430
+        DefaultValue: 40
     - Id: 1
-      Name: 54657374456e74697479
+      Name: TestEntity
       ObjectInfos:
       - Id: 0
-        Name: 626f6e655f303030
+        Name: bone_000
         ObjectType: 1
         Width: 255
         Height: 10
@@ -19662,7 +19662,7 @@ MonoBehaviour:
         PivotY: 0
         Variables: []
       - Id: 0
-        Name: 626f785f303030
+        Name: box_000
         ObjectType: 2
         Width: 141.667
         Height: 126.042
@@ -19672,7 +19672,7 @@ MonoBehaviour:
       CharacterMaps: []
       Animations:
       - Id: 0
-        Name: 74657374
+        Name: test
         Length: 1000
         Looping: 1
         MainlineKeys:
@@ -19975,7 +19975,7 @@ MonoBehaviour:
             ZIndex: 2
         Timelines:
         - Id: 0
-          Name: 506c61796572
+          Name: Player
           ObjectType: 5
           ObjectId: 0
           Keys:
@@ -20134,7 +20134,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 1
-          Name: 626f6e655f303030
+          Name: bone_000
           ObjectType: 1
           ObjectId: 0
           Keys:
@@ -20233,7 +20233,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 2
-          Name: 626f785f303030
+          Name: box_000
           ObjectType: 2
           ObjectId: 1
           Keys:
@@ -20392,7 +20392,7 @@ MonoBehaviour:
             Tagline:
               Keys: []
         - Id: 3
-          Name: 706f696e745f303030
+          Name: point_000
           ObjectType: 3
           ObjectId: 0
           Keys:
@@ -20499,11 +20499,11 @@ MonoBehaviour:
       Variables: []
     Tags:
     - Id: 0
-      Name: 5465737454616731
+      Name: TestTag1
     - Id: 1
-      Name: 5465737454616732
+      Name: TestTag2
     - Id: 2
-      Name: 5465737454616733
+      Name: TestTag3
   FileEntries:
   - FolderId: 0
     FileId: 0

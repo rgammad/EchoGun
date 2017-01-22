@@ -171,6 +171,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projSpeed: 20
   projDamage: 10
+  deathEffectWall: {fileID: 1226001133976502, guid: 1963e67a9b0825f4092fc44a6c47d15b,
+    type: 2}
+  deathEffectFlesh: {fileID: 1226001133976502, guid: a476fbd013067cc47ba3ec09c009c86a,
+    type: 2}
 --- !u!212 &212558644789359252
 SpriteRenderer:
   m_ObjectHideFlags: 1

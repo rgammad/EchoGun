@@ -117,6 +117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e649045b8f168124482b5c1e9d208060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffectWall: {fileID: 1226001133976502, guid: 1963e67a9b0825f4092fc44a6c47d15b,
+    type: 2}
+  deathEffectFlesh: {fileID: 1226001133976502, guid: a476fbd013067cc47ba3ec09c009c86a,
+    type: 2}
   projSpeed: 100
   projDamage: 20
   soundRange: 25

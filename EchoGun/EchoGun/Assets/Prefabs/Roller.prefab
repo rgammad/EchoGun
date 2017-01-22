@@ -260,6 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7821ee8f208ec4875871b658b3bf5e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffects: {fileID: 1226001133976502, guid: 3a361a34bd5d4ba49984883c926c9d35,
+    type: 2}
   radius: 20
   explodeDist: 3
   explodeDamage: 25

@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour {
 	
 	void Update () {
         //while we need to spawn enemies
-        while(numEnemiesActive < Time.timeSinceLevelLoad * enemiesActiveMultiplier) {
+        while(numEnemiesActive < Mathf.Ceil(Time.timeSinceLevelLoad * enemiesActiveMultiplier)) {
             numEnemiesActive++;
             Callback.FireAndForget(SpawnEnemy, enemyRespawnTime, this);
         }

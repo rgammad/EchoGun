@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(EchoGunAPI))]
 public class EchoGun : MonoBehaviour {
 
-	PlayerMovement playerMovement;
 	EchoGunAPI egAPI;
 
 	GameObject muzzle;
@@ -32,7 +31,6 @@ public class EchoGun : MonoBehaviour {
 	void Start()
 	{
 		egAPI = GetComponent<EchoGunAPI>();
-		playerMovement = GetComponent<PlayerMovement>();
         anim = GetComponentInChildren<Animator>();
 		muzzle = GameObject.Find ("MuzzlePoint");
 		flash1 = muzzle.transform.FindChild ("muzzle-flash-1").gameObject;

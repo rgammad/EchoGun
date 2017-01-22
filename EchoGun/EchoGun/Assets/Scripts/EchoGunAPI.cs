@@ -66,7 +66,6 @@ public class EchoGunAPI : MonoBehaviour
     {
         Vector2 initialPos = (Vector2)transform.position;
         Vector2 targetPos = (Vector2)Format.mousePosInWorld();
-        Vector2 laserEndPos = (targetPos - initialPos).normalized * 100;
 
         ProjectileController pc = echoProjectilePrefab.GetComponent<ProjectileController>();
         pc.projSpeed = echoProjSpeed;

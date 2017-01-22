@@ -14,9 +14,9 @@ public class SnipeLeopardAI : MonoBehaviour {
     [SerializeField]
     protected float speed = 5;
 
-    Health health;
     Rigidbody2D rigid;
     List<Navigation.Coordinate2> pathWaypoints;
+    Health health;
     Navigation navigation;
 
     private enum state {
@@ -41,8 +41,8 @@ public class SnipeLeopardAI : MonoBehaviour {
         enemyLaser.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        health = GetComponent<Health>();
-        rigid = GetComponent<Rigidbody2D>();
+        rigid = GetComponentInParent<Rigidbody2D>();
+        health = GetComponentInParent<Health>();
         navigation = GetComponent<Navigation>();
 
         currentState = state.PATROLLING;
@@ -82,10 +82,10 @@ public class SnipeLeopardAI : MonoBehaviour {
                     Navigation.Coordinate2 start = navigation.VectorToCoordinate(transform.position);
                     Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
 
-                    //ensure path isn't too long
-                    while ((destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
-                        destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
-                    }
+                    ////ensure path isn't too long
+                    //while ((destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
+                    //    destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+                    //}
                     pathWaypoints = navigation.pathToPlayer(start, destination);
                     /*
                      * For path debugging
@@ -117,5 +117,10 @@ public class SnipeLeopardAI : MonoBehaviour {
                 firingTimer = lockOnTime;
             }
         }
+    }
+
+    private void Health_onDeath() {
+        Destroy(transform.root.gameObject);
+        health.onDeath -= Health_onDeath;
     }
 }

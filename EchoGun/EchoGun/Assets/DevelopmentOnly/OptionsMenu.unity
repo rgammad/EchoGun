@@ -369,7 +369,7 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  autoRandomSeed: 1
+  autoRandomSeed: 0
   startDelay:
     scalar: 0
     maxCurve:
@@ -412,7 +412,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -298900321
+  randomSeed: -298900320
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4065,7 +4065,7 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  autoRandomSeed: 1
+  autoRandomSeed: 0
   startDelay:
     scalar: 0
     maxCurve:
@@ -4108,7 +4108,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -298900321
+  randomSeed: -298900320
   InitialModule:
     serializedVersion: 3
     enabled: 1

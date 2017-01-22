@@ -68,7 +68,6 @@ public class Health : MonoBehaviour {
 
     public virtual float Damage(float amount) {
         Assert.IsTrue(amount >= 0);
-        Debug.Log("Damage");
         return SetHealth(health - amount);
     }
 

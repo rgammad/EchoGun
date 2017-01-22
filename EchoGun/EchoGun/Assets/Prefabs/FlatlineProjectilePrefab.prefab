@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61164034724358222}
   - component: {fileID: 114633269546935858}
   - component: {fileID: 50339061698759026}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: FlatlineProjectilePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

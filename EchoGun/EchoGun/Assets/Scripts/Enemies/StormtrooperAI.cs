@@ -14,6 +14,9 @@ public class StormtrooperAI : MonoBehaviour {
     [SerializeField]
     protected float speed = 5;
 
+    [SerializeField]
+    protected float patrolSpeed = 10f;
+
     /// <summary>
     /// Time at which we will stop or stopped firing.
     /// </summary>
@@ -79,36 +82,37 @@ public class StormtrooperAI : MonoBehaviour {
 
         }
         else {
-            //ensure we have a path
-            while(pathWaypoints == null || pathWaypoints.Count == 0) {
-                Navigation.Coordinate2 start = navigation.VectorToCoordinate(transform.position);
-                Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+            rigid.MovePosition(transform.position + (transform.up * patrolSpeed * Time.deltaTime));
+            ////ensure we have a path
+            //while(pathWaypoints == null || pathWaypoints.Count == 0) {
+            //    Navigation.Coordinate2 start = navigation.VectorToCoordinate(transform.position);
+            //    Navigation.Coordinate2 destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
 
-                //ensure path isn't too long, and destination is in the stage
+            //    //ensure path isn't too long, and destination is in the stage
 
-                while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null) {// || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
-                    destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
-                }
-                
+            //    while (Physics2D.OverlapPoint(destination.toVector2(), stageBoundary) == null || !navigation.navigationPointWalkable(destination)) {// || (destination.toVector2() - (Vector2)this.transform.position).magnitude > 50) {
+            //        destination = new Navigation.Coordinate2(Random.Range(0, Navigation.navigationWidth), Random.Range(0, Navigation.navigationWidth));
+            //    }
 
-                pathWaypoints = navigation.pathToPlayer(start, destination);
-                /*
-                 * For path debugging
-                 * 
-                if(pathWaypoints != null) {
-                    LineRenderer rend = GetComponent<LineRenderer>();
-                    rend.numPositions = pathWaypoints.Count;
-                    for(int i = 0; i < pathWaypoints.Count; i++) {
-                        rend.SetPosition(i, pathWaypoints[i].toVector2());
-                    }
-                }
-                */
-            }
-            rigid.MovePosition(Vector2.MoveTowards(transform.position, pathWaypoints[0].toVector2(), speed * Time.deltaTime));
-            rigid.MoveRotation((pathWaypoints[0].toVector2() - (Vector2)(transform.position)).ToAngle());
-            if(Vector2.Distance(transform.position, pathWaypoints[0].toVector2()) < 0.33f) {
-                pathWaypoints.RemoveAt(0);
-            }
+
+            //    pathWaypoints = navigation.pathToPlayer(start, destination);
+            //    /*
+            //     * For path debugging
+            //     * 
+            //    if(pathWaypoints != null) {
+            //        LineRenderer rend = GetComponent<LineRenderer>();
+            //        rend.numPositions = pathWaypoints.Count;
+            //        for(int i = 0; i < pathWaypoints.Count; i++) {
+            //            rend.SetPosition(i, pathWaypoints[i].toVector2());
+            //        }
+            //    }
+            //    */
+            //}
+            //rigid.MovePosition(Vector2.MoveTowards(transform.position, pathWaypoints[0].toVector2(), speed * Time.deltaTime));
+            //rigid.MoveRotation((pathWaypoints[0].toVector2() - (Vector2)(transform.position)).ToAngle());
+            //if(Vector2.Distance(transform.position, pathWaypoints[0].toVector2()) < 0.33f) {
+            //    pathWaypoints.RemoveAt(0);
+            //}
         }
 
         //rigid.velocity = Vector2.ClampMagnitude(Vector2.MoveTowards(rigid.velocity, speed * (targetPos - (Vector2)transform.position + new Vector2(x, y)), maxSpeed * accel * Time.deltaTime), maxSpeed);

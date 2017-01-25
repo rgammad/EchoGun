@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 82175942315012174}
   - component: {fileID: 114941527439481048}
   - component: {fileID: 114129750149730430}
-  - component: {fileID: 114836406693345444}
   - component: {fileID: 114227761623448362}
   m_Layer: 8
   m_Name: Player
@@ -214,7 +213,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799273796024032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.1, y: -390.8, z: 0}
+  m_LocalPosition: {x: 100, y: -50, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4453430000325098}
@@ -588,21 +587,6 @@ MonoBehaviour:
   echoStandardDamage: 50
   echoStandardSoundRange: 30
   echoProjSoundRange: 25
---- !u!114 &114836406693345444
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1799273796024032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e125462ddd5732147b4436c506ba6bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  resume: {fileID: 0}
-  quit: {fileID: 0}
-  image: {fileID: 0}
 --- !u!114 &114941527439481048
 MonoBehaviour:
   m_ObjectHideFlags: 1

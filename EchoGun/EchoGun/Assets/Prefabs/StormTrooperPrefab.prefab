@@ -60,6 +60,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4049845092854114}
   - component: {fileID: 58113058699210788}
+  - component: {fileID: 114120177848059992}
   m_Layer: 14
   m_Name: WallCollision
   m_TagString: Enemy
@@ -100,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061854446641220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: -200, z: 0}
+  m_LocalPosition: {x: 100.7, y: -233.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4247348253885822}
@@ -120,8 +121,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 5
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0.5
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -267,6 +268,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114120177848059992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1949094512992940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac077504964072478ea667bb21a508a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114328796342519924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -306,6 +318,7 @@ MonoBehaviour:
   deathEffects: {fileID: 1226001133976502, guid: e75e16b63faa9b646806bc9996264d7d,
     type: 2}
   speed: 5
+  patrolSpeed: 10
   firingDuration: 3
   timePerShot: 0.1
   shotSpread: 10

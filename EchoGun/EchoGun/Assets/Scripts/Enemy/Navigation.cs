@@ -71,13 +71,13 @@ public class Navigation : MonoBehaviour {
 
     int navigationDataAtPoint(Coordinate2 coordinate) { return navigationDataAtPoint(coordinate.x, coordinate.y); }
 
-    bool navigationPointWalkable(int x, int y) {
+    public bool navigationPointWalkable(int x, int y) {
         if(x < 0 || y < 0) { return false; }
         if (x >= navigationWidth || y >= navigationHeight) { return false; }
         return navigationDataAtPoint(x, y) == walkableTileValue;
     }
 
-    bool navigationPointWalkable(Coordinate2 coordinate) { return navigationPointWalkable(coordinate.x, coordinate.y); }
+    public bool navigationPointWalkable(Coordinate2 coordinate) { return navigationPointWalkable(coordinate.x, coordinate.y); }
 
     public List<Coordinate2> pathToPlayer(Coordinate2 source, Coordinate2 playerPosition) {
         return calculatePath(playerPosition, source);

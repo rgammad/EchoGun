@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour {
             //choose which enemy type to spawn
             int destructibleIndex = Random.Range(0, destructablePrefabs.Length);
             GameObject destructable = Instantiate(destructablePrefabs[destructibleIndex]);
-
+            Debug.Log(destructable);
 
             DestructibleTracker destructibleTracker = destructable.AddComponent<DestructibleTracker>();
             //set up death tracking
@@ -94,6 +94,6 @@ public class Spawner : MonoBehaviour {
     }
 
     public void DestructibleDeath() {
-        numDestructables--;
+        currentDestructables--;
     }
 }

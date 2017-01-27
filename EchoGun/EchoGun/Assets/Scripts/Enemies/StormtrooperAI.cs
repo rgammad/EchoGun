@@ -119,8 +119,6 @@ public class StormtrooperAI : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D trigger) {
-        Debug.Log(trigger);
-        Debug.Log(trigger.tag);
         if (trigger.tag == "Sound Trigger") {
             targetPos = trigger.transform.position;
             firingEndTime = Time.time + firingDuration;

@@ -6,11 +6,8 @@ TagManager:
   tags:
   - Wall
   - Enemy
-  - Destructible
   - Sound Trigger
-  - TestTag1
-  - TestTag2
-  - TestTag3
+  - Destructible
   layers:
   - Default
   - TransparentFX
@@ -30,9 +27,9 @@ TagManager:
   - 
   - SoundListener
   - SoundNoise
+  - 
   - StageBoundary
   - 
-  - Destructables
   - 
   - 
   - 

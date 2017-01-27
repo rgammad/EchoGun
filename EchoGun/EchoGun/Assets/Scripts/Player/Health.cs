@@ -3,7 +3,9 @@ using UnityEngine.Assertions;
 using System.Collections;
 using UnityEngine.UI;
 
-// add this script to anything that should have health and be damageable
+/// <summary>
+/// Script for objects which are damageable and have health. Should be on the root of objects.
+/// </summary>
 public class Health : MonoBehaviour {
 
     public delegate void OnDamage(float amount);
@@ -21,6 +23,10 @@ public class Health : MonoBehaviour {
     [SerializeField]
     protected float health = 100f;     // current health
     public float HealthValue { get { return health; } }
+
+    void Start() {
+        Assert.IsTrue(transform.parent == null); //ensure we are on the root gameobject.
+    }
 
     /// <summary>
     /// Returns the amount by which the health was actually changed.

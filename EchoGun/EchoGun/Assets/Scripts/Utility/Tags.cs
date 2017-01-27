@@ -14,6 +14,8 @@ public static class Tags {
     }
 
     public const string Player = "Player";
+    public const string SoundTrigger = "Sound Trigger";
+    public const string Enemy = "Enemy";
 
     public static class Input
     {
@@ -26,9 +28,50 @@ public static class Tags {
 
     public static class Layers
     {
+        // Identify enemy-friend is done through collisions. If you are allied, you won't collide at all. If you can collide, you are hostile.
+
         public const string Default = "Default";
+
+        /// <summary>
+        /// Layer for player hitboxes.
+        /// </summary>
         public const string Player = "Player";
+        /// <summary>
+        /// Layer for player projectile hitboxes.
+        /// </summary>
+        public const string PlayerProjectile = "PlayerProjectile";
+        /// <summary>
+        /// Layer for enemy hitboxes.
+        /// </summary>
         public const string Enemy = "Enemy";
+        /// <summary>
+        /// Layer for enemy projectile hitboxes.
+        /// </summary>
+        public const string EnemyProjectile = "EnemyProjectile";
+        /// <summary>
+        /// Layer for enemy projectile hitboxes which ignore walls.
+        /// </summary>
+        public const string SniperProjectile = "SniperProjectile";
+
+        public const string Wall = "Walls";
+        /// <summary>
+        /// Layer for entity-environment collisions on entities (i.e. where can you walk).
+        /// </summary>
+        public const string WallOnly = "WallsOnly";
+
+        /// <summary>
+        /// Layer for sound detection on entities.
+        /// </summary>
+        public const string SoundListener = "SoundListener";
+        /// <summary>
+        /// Layer to trigger entity sound listeners.
+        /// </summary>
+        public const string SoundNoise = "SoundNoise";
+
+        /// <summary>
+        /// Temporary layer to mark areas as walkable or not.
+        /// </summary>
+        public const string StageBoundary = "StageBoundary";
     }
 
     public class SortingLayers

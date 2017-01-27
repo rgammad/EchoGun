@@ -54,7 +54,7 @@ public class SnipeLeopardAI : MonoBehaviour {
         currentState = state.PATROLLING;
         firingTimer = 0;
 
-        stageBoundary = LayerMask.GetMask("StageBoundary");
+        stageBoundary = LayerMask.GetMask(Tags.Layers.StageBoundary);
     }
 	
 	// Update is called once per frame

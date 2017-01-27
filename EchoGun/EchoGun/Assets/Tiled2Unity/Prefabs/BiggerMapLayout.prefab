@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4809746167122414}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: BoundingColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4024237378769514}
   - component: {fileID: 61214055096563420}
-  m_Layer: 18
+  m_Layer: 19
   m_Name: BoundingCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4869762972928080}
   - component: {fileID: 61351046061568830}
-  m_Layer: 18
+  m_Layer: 19
   m_Name: BoundingCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4193683691570066}
   - component: {fileID: 61527241420439080}
-  m_Layer: 18
+  m_Layer: 19
   m_Name: BoundingCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4974946525805510}
   - component: {fileID: 61275805113728212}
-  m_Layer: 18
+  m_Layer: 19
   m_Name: BoundingCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4100325363315726}
   - component: {fileID: 61552868323342462}
-  m_Layer: 18
+  m_Layer: 19
   m_Name: BoundingCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

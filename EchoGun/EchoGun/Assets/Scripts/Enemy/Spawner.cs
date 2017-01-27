@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour {
     LayerMask stageBoundary;
 
     void Start () {
-        stageBoundary = LayerMask.GetMask("StageBoundary");
+        stageBoundary = LayerMask.GetMask(Tags.Layers.StageBoundary);
         Assert.IsTrue(enemyPrefabs.Length == enemyCounts.Length);
     }
 	

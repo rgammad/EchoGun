@@ -18,15 +18,17 @@ public class EnemyProjectileController : MonoBehaviour, ISpawnable {
 
 
     void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Wall")) {
-            SimplePool.Despawn(this.gameObject);
+        Health targetHealth = other.transform.root.GetComponent<Health>();
+        if(targetHealth != null) {
+            //if the target is damageable
+            targetHealth.Damage(projDamage);
+            SimplePool.Spawn(deathEffectFlesh);
+        } else {
+            //target isn't damageable
             SimplePool.Spawn(deathEffectWall, transform.position);
         }
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Destructible")) {
-            other.transform.root.GetComponent<Health>().Damage(projDamage);
-            SimplePool.Despawn(this.gameObject);
-            SimplePool.Spawn(deathEffectFlesh);
-        }
+
+        SimplePool.Despawn(this.gameObject);
     }
 
     void ISpawnable.Spawn() {

@@ -48,7 +48,7 @@ public class StormtrooperAI : MonoBehaviour {
         health.onDeath += Health_onDeath;
         health.onDamage += Health_onDamage;
 
-        stageBoundary = LayerMask.GetMask("StageBoundary");
+        stageBoundary = LayerMask.GetMask(Tags.Layers.StageBoundary);
     }
 
     List<Navigation.Coordinate2> pathWaypoints;

@@ -38,21 +38,18 @@
 			struct v2f
 			{
 				float4 vertex   : SV_POSITION;
-                float2 worldPos : TEXCOORD1;
                 float2 texcoord : TEXCOORD0;
+                float4 vpos : TEXCOORD1; //screen uvs for deferred rendering
 			};
 
-            uniform int _GLOBAL_PING_COUNT;
-            uniform float2 _GLOBAL_PING_POS [10];
-            uniform float _GLOBAL_TIME_SINCE_PING [10];
-            uniform float _GLOBAL_PING_RANGE [10];
+            uniform sampler2D _GlobalRenderedSoundTex;
 
 			v2f vert(appdata_t IN)
 			{
 				v2f OUT;
 				OUT.vertex = UnityObjectToClipPos(IN.vertex);
-                OUT.worldPos = mul(unity_ObjectToWorld, IN.vertex).xy;
                 OUT.texcoord = IN.texcoord;
+                OUT.vpos = ComputeScreenPos (OUT.vertex);
 
 				return OUT;
 			}
@@ -64,27 +61,7 @@
 			{
 				fixed4 c = tex2D(_MainTex, IN.texcoord);
 
-                float totalPingProgress = 0;
-                for (int i = 0; i < _GLOBAL_PING_COUNT; i ++)
-				{
-                    float travelSpeed = 50;
-                    float pingDistance = distance(IN.worldPos, _GLOBAL_PING_POS[i]);
-                    float travelTime = pingDistance / travelSpeed;
-
-                    //1 if we are within range, 0 otherwise
-                    //TODO: consider squared range?
-                    float pingProgress = step(pingDistance, _GLOBAL_PING_RANGE[i]);
-
-                    //if(pingProgress > 0) { //possible optimization?
-
-                        //1 when the wave reaches us, 0 when 5 seconds after the wave has reached us.
-                        pingProgress *= 1 - ((_GLOBAL_TIME_SINCE_PING[i] - travelTime)/1);
-                        totalPingProgress = max(pingProgress, totalPingProgress);
-                    //}
-
-                }
-                fixed4 gradientColor = tex2D(_GradientTex, float2(totalPingProgress, 0.5));
-                c.rgb *= gradientColor.rgb * gradientColor.a * 0.3;
+                c.rgb *= tex2Dproj(_GlobalRenderedSoundTex, UNITY_PROJ_COORD(IN.vpos)).rgb;
 				return c;
 			}
 		ENDCG

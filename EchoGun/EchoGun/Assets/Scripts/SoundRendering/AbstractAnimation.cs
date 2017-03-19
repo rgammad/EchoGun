@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
 
-[RequireComponent(typeof(CircleCollider2D))]
-public class SoundTriggerBehavior : MonoBehaviour
-{
+/// <summary>
+/// An abstract base class for any gameplay logic which accesses an animationCurve-controlled value.
+/// 
+/// Abstract methods: Evaluate(float), called every frame with the current animation value.
+/// </summary>
+public abstract class AbstractAnimation : MonoBehaviour {
 
     /// <summary>
     /// Represents a section of an animation. The duration of animation phases can be changed without affecting other phases.
@@ -44,19 +45,14 @@ public class SoundTriggerBehavior : MonoBehaviour
 
     protected AnimationPhase currentPhase { get { return phases[phaseIndex]; } }
 
-    private CircleCollider2D soundTrigger;
-
     protected virtual void Start() {
-        if (phases.Length == 0) {
+        if(phases.Length == 0) {
             Debug.LogWarning("The script does not have any Animation Phases, destroying self", this);
             Destroy(this);
             return;
         }
         phaseStartTime = Time.time;
         phaseEndTime = phaseStartTime + currentPhase.Duration;
-
-        soundTrigger = gameObject.GetComponent<CircleCollider2D>();
-        soundTrigger.radius = 0;
     }
 
     protected void Update() {
@@ -78,11 +74,10 @@ public class SoundTriggerBehavior : MonoBehaviour
         Evaluate(value);
     }
 
-    protected void Evaluate(float currentValue) {
-        soundTrigger.radius = currentValue;
-    }
-
-    protected void OnDestroy() {
-        Destroy(soundTrigger);
-    }
+    /// <summary>
+    /// Called every frame, with the current scaled value of the animation.
+    /// </summary>
+    /// <param name="currentValue"></param>
+    protected abstract void Evaluate(float currentValue);
 }
+

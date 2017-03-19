@@ -39,7 +39,7 @@ public class PlayerPing : MonoBehaviour {
             this.lifetime = pingFalloffDuration + (range / pingSpeed);
         }
 
-        public Ping(Vector2 position, float range) : this(position, Time.time, range) { }
+        public Ping(Vector2 position, float range) : this(position, Time.time, range) { Debug.LogWarning("Depreciated"); }
 
         //TODO: lifetime
     }
@@ -66,6 +66,7 @@ public class PlayerPing : MonoBehaviour {
 
 
     void Start () {
+        Debug.LogWarning("Depreciated");
         main = this;
         //set arrays to max length values, and ping count to zero.
         Shader.SetGlobalFloat(Tags.ShaderParams.globalPingCount, 0);
@@ -94,10 +95,11 @@ public class PlayerPing : MonoBehaviour {
 
         GameObject stc = (GameObject)Instantiate(main.soundTriggerCollider);
         stc.transform.position = position;
+        /*
         stc.gameObject.GetComponent<SoundTriggerBehavior>().GrowthRate = newPing.PingSpeed;
         stc.gameObject.GetComponent<SoundTriggerBehavior>().MaxRadius = range;
         stc.gameObject.GetComponent<SoundTriggerBehavior>().StartTime = newPing.PingTime;
-        
+        */
     }
 
     private void Update() {

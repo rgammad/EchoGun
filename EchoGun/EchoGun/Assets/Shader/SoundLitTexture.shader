@@ -61,7 +61,16 @@
 			{
 				fixed4 c = tex2D(_MainTex, IN.texcoord);
 
-                c.rgb *= tex2Dproj(_GlobalRenderedSoundTex, UNITY_PROJ_COORD(IN.vpos)).rgb;
+                float3 soundValues = tex2Dproj(_GlobalRenderedSoundTex, UNITY_PROJ_COORD(IN.vpos)).rgb;
+
+                float illumStrength = soundValues.r;
+
+                c.rgb *= illumStrength;
+
+                float edgeStrength = soundValues.g;
+
+                c = lerp(c, fixed4(1, 1, 1, 1), edgeStrength);
+
 				return c;
 			}
 		ENDCG

@@ -15,8 +15,8 @@ public class SoundRenderingBehaviour : MonoBehaviour
         public AnimationCurve SizeOverTime { get { return sizeOverTime; } }
 
         [SerializeField]
-        protected AnimationCurve alphaStrOverTime = AnimationCurve.Linear(0, 0, 1, 1);
-        public AnimationCurve AlphaStrOverTime { get { return alphaStrOverTime; } }
+        protected AnimationCurve edgeStrOverTime = AnimationCurve.Linear(0, 0, 1, 1);
+        public AnimationCurve EdgeStrOverTime { get { return edgeStrOverTime; } }
         //Scalar strength of the high-alpha edge
 
         [SerializeField]
@@ -41,12 +41,16 @@ public class SoundRenderingBehaviour : MonoBehaviour
 
     [SerializeField]
     protected Transform rendering; //the gameobject holding the quad which will be rendered into the sound buffer
+    MeshRenderer meshRenderer;
 
     [SerializeField]
     protected AnimationPhase[] phases = new AnimationPhase[1] { new AnimationPhase(AnimationCurve.Linear(0, 0, 1, 1), 1) };
 
     [SerializeField]
     protected float maxValue = 1;
+
+    int edgeStrID;
+    int illumStrID;
 
     float phaseStartTime;
     float phaseEndTime;
@@ -63,9 +67,14 @@ public class SoundRenderingBehaviour : MonoBehaviour
         phaseStartTime = Time.time;
         phaseEndTime = phaseStartTime + currentPhase.Duration;
 
-        rendering.GetComponent<MeshRenderer>().sortingOrder = (Mathf.RoundToInt(Time.time) % 32760);
+        meshRenderer = rendering.GetComponent<MeshRenderer>();
+        meshRenderer.sortingOrder = (Mathf.RoundToInt(10 * Time.time) % 32760);
+
         //max value is 32767
         //newer ones take precedence over older ones
+
+        edgeStrID = Shader.PropertyToID("_EdgeStrength");
+        illumStrID = Shader.PropertyToID("_IllumStrength");
     }
 
     protected void Update() {
@@ -83,11 +92,23 @@ public class SoundRenderingBehaviour : MonoBehaviour
         }
 
         float lifetimeProgress = Mathf.InverseLerp(phaseStartTime, phaseEndTime, Time.time);
-        float value = currentPhase.SizeOverTime.Evaluate(lifetimeProgress) * maxValue;
-        Evaluate(value);
+
+        float size = currentPhase.SizeOverTime.Evaluate(lifetimeProgress) * maxValue;
+        float alphaStr = currentPhase.EdgeStrOverTime.Evaluate(lifetimeProgress);
+        float illumStr = currentPhase.IllumStrOverTime.Evaluate(lifetimeProgress);
+
+        Evaluate(size, alphaStr, illumStr);
     }
 
-    protected void Evaluate(float currentValue) {
-        rendering.transform.localScale = 2 * currentValue * Vector3.one;
+    protected void Evaluate(float size, float edgeStr, float illumStr) {
+        rendering.transform.localScale = 2 * size * Vector3.one;
+
+
+        MaterialPropertyBlock block = new MaterialPropertyBlock();
+
+        block.SetFloat(edgeStrID, edgeStr);
+        block.SetFloat(illumStrID, illumStr);
+
+        meshRenderer.SetPropertyBlock(block);
     }
 }

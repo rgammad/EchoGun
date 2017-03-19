@@ -3,6 +3,9 @@
 	Properties
 	{
         _MainTex ("Sprite Texture", 2D) = "white" {}
+        _Alpha ("Alpha Reduction", Float) = 0.9
+        [PerRendererData] _EdgeStrength ("Alpha Strength [0..1]", Float) = 1
+        [PerRendererData] _IllumStrength ("Illumination Strength [0..1]", Float) = 1
 	}
 
 	SubShader
@@ -41,7 +44,9 @@
                 float4 objPos : TEXCOORD0;
 			};
 
-            sampler2D _MainTex;
+            half _Alpha;
+            half _EdgeStrength;
+            half _IllumStrength;
 
 			v2f vert(appdata_t IN)
 			{
@@ -59,9 +64,10 @@
                 {   
                     return fixed4(0, 0, 0, 0);
                 }
-				float alpha = sqrDist;
-                float intensity = 1 - sqrDist;
-				return fixed4(intensity, intensity, intensity, alpha);
+				float edge = pow(_EdgeStrength * (sqrDist), 10);
+                float intensity = _IllumStrength * (1 - sqrDist);
+
+                return fixed4(intensity, edge, 0, _Alpha * intensity);
                
 			}
 		ENDCG

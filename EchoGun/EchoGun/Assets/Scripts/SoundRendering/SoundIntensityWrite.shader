@@ -5,6 +5,10 @@
         _Alpha ("Alpha Reduction", Float) = 0.9
         [PerRendererData] _EdgeStrength ("Alpha Strength [0..1]", Float) = 1
         [PerRendererData] _IllumStrength ("Illumination Strength [0..1]", Float) = 1
+        
+		[MaterialToggle] HardFalloff ("Hard Falloff Enabled", Float) = 0
+        _HardFalloffLocation ("Hard Falloff Location", Range(0, 1)) = 0.75
+        _HardFalloffStrength ("Hard Falloff Strength", Range(0, 1)) = 0.5
 	}
 
 	SubShader
@@ -29,6 +33,7 @@
 		CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+            #pragma multi_compile _ HARDFALLOFF_ON
 
 			#include "UnityCG.cginc"
 			
@@ -47,6 +52,9 @@
             half _EdgeStrength;
             half _IllumStrength;
 
+            half _HardFalloffLocation;
+            half _HardFalloffStrength;
+
 			v2f vert(appdata_t IN)
 			{
 				v2f OUT;
@@ -64,7 +72,14 @@
                     return fixed4(0, 0, 0, 0);
                 }
 				float edge = pow(_EdgeStrength * (sqrDist), 10);
-                float intensity = _IllumStrength * (1 - sqrDist);
+                float intensity = (1 - sqrDist);
+
+                #ifdef HARDFALLOFF_ON
+                float hardFalloffTarget = step(sqrDist, _HardFalloffLocation);
+                intensity = lerp(intensity, hardFalloffTarget, _HardFalloffStrength);
+                #endif
+
+                intensity *= _IllumStrength;
 
                 return fixed4(intensity, edge, 0, _Alpha * intensity);
                

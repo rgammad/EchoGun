@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SoundIntensityWrite
+  m_Name: SoundIntensityWriteSoftEdge
   m_Shader: {fileID: 4800000, guid: f134e2ca7373a7d40a8a4eb0cf1a613f, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -71,6 +71,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
+        name: HardFalloff
+      second: 0
+    - first:
+        name: _Alpha
+      second: 0.9
+    - first:
         name: _BumpScale
       second: 1
     - first:
@@ -83,6 +89,9 @@ Material:
         name: _DstBlend
       second: 0
     - first:
+        name: _EdgeStrength
+      second: 1
+    - first:
         name: _GlossMapScale
       second: 1
     - first:
@@ -90,6 +99,15 @@ Material:
       second: 0.5
     - first:
         name: _GlossyReflections
+      second: 1
+    - first:
+        name: _HardFalloffLocation
+      second: 0.66
+    - first:
+        name: _HardFalloffStrength
+      second: 0
+    - first:
+        name: _IllumStrength
       second: 1
     - first:
         name: _Metallic

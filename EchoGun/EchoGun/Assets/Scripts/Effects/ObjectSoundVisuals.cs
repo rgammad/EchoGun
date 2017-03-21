@@ -18,7 +18,7 @@ public class ObjectSoundVisuals : FXCoroutine {
     int valueID;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         rend = GetComponent<SpriteRenderer>();
         parent = transform.parent.GetComponent<SpriteRenderer>();
         rend.enabled = false;
@@ -31,10 +31,10 @@ public class ObjectSoundVisuals : FXCoroutine {
     protected override void OnEffectBegin() {
         base.OnEffectBegin();
         rend.enabled = true;
+        this.enabled = true;
     }
 
     protected override void OnEffectUpdate(float lerpValue) {
-        rend.sprite = parent.sprite;
 
         float value = intensityOverTime.Evaluate(lerpValue);
         MaterialPropertyBlock block = new MaterialPropertyBlock();
@@ -45,5 +45,10 @@ public class ObjectSoundVisuals : FXCoroutine {
     protected override void OnEffectComplete() {
         base.OnEffectComplete();
         rend.enabled = false;
+        this.enabled = false;
+    }
+
+    private void LateUpdate() {
+        rend.sprite = parent.sprite;
     }
 }

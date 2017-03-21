@@ -5,7 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class SoundBufferSetup : MonoBehaviour {
 
-    RenderTexture screenSoundTexture; //texture to represent what areas are illuminated by sound
+    protected RenderTexture screenSoundTexture; //texture to represent what areas are illuminated by sound
+    public RenderTexture ScreenSoundTexture { get { return screenSoundTexture; } }
+
     Camera targetCamera;
 
 	// Use this for initialization
@@ -15,9 +17,4 @@ public class SoundBufferSetup : MonoBehaviour {
         targetCamera.targetTexture = screenSoundTexture;
         screenSoundTexture.SetGlobalShaderProperty("_GlobalRenderedSoundTex");
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

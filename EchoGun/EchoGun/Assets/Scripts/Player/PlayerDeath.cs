@@ -20,11 +20,11 @@ public class PlayerDeath : MonoBehaviour {
     private void Health_onDamage(float amount)
     {
         //Debug.Log("I got into on damage");
-        GetComponent<playerSounds>().playDamage();
+        GetComponent<PlayerSounds>().playDamage();
     }
 
     private void Health_onDeath() {
-        GetComponent<playerSounds>().playDeath();
+        GetComponent<PlayerSounds>().playDeath();
         Camera.main.GetComponent<CameraShakeScript>().screenShake(3.0f, 5.0f);
         health.Heal(9999);
 

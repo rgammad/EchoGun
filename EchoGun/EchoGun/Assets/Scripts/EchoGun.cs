@@ -12,7 +12,8 @@ public class EchoGun : MonoBehaviour {
 	GameObject flash2;
 
     public WeaponType weapType;
-    public float shootingSoundRange = 25.0f;
+    [SerializeField]
+    protected GameObject soundPrefab;
 
     private Animator anim;
     private bool isShooting = false;
@@ -77,17 +78,17 @@ public class EchoGun : MonoBehaviour {
 
 	private void Shoot()
 	{
-        PlayerPing.CreatePing(transform.position, shootingSoundRange);
+        SimplePool.Spawn(soundPrefab, transform.position);
 		switch (currentEchoType)
 		{
 		case eGun.STANDARD:
 			muzzleFlash(eGun.STANDARD);
-            GetComponent<playerSounds>().playHitscan();
+            GetComponent<PlayerSounds>().playHitscan();
 			egAPI.echoStandard(weapType);
 			break;
 		case eGun.PROJECTILE:
 			muzzleFlash(eGun.PROJECTILE);
-            GetComponent<playerSounds>().playLaserSound();
+            GetComponent<PlayerSounds>().playLaserSound();
 			egAPI.echoProjectile(weapType);
 			break;
 		default:

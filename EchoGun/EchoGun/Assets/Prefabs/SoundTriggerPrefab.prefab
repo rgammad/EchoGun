@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 58120781045871516}
   - component: {fileID: 114222107689220248}
   - component: {fileID: 114432346215714196}
-  - component: {fileID: 114817808679402690}
+  - component: {fileID: 114069436679173698}
   m_Layer: 17
   m_Name: SoundTriggerPrefab
   m_TagString: Sound Trigger
@@ -126,6 +126,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114069436679173698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1412505888259748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd47fec7875ff7479022956e8475efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToLive: 10
 --- !u!114 &114222107689220248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,7 +169,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     duration: 1
-  maxValue: 1
+  maxValue: 20
 --- !u!114 &114432346215714196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,9 +206,9 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
+        value: 0.49657527
+        inSlope: 1.0814915
+        outSlope: 1.0814915
         tangentMode: 0
       - serializedVersion: 2
         time: 1
@@ -250,8 +262,8 @@ MonoBehaviour:
       - serializedVersion: 2
         time: -0.0025188916
         value: 1.0034245
-        inSlope: -0.03998776
-        outSlope: -0.03998776
+        inSlope: -1.7444395
+        outSlope: -1.7444395
         tangentMode: 0
       - serializedVersion: 2
         time: 0.98992443
@@ -337,15 +349,3 @@ MonoBehaviour:
       m_RotationOrder: 0
     duration: 9.25
   maxValue: 20
---- !u!114 &114817808679402690
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1412505888259748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe376ebd3ca9124b828467953774117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToLive: 10

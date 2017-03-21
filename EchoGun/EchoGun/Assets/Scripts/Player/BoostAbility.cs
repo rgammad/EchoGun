@@ -6,16 +6,15 @@ using UnityEngine.Assertions;
 public class BoostAbility : MonoBehaviour {
 
     [SerializeField]
-    protected float soundRange = 30f;
+    protected GameObject soundPrefab;
 
     PlayerMovement movement;
     float currentSpeedMod = 1;
     float currentAccelMod = 1;
     float currentMassMod = 1;
-    playerSounds soundController;
+    PlayerSounds soundController;
     ParticleSystem vfx;
     Rigidbody2D rigid;
-    PlayerPing ping;
 
     Coroutine activationRoutine = null;
 
@@ -44,7 +43,7 @@ public class BoostAbility : MonoBehaviour {
     protected void Awake()
     {
         vfx = GetComponent<ParticleSystem>();
-        soundController = GetComponentInParent<playerSounds>();
+        soundController = GetComponentInParent<PlayerSounds>();
         ParticleSystem.MainModule main = vfx.main;
         decayDuration = Mathf.Max(speedDecayDuration, accelNerfDecayDuration);
     }
@@ -56,8 +55,6 @@ public class BoostAbility : MonoBehaviour {
         //vfx.startSize = 2*transform.parent.GetComponentInChildren<CircleCollider2D>().radius;
         rigid = GetComponentInParent<Rigidbody2D>();
         Assert.IsNotNull(rigid);
-        ping = GetComponentInParent<PlayerPing>();
-        Assert.IsNotNull(ping);
     }
 
     void Update() {
@@ -76,8 +73,8 @@ public class BoostAbility : MonoBehaviour {
                 activationRoutine = StartCoroutine(Boost(boostDirection));
             }
 
-            //always ping sound
-            PlayerPing.CreatePing(transform.position, soundRange);
+            //create sound
+            SimplePool.Spawn(soundPrefab, transform.position);
         }
 
     }

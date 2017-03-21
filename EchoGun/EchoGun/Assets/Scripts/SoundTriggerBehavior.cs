@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class SoundTriggerBehavior : MonoBehaviour
+public class SoundTriggerBehavior : MonoBehaviour, ISpawnable
 {
 
     /// <summary>
@@ -40,22 +40,31 @@ public class SoundTriggerBehavior : MonoBehaviour
 
     float phaseStartTime;
     float phaseEndTime;
-    int phaseIndex = 0;
+    int phaseIndex;
 
     protected AnimationPhase currentPhase { get { return phases[phaseIndex]; } }
 
     private CircleCollider2D soundTrigger;
 
-    protected virtual void Start() {
+    protected virtual void Awake() {
+
+        soundTrigger = gameObject.GetComponent<CircleCollider2D>();
+    }
+
+    void ISpawnable.Spawn() {
+        this.enabled = true;
+        soundTrigger.enabled = true;
+
+        phaseIndex = 0;
+
         if (phases.Length == 0) {
-            Debug.LogWarning("The script does not have any Animation Phases, destroying self", this);
-            Destroy(this);
+            Debug.LogWarning("The script does not have any Animation Phases, disabling self", this);
+            this.enabled = false;
+            soundTrigger.enabled = false;
             return;
         }
         phaseStartTime = Time.time;
         phaseEndTime = phaseStartTime + currentPhase.Duration;
-
-        soundTrigger = gameObject.GetComponent<CircleCollider2D>();
         soundTrigger.radius = 0;
     }
 
@@ -65,7 +74,8 @@ public class SoundTriggerBehavior : MonoBehaviour
             phaseIndex++;
             if (phaseIndex >= phases.Length) {
                 //all phases complete
-                Destroy(this);
+                this.enabled = false;
+                soundTrigger.enabled = false;
                 return;
             }
 
@@ -80,9 +90,5 @@ public class SoundTriggerBehavior : MonoBehaviour
 
     protected void Evaluate(float currentValue) {
         soundTrigger.radius = currentValue;
-    }
-
-    protected void OnDestroy() {
-        Destroy(soundTrigger);
     }
 }

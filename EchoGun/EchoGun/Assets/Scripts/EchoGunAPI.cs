@@ -46,18 +46,18 @@ public class EchoGunAPI : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("Wall"))
                     {
-                        PlayerPing.CreatePing(hit.point, echoStandardSoundRange);
+                        //PlayerPing.CreatePing(hit.point, echoStandardSoundRange);
                         laserEndPos = hit.point;
-                        GetComponent<playerSounds>().playWallImpact();
+                        GetComponent<PlayerSounds>().playWallImpact();
                         break;
                     }
                     if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible"))
                     {
                         //lower Enemy health or Destructible object health
-                        PlayerPing.CreatePing(hit.point, echoStandardSoundRange);
+                        //PlayerPing.CreatePing(hit.point, echoStandardSoundRange);
                         hit.transform.GetComponent<Health>().Damage(echoStandardDamage);
                         laserEndPos = hit.point;
-                        GetComponent<playerSounds>().playFleshImpact();
+                        GetComponent<PlayerSounds>().playFleshImpact();
                         break;
                     }
                 }
@@ -77,9 +77,11 @@ public class EchoGunAPI : MonoBehaviour
         Vector2 targetPos = (Vector2)Format.mousePosInWorld();
 
         ProjectileController pc = echoProjectilePrefab.GetComponent<ProjectileController>();
+        /*
         pc.projSpeed = echoProjSpeed;
         pc.soundRange = echoProjSoundRange;
         pc.weapType = type;
+        */
 
         Quaternion targetRotation = (targetPos - initialPos).ToRotation();
         targetRotation = targetRotation * Quaternion.AngleAxis(shotSpread * ((2 * Random.value) - 1), Vector3.forward);

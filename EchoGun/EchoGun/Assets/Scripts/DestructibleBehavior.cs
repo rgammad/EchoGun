@@ -5,23 +5,23 @@ using UnityEngine;
 public class DestructibleBehavior : MonoBehaviour {
 
     Health health;
+    ObjectSoundVisuals soundVisuals;
 
     void Start()
     {
         health = GetComponentInParent<Health>();
         health.onDeath += Health_onDeath;
         health.onDamage += Health_onDamage;
+        soundVisuals = GetComponentInChildren<ObjectSoundVisuals>();
     }
 
     private void Health_onDamage(float amount)
     {
-        PlayerPing.CreatePing(transform.position, 1.0f);
+        soundVisuals.TriggerEffect();
     }
 
     private void Health_onDeath()
     {
-        //temporary until universal ping is created?
-        PlayerPing.CreatePing(transform.position, 2.5f);
         Destroy(gameObject);
         health.onDeath -= Health_onDeath;
     }

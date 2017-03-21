@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             distanceTravelled -= 10.0f;
             //play sound
-            GetComponent<playerSounds>().playFootstep();
+            GetComponent<PlayerSounds>().playFootstep();
         }
     }
 

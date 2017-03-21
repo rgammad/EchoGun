@@ -19,6 +19,7 @@ public class SnipeLeopardAI : MonoBehaviour {
     protected float patrolSpeed = 3;
 
     Rigidbody2D rigid;
+    ObjectSoundVisuals soundVisuals;
     List<Navigation.Coordinate2> pathWaypoints;
     Health health;
     Navigation navigation;
@@ -49,12 +50,15 @@ public class SnipeLeopardAI : MonoBehaviour {
         rigid = GetComponentInParent<Rigidbody2D>();
         health = GetComponentInParent<Health>();
         health.onDeath += Health_onDeath;
+        health.onDamage += Health_onDamage;
+
         navigation = GetComponent<Navigation>();
 
         currentState = state.PATROLLING;
         firingTimer = 0;
 
         stageBoundary = LayerMask.GetMask(Tags.Layers.StageBoundary);
+        soundVisuals = transform.root.GetComponentInChildren<ObjectSoundVisuals>();
     }
 	
 	// Update is called once per frame
@@ -138,6 +142,10 @@ public class SnipeLeopardAI : MonoBehaviour {
                 firingTimer = lockOnTime;
             }
         }
+    }
+
+    private void Health_onDamage(float amount) {
+        soundVisuals.TriggerEffect();
     }
 
     private void Health_onDeath() {

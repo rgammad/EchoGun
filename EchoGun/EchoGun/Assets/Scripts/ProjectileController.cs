@@ -8,50 +8,44 @@ public class ProjectileController : MonoBehaviour, ISpawnable
 
     [SerializeField]
     protected GameObject deathEffectWall;
-
     [SerializeField]
     protected GameObject deathEffectFlesh;
 
-    public int projSpeed = 10;
-    public float projDamage = 10f;
-    public float soundRange = 25.0f;
-    public WeaponType weapType;
-    
+    [SerializeField]
+    protected GameObject impactSoundRenderingPrefab;
 
+    Rigidbody2D rigid;
+
+    [SerializeField]
+    protected float projSpeed = 10;
+    [SerializeField]
+    protected float projDamage = 10f;
+
+    private void Awake() {
+        rigid = GetComponent<Rigidbody2D>();
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
 
         if (other.gameObject.CompareTag("Wall"))
         {
-            PlayerPing.CreatePing(other.contacts[0].point, soundRange);
+            SimplePool.Spawn(impactSoundRenderingPrefab, transform.position);
+            SimplePool.Spawn(deathEffectWall, transform.position);
             SimplePool.Despawn(this.gameObject);
-            SimplePool.Spawn(deathEffectWall);
         }
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Destructible"))
         {
             other.transform.root.GetComponent<Health>().Damage(projDamage);
-            PlayerPing.CreatePing(other.contacts[0].point, soundRange);
+
+            SimplePool.Spawn(impactSoundRenderingPrefab, transform.position);
+            SimplePool.Spawn(deathEffectFlesh, transform.position);
             SimplePool.Despawn(this.gameObject);
-            SimplePool.Spawn(deathEffectFlesh);
         }
-            //case (WeaponType.WEAPON_EXPLOSION):
-            //    if (other.gameObject.CompareTag("Wall"))
-            //    {
-            //        PlayerPing.CreatePing(other.contacts[0].point, soundRange);
-            //        SimplePool.Despawn(this.gameObject);
-            //    }
-            //    if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Destructible"))
-            //    {
-            //        other.transform.root.GetComponent<Health>().Damage(projDamage);
-            //        PlayerPing.CreatePing(other.contacts[0].point, soundRange);
-            //        SimplePool.Despawn(this.gameObject);
-            //    }
-            //    break;
     }
 
     void ISpawnable.Spawn()
     {
-        GetComponent<Rigidbody2D>().velocity = transform.right * projSpeed;
+        rigid.velocity = transform.right * projSpeed;
     }
 }

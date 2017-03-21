@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 [RequireComponent(typeof(Navigation))]
 public class StormtrooperAI : MonoBehaviour {
@@ -26,6 +27,7 @@ public class StormtrooperAI : MonoBehaviour {
 
     Health health;
     Rigidbody2D rigid;
+    ObjectSoundVisuals soundVisuals;
     Navigation navigation;
 
     LayerMask stageBoundary;
@@ -49,6 +51,8 @@ public class StormtrooperAI : MonoBehaviour {
         health.onDamage += Health_onDamage;
 
         stageBoundary = LayerMask.GetMask(Tags.Layers.StageBoundary);
+        soundVisuals = transform.root.GetComponentInChildren<ObjectSoundVisuals>();
+        Assert.IsNotNull(soundVisuals);
     }
 
     List<Navigation.Coordinate2> pathWaypoints;
@@ -129,8 +133,7 @@ public class StormtrooperAI : MonoBehaviour {
 
     
     private void Health_onDamage(float amount) {
-        //PlayerPing.CreatePing(transform.position, 1.0f);
-        
+        soundVisuals.TriggerEffect();
     }
     
 

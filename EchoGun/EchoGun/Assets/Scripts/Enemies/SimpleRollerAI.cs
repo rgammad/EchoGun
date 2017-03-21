@@ -8,6 +8,9 @@ public class SimpleRollerAI : MonoBehaviour {
     [SerializeField]
     protected GameObject deathEffects;
 
+    [SerializeField]
+    protected GameObject explosionSoundRenderingPrefab;
+
     public float radius;
 	public float explodeDist;
 	public float explodeDamage;
@@ -18,8 +21,9 @@ public class SimpleRollerAI : MonoBehaviour {
 	float rotationSpeed = 0.2f;
 
 	Rigidbody2D rigid;
+    ObjectSoundVisuals soundVisuals;
 
-	Vector2 targetPos;
+    Vector2 targetPos;
 	bool following = false;
 
 	CircleCollider2D soundTrigger;
@@ -42,8 +46,9 @@ public class SimpleRollerAI : MonoBehaviour {
 		health.onDamage += Health_onDamage;
 
 		player = GameObject.FindGameObjectWithTag ("Player");
+        soundVisuals = GetComponentInChildren<ObjectSoundVisuals>();
 
-	}
+    }
 
 	void Update () {
 		//int pingCount = (int) Shader.GetGlobalFloat (Tags.ShaderParams.globalPingCount);
@@ -89,8 +94,8 @@ public class SimpleRollerAI : MonoBehaviour {
 		isExploding = true;
 		anim.SetBool ("Explode", true);
 		GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<CameraShakeScript> ().screenShake (.75f);
-		SimplePool.Spawn(deathEffects);
-		PlayerPing.CreatePing(transform.position, explodeWaveAmt);
+		SimplePool.Spawn(deathEffects, transform.position);
+        SimplePool.Spawn(explosionSoundRenderingPrefab, transform.position);
 	}
 
 
@@ -110,8 +115,8 @@ public class SimpleRollerAI : MonoBehaviour {
 
 	private void Health_onDamage(float amount)
 	{
-		PlayerPing.CreatePing(transform.position, 1.0f);
-	}
+        soundVisuals.TriggerEffect();
+    }
 
 	private void Health_onDeath()
 	{

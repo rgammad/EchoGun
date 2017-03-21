@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerSounds : MonoBehaviour {
+public class PlayerSounds : MonoBehaviour {
 
     AudioSource playerAudio;
     public AudioClip[] sounds;

@@ -2,7 +2,6 @@
 
 	Properties
 	{
-        _MainTex ("Sprite Texture", 2D) = "white" {}
         _Alpha ("Alpha Reduction", Float) = 0.9
         [PerRendererData] _EdgeStrength ("Alpha Strength [0..1]", Float) = 1
         [PerRendererData] _IllumStrength ("Illumination Strength [0..1]", Float) = 1

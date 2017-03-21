@@ -4,23 +4,34 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(AudioSource))]
 public class Bonk : MonoBehaviour
 {
 
-    public float soundRange = 5.0f;
+    [SerializeField]
+    protected GameObject soundRenderingPrefab;
+
+    [SerializeField]
+    protected AudioClip bonkClip;
+
+    [SerializeField]
+    protected float volumeModifier = 1;
+
+    AudioSource source;
 
     private void Start() {
         GetComponent<Health>().onDamage += Bonk_onDamage;
+        source = GetComponent<AudioSource>();
     }
 
     private void Bonk_onDamage(float amount) {
-        Debug.Log("Hit");
-        PlayerPing.CreatePing(transform.position, soundRange);
+        SimplePool.Spawn(soundRenderingPrefab, transform.position);
     }
 
     void OnCollisionEnter2D(Collision2D other) {
         //we're on a Wall-only layer; if we hit something, it's a wall
-        GetComponent<playerSounds>().playBonk();
-        PlayerPing.CreatePing(other.contacts[0].point, soundRange);
+        source.PlayOneShot(bonkClip, volumeModifier);
+
+        SimplePool.Spawn(soundRenderingPrefab, transform.position);
     }
 }

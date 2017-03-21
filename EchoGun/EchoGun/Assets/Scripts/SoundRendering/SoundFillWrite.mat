@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SoundLit
-  m_Shader: {fileID: 4800000, guid: e86b28bca96c068448548c15f6e23eed, type: 3}
+  m_Name: SoundFillWrite
+  m_Shader: {fileID: 4800000, guid: 9a84ba1c7837b4d448d4fc23118ac647, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -71,8 +71,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
-        name: PixelSnap
-      second: 0
+        name: _Alpha
+      second: 1
     - first:
         name: _BumpScale
       second: 1
@@ -118,6 +118,9 @@ Material:
     - first:
         name: _UVSec
       second: 0
+    - first:
+        name: _Value
+      second: 1
     - first:
         name: _ZWrite
       second: 1

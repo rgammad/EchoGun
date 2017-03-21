@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundRenderingBehaviour : MonoBehaviour
+public class SoundRenderingBehaviour : MonoBehaviour, ISpawnable
 {
     /// <summary>
     /// Represents a section of an animation. The duration of animation phases can be changed without affecting other phases.
@@ -54,27 +54,34 @@ public class SoundRenderingBehaviour : MonoBehaviour
 
     float phaseStartTime;
     float phaseEndTime;
-    int phaseIndex = 0;
+    int phaseIndex;
 
     protected AnimationPhase currentPhase { get { return phases[phaseIndex]; } }
 
-    protected void Start() {
+    protected void Awake() {
+        meshRenderer = rendering.GetComponent<MeshRenderer>();
+
+        edgeStrID = Shader.PropertyToID("_EdgeStrength");
+        illumStrID = Shader.PropertyToID("_IllumStrength");
+    }
+
+    void ISpawnable.Spawn() {
+        this.enabled = true;
+        meshRenderer.enabled = true;
+
+        phaseIndex = 0;
+        
         if (phases.Length == 0) {
-            Debug.LogWarning("The script does not have any Animation Phases, destroying self", this);
-            Destroy(this);
+            Debug.LogWarning("The script does not have any Animation Phases, disabling self", this);
+            this.enabled = false;
+            meshRenderer.enabled = false;
             return;
         }
         phaseStartTime = Time.time;
         phaseEndTime = phaseStartTime + currentPhase.Duration;
-
-        meshRenderer = rendering.GetComponent<MeshRenderer>();
         meshRenderer.sortingOrder = (Mathf.RoundToInt(10 * Time.time) % 32760);
-
         //max value is 32767
         //newer ones take precedence over older ones
-
-        edgeStrID = Shader.PropertyToID("_EdgeStrength");
-        illumStrID = Shader.PropertyToID("_IllumStrength");
     }
 
     protected void Update() {
@@ -83,7 +90,8 @@ public class SoundRenderingBehaviour : MonoBehaviour
             phaseIndex++;
             if (phaseIndex >= phases.Length) {
                 //all phases complete
-                Destroy(this);
+                this.enabled = false;
+                meshRenderer.enabled = false;
                 return;
             }
 

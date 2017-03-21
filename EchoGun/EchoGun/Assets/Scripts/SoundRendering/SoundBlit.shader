@@ -4,6 +4,7 @@
 	{
         [NoScaleOffset] _MainTex ("Main Texture", 2D) = "white" {}
         [NoScaleOffset] _RenderedSoundTex("Rendered Sound Texture", 2D) = "white" {}
+        [NoScaleOffset] _RenderedBackgroundTex("Rendered Sound Texture", 2D) = "white" {}
         _EdgeColor("Edge Color", Color) = (1, 1, 1, 1)
 	}
 
@@ -24,6 +25,7 @@
 
 			uniform sampler2D _MainTex;
             uniform sampler2D _RenderedSoundTex;
+            uniform sampler2D _RenderedBackgroundTex;
             uniform fixed4 _EdgeColor;
 
             struct appdata_t
@@ -51,19 +53,22 @@
 
 			fixed4 frag(v2f IN) : SV_Target
 			{
-				fixed4 c = tex2D(_MainTex, IN.uv);
+				fixed3 illuminatedColor = tex2D(_MainTex, IN.uv).rgb;
 
-                float2 soundValues = tex2Dproj(_RenderedSoundTex, UNITY_PROJ_COORD(IN.vpos)).rg;
+                float4 projCoord = UNITY_PROJ_COORD(IN.vpos);
+
+                float2 soundValues = tex2Dproj(_RenderedSoundTex, projCoord).rg;
+                fixed3 backgroundColor = tex2Dproj(_RenderedBackgroundTex, projCoord).rgb;
 
                 float illumStrength = soundValues.r;
 
-                c.rgb *= illumStrength;
+                fixed3 output = lerp(backgroundColor, illuminatedColor, illumStrength);
 
                 float edgeStrength = soundValues.g;
 
-                c = lerp(c, _EdgeColor, edgeStrength);
+                output = lerp(output, _EdgeColor, edgeStrength);
 
-				return c;
+				return fixed4(output, 1);
 			}
 		ENDCG
 		}

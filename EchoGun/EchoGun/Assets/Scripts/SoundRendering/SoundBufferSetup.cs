@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 [RequireComponent(typeof(Camera))]
 public class SoundBufferSetup : MonoBehaviour {
 
@@ -12,9 +13,8 @@ public class SoundBufferSetup : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        screenSoundTexture = new RenderTexture(Screen.width, Screen.height, 16, RenderTextureFormat.Default);
+        screenSoundTexture = new RenderTexture(Screen.width, Screen.height, 0, RenderTextureFormat.Default);
         targetCamera = GetComponent<Camera>();
         targetCamera.targetTexture = screenSoundTexture;
-        screenSoundTexture.SetGlobalShaderProperty("_GlobalRenderedSoundTex");
     }
 }

@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class PlayerProjectileGun : MonoBehaviour {
+public interface IRateLimited {
+    void ResetLastActivationTime();
+}
+
+public class PlayerProjectileGun : MonoBehaviour, IRateLimited {
 
     [SerializeField]
     protected GameObject muzzleFXPrefab;
@@ -90,5 +94,9 @@ public class PlayerProjectileGun : MonoBehaviour {
         Camera.main.GetComponent<CameraShakeScript>().screenShake(0.1f, 0.1f);
 
         SimplePool.Spawn(bulletPrefab, muzzlePosition.position, targetRotation);
+    }
+
+    void IRateLimited.ResetLastActivationTime() {
+        previousShotTime = Time.time;
     }
 }

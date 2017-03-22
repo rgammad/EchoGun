@@ -24,6 +24,9 @@ public class WeaponSwapping : MonoBehaviour {
         for(int i = 0; i < weapons.Length; i++) {
             //enabled if they are at the specified index, otherwise disabled
             weapons[i].enabled = (i == index);
+            if(weapons[i] is IRateLimited) {
+                (weapons[i] as IRateLimited).ResetLastActivationTime();
+            }
         }
         currentlyActiveWeaponIndex = index;
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class PlayerRaycastGun : MonoBehaviour {
+public class PlayerRaycastGun : MonoBehaviour, IRateLimited {
 
     [SerializeField]
     protected GameObject muzzleFXPrefab;
@@ -91,5 +91,9 @@ public class PlayerRaycastGun : MonoBehaviour {
         }
         
         Camera.main.GetComponent<CameraShakeScript>().screenShake(0.2f, 0.1f);
+    }
+
+    void IRateLimited.ResetLastActivationTime() {
+        previousShotTime = Time.time;
     }
 }

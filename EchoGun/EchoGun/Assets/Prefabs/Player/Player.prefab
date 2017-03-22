@@ -99,6 +99,8 @@ GameObject:
   - component: {fileID: 114129750149730430}
   - component: {fileID: 114227761623448362}
   - component: {fileID: 114269418567035114}
+  - component: {fileID: 114676208490757042}
+  - component: {fileID: 120101522546413314}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -563,7 +565,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799273796024032}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c6469354033f4d4aaa55abdf44ab553, type: 3}
   m_Name: 
@@ -643,6 +645,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   illuminationStrength: 1
   edgeStrength: 0
+--- !u!114 &114676208490757042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799273796024032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad72a515941fce94d917eb068838eab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzleFXPrefab: {fileID: 1795123901423168, guid: 78a530986065e60489859e0f13358bd6,
+    type: 2}
+  echoStandardPrefab: {fileID: 1638790907621684, guid: 28e8249b186a82e4883dd691e0d2ca9c,
+    type: 2}
+  muzzlePosition: {fileID: 4191889848715848}
+  shotCycleTime: 0.4
+  damage: 100
+  muzzleSoundRenderingPrefab: {fileID: 1412505888259748, guid: c184e35e71734b849bda930ebc5b3491,
+    type: 2}
 --- !u!114 &114710733199993250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -718,6 +740,104 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0947e59673ebfab4d8110a903fd2fdde, type: 3}
   - {fileID: 8300000, guid: 83081fae1a2668c49a9831ac78945818, type: 3}
   - {fileID: 8300000, guid: d0a13ea9df6a61f448ce6da41f3804c5, type: 3}
+--- !u!120 &120101522546413314
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799273796024032}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 2
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      key0:
+        serializedVersion: 2
+        rgba: 4294967295
+      key1:
+        serializedVersion: 2
+        rgba: 4294967295
+      key2:
+        serializedVersion: 2
+        rgba: 0
+      key3:
+        serializedVersion: 2
+        rgba: 0
+      key4:
+        serializedVersion: 2
+        rgba: 0
+      key5:
+        serializedVersion: 2
+        rgba: 0
+      key6:
+        serializedVersion: 2
+        rgba: 0
+      key7:
+        serializedVersion: 2
+        rgba: 0
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+  m_UseWorldSpace: 1
 --- !u!198 &198962108155021518
 ParticleSystem:
   m_ObjectHideFlags: 1

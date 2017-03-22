@@ -638,10 +638,7 @@ Prefab:
       propertyPath: canvasFlash
       value: 
       objectReference: {fileID: 484552981}
-    m_RemovedComponents:
-    - {fileID: 120101522546413314, guid: 573403538a7989e40a40a289250fd0da, type: 2}
-    - {fileID: 114173073773476784, guid: 573403538a7989e40a40a289250fd0da, type: 2}
-    - {fileID: 114757205243500100, guid: 573403538a7989e40a40a289250fd0da, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 573403538a7989e40a40a289250fd0da, type: 2}
   m_IsPrefabParent: 0
 --- !u!84 &1537189120

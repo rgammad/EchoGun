@@ -89,8 +89,6 @@ GameObject:
   - component: {fileID: 4955230706942388}
   - component: {fileID: 50662397666184198}
   - component: {fileID: 114315009624257522}
-  - component: {fileID: 114173073773476784}
-  - component: {fileID: 114757205243500100}
   - component: {fileID: 58967881702501442}
   - component: {fileID: 114732775497457564}
   - component: {fileID: 114387020256191646}
@@ -100,7 +98,7 @@ GameObject:
   - component: {fileID: 114227761623448362}
   - component: {fileID: 114269418567035114}
   - component: {fileID: 114676208490757042}
-  - component: {fileID: 120101522546413314}
+  - component: {fileID: 114398493590169286}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -530,23 +528,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasFlash: {fileID: 0}
---- !u!114 &114173073773476784
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1799273796024032}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e201393f7aae6d14aab6e86dc5435084, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapType: 0
-  soundPrefab: {fileID: 1412505888259748, guid: c184e35e71734b849bda930ebc5b3491,
-    type: 2}
-  laserShotTime: 0.5
-  projectileShotTime: 0.07
-  currentEchoType: 1
 --- !u!114 &114227761623448362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -565,7 +546,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799273796024032}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c6469354033f4d4aaa55abdf44ab553, type: 3}
   m_Name: 
@@ -632,6 +613,20 @@ MonoBehaviour:
     type: 2}
   bonkClip: {fileID: 8300000, guid: aa272645ca7e7014ab0c1b62ab8842a1, type: 3}
   volumeModifier: 1
+--- !u!114 &114398493590169286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799273796024032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f1d27a7f6c3a74998a0a855143d757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 114269418567035114}
+  - {fileID: 114676208490757042}
 --- !u!114 &114565764265402522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -697,28 +692,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
---- !u!114 &114757205243500100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1799273796024032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 808e3220db7113d4284a172cd460815b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  echoStandardPrefab: {fileID: 1638790907621684, guid: 28e8249b186a82e4883dd691e0d2ca9c,
-    type: 2}
-  echoProjectilePrefab: {fileID: 1211702066321486, guid: bbf32f3e81686f04b962035e72269f15,
-    type: 2}
-  gunOffset: {x: 2.2, y: 0.1}
-  shotSpread: 3
-  echoProjSpeed: 100
-  echoProjDamage: 20
-  echoStandardDamage: 50
-  echoStandardSoundRange: 30
-  echoProjSoundRange: 25
 --- !u!114 &114941527439481048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -740,104 +713,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0947e59673ebfab4d8110a903fd2fdde, type: 3}
   - {fileID: 8300000, guid: 83081fae1a2668c49a9831ac78945818, type: 3}
   - {fileID: 8300000, guid: d0a13ea9df6a61f448ce6da41f3804c5, type: 3}
---- !u!120 &120101522546413314
-LineRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1799273796024032}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
-  m_Parameters:
-    serializedVersion: 2
-    widthMultiplier: 1
-    widthCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    colorGradient:
-      key0:
-        serializedVersion: 2
-        rgba: 4294967295
-      key1:
-        serializedVersion: 2
-        rgba: 4294967295
-      key2:
-        serializedVersion: 2
-        rgba: 0
-      key3:
-        serializedVersion: 2
-        rgba: 0
-      key4:
-        serializedVersion: 2
-        rgba: 0
-      key5:
-        serializedVersion: 2
-        rgba: 0
-      key6:
-        serializedVersion: 2
-        rgba: 0
-      key7:
-        serializedVersion: 2
-        rgba: 0
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
-    alignment: 0
-    textureMode: 0
-  m_UseWorldSpace: 1
 --- !u!198 &198962108155021518
 ParticleSystem:
   m_ObjectHideFlags: 1

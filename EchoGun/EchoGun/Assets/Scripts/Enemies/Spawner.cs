@@ -44,10 +44,10 @@ public class Spawner : MonoBehaviour {
 
         while (currentDestructables < numDestructables) {
             currentDestructables++;
-            Vector2 location = new Vector2(Random.value * Navigation.navigationWidth, -Random.value * Navigation.navigationHeight);
+            Vector2 location = new Vector2(Random.value * 100, -Random.value * 200);
             //while location is not in the walkable map
             while (Physics2D.OverlapPoint(location, stageBoundary) == null) {
-                location = new Vector2(Random.value * Navigation.navigationWidth, -Random.value * Navigation.navigationHeight);
+                location = new Vector2(Random.value * 100, -Random.value * 200);
             }
 
             //choose which enemy type to spawn
@@ -65,10 +65,10 @@ public class Spawner : MonoBehaviour {
 	}
 
     void SpawnEnemy() {
-        Vector2 location = new Vector2(Random.value * Navigation.navigationWidth, -Random.value * Navigation.navigationHeight);
+        Vector2 location = new Vector2(Random.value * 100, -Random.value * 200);
         //while location is not in the walkable map
-        while(Physics2D.OverlapPoint(location, stageBoundary) == null) {
-            location = new Vector2(Random.value * Navigation.navigationWidth, -Random.value * Navigation.navigationHeight);
+        while (Physics2D.OverlapPoint(location, stageBoundary) == null) {
+            location = new Vector2(Random.value * 100, -Random.value * 200);
         }
 
         //choose which enemy type to spawn

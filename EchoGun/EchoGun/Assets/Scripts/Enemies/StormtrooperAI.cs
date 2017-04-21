@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-[RequireComponent(typeof(Navigation))]
 public class StormtrooperAI : MonoBehaviour {
 
     [SerializeField]
@@ -28,8 +27,6 @@ public class StormtrooperAI : MonoBehaviour {
     Health health;
     Rigidbody2D rigid;
     ObjectSoundVisuals soundVisuals;
-    Navigation navigation;
-
     LayerMask stageBoundary;
 
     Vector2 targetPos;
@@ -45,7 +42,6 @@ public class StormtrooperAI : MonoBehaviour {
     void Start() {
         rigid = GetComponentInParent<Rigidbody2D>();
         health = GetComponentInParent<Health>();
-        navigation = GetComponent<Navigation>();
 
         health.onDeath += Health_onDeath;
         health.onDamage += Health_onDamage;
@@ -55,7 +51,6 @@ public class StormtrooperAI : MonoBehaviour {
         Assert.IsNotNull(soundVisuals);
     }
 
-    List<Navigation.Coordinate2> pathWaypoints;
 
     // Update is called once per frame
     void Update() {

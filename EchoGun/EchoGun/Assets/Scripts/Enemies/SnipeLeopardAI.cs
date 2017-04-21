@@ -20,9 +20,7 @@ public class SnipeLeopardAI : MonoBehaviour {
 
     Rigidbody2D rigid;
     ObjectSoundVisuals soundVisuals;
-    List<Navigation.Coordinate2> pathWaypoints;
     Health health;
-    Navigation navigation;
     LayerMask stageBoundary;
 
     private enum state {
@@ -52,7 +50,6 @@ public class SnipeLeopardAI : MonoBehaviour {
         health.onDeath += Health_onDeath;
         health.onDamage += Health_onDamage;
 
-        navigation = GetComponent<Navigation>();
 
         currentState = state.PATROLLING;
         firingTimer = 0;

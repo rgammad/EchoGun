@@ -16,13 +16,15 @@ public class PauseScript : MonoBehaviour {
 		quit.onClick.AddListener(fini);
 	}
 
-	void fini () {
+	public void fini () {
 		Time.timeScale = 1;
 		SceneManager.LoadScene (0);
 	}
 
-	void proc () {
-		Time.timeScale = 1;
+	public void proc () {
+
+        isPause = false;
+        Time.timeScale = 1;
 		text.gameObject.SetActive (false);
 		resume.gameObject.SetActive (false);
 		quit.gameObject.SetActive (false);
@@ -32,19 +34,15 @@ public class PauseScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			isPause = !isPause;
-			if (isPause) {
-				Time.timeScale = 0;
+			if (!isPause) {
+                isPause = true;
+                Time.timeScale = 0;
 				text.gameObject.SetActive (true);
 				resume.gameObject.SetActive (true);
 				quit.gameObject.SetActive (true);
 				image.gameObject.SetActive (true);
 			} else {
-				Time.timeScale = 1;
-				text.gameObject.SetActive (false);
-				resume.gameObject.SetActive (false);
-				quit.gameObject.SetActive (false);
-				image.gameObject.SetActive (false);
+                proc();
 			}
 		}
 
